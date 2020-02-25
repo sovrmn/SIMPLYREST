@@ -4,7 +4,7 @@
     <title>SIMPLYREST</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= favicon_link_tag 'logo.png'%>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
@@ -12,6 +12,12 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
+
+    <div class="sidebar">
+      <%= link_to "Gérer mes stocks", "#", class: "side-link" %>
+      <%= link_to "Gérer mes commandes", "#", class: "side-link" %>
+      <%= link_to "Suivre mes commandes", "#", class: "side-link" %>
+    </div>
 
     <%= yield %>
   </body>
