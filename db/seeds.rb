@@ -80,7 +80,7 @@ p "products created"
 # ingredients :
 # Boeuf bourgignon
 oignon_bourguignon = Ingredient.create!(quantity: 0.05625, recipe: bourguignon, product: oignon)
-boeuf_bourguignon = Ingredient.create!(quantity: 0,250, recipe: bourguignon, product: boeufAubrac)
+boeuf_bourguignon = Ingredient.create!(quantity: 0.250, recipe: bourguignon, product: boeufAubrac)
 carotte_bourguignon = Ingredient.create!(quantity: 0.4625, recipe: bourguignon, product: carotte)
 persil_bourguignon = Ingredient.create!(quantity: 0.015, recipe: bourguignon, product: persil)
 epices_bourguignon = Ingredient.create!(quantity: 0.008, recipe: bourguignon, product: epices)
