@@ -2,10 +2,14 @@
   margin: 0;
   padding: 0;
   width: 200px;
-  background-color: #f1f1f1;
+  background-color: $baby-white;
   position: fixed;
   height: 100%;
   overflow: auto;
+}
+
+.container_with_sidebar {
+margin-left: 200px;
 }
 
 /* Sidebar links */
@@ -20,12 +24,14 @@
  .side-link.active {
    background-color: #4CAF50;
    color: white;
+   text-decoration: none;
 }
 
 /* Links on mouse-over */
 .side-link:hover:not(.active) {
-   background-color: #555;
+   background-color: $persian-green;
    color: white;
+   text-decoration: none;
  }
 
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */

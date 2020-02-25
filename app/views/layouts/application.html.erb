@@ -12,13 +12,11 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
+    <%= render 'shared/sidebar' %>
 
-    <div class="sidebar">
-      <%= link_to "Gérer mes stocks", "#", class: "side-link" %>
-      <%= link_to "Gérer mes commandes", "#", class: "side-link" %>
-      <%= link_to "Suivre mes commandes", "#", class: "side-link" %>
+    <div class="container_with_sidebar">
+      <%= yield %>
     </div>
 
-    <%= yield %>
   </body>
 </html>
