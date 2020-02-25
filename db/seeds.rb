@@ -103,7 +103,7 @@ noisette_saumonR = Ingredient.create!(quantity: 0.2143, recipe: saumonR, product
 citronConfit_saumonR = Ingredient.create!(quantity: 0.2143, recipe: saumonR, product: citronConfit)
 fleurSel_saumonR = Ingredient.create!(quantity: 0.008, recipe: saumonR, product: fleurSel)
 #falafel
-poisChiches_falafel = Ingredient.create!(quantity: 0.40, recipe: falafel, product: poisChiches)
+poisChiches_falafel = Ingredient.create!(quantity: 0.45, recipe: falafel, product: poisChiches)
 huileTournesol_falafel = Ingredient.create!(quantity: 0.0013, recipe: falafel, product: huileTournesol)
 carotte_falafel = Ingredient.create!(quantity: 0.012, recipe: falafel, product: carotte)
 persil_falafel = Ingredient.create!(quantity: 0.008, recipe: falafel, product: persil)
