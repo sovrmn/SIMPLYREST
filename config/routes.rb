@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'restaurants#show'
   resources :restaurants, only: [:show] do
     resources :inventory_items, only: [:index]
+    resources :orders, only: [:index, :show, :new, :create]
   end
 
 

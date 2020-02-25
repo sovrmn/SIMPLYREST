@@ -1,3 +1,4 @@
+
 OrderItem.destroy_all
 p "oder items destroyed"
 InventoryItem.destroy_all
@@ -25,7 +26,7 @@ p "users destroyed"
 owner = User.create!(email:'brad.pitt.hollywood@gmail.com', password:'nespresso')
 p "users created"
 # restaurant :
-restaurant = Restaurant.create!(name: 'Error 500', user: User.first)
+restaurant = Restaurant.create!(name: 'Marius & Lucien', user: User.first)
 p "restaurants created"
 # recipes :
 bourguignon = Recipe.create!(name: "Bourguignon de bœuf Aubrac sur son lit de légumes tournés" , category: 'Cuisine française', user: owner)
@@ -240,3 +241,18 @@ order_delivered = Order.create(total: 638.05, order_number: "BC-72-2020-01" ,del
 order_waiting = Order.create(total: 431.54, order_number: "BC-73-2020-02" ,delivered: false, restaurant: restaurant, supplier: c2b)
 order_waiting_again = Order.create(total: 390.28, order_number: "BC-74-2020-02" ,delivered: false, restaurant: restaurant, supplier: metro)
 p "orders created"
+
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
+# 136
+# 147
+
+
+
+
+

@@ -1,0 +1,44 @@
+<div class="container mt-5">
+
+<h1>Mes stocks</h1>
+
+
+
+<table class="table">
+
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Produit</th>
+      <th scope="col">Catégorie</th>
+      <th scope="col">Stock</th>
+      <th scope="col">Unité</th>
+      <th scope="col">Niveau de stock</th>
+      <th scope="col">Qté à commander</th>
+      <th scope="col">Qté commandée</th>
+      <th scope="col">Prix unitaire</th>
+      <th scope="col">Total H.T.</th>
+      <th scope="col">Total T.T.C.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@inventory_items.each do |item|  %>
+    <tr>
+      <th scope="row"></th>
+      <td><%= item.product.name %></td>
+      <td><%= item.product.category %></td>
+      <td><%= item.quantity %></td>
+      <td><%= item.product.unit %></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <%end %>
+  </tbody>
+
+</table>
+
+</div>

@@ -5,4 +5,5 @@ class RestaurantsController < ApplicationController
     @restaurant = current_user.restaurants.first # astuce pour tomber toujours sur le bon restau
   end
 
+
 end

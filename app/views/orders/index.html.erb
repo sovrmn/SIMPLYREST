@@ -1,0 +1,37 @@
+<div class="container">
+
+  <h1>Vos commandes</h1>
+
+  <div class='searchform'>
+      <%= form_tag(orders_search_path, method: 'get') do %>
+      <div class="field p-3 d-flex justify-content-around align-items-center">
+        <%= 'Fournisseur :' %><%= text_field_tag 'supplier' %>
+      </div>
+      <% end %>
+  </div>
+
+  <div class="around">
+    <table class="table">
+      <thead>
+        <tr class="col-name text-center">
+          <th scope="col">#</th>
+          <th scope="col">Fournisseur</th>
+          <th scope="col">Total</th>
+          <th scope="col">Statut</th>
+          <th scope="col">Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="text-center">
+          <th scope="row">1</th>
+          <td class="row-content">Mark</td>
+          <td class="row-content">Otto</td>
+          <td >@mdo</td>
+          <td class="row-content"><i class="fas fa-arrow-down"></i></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
