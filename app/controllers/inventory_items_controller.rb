@@ -20,8 +20,9 @@ class InventoryItemsController < ApplicationController
   private
 
   def set_restaurant
-    @restaurant = Restaurant.first #on ne récupère que le 1er restaurant du current user car il n'en a qu'un
+    @restaurant = current_user.restaurants.first #on ne récupère que le 1er restaurant du current user car il n'en a qu'un
   end
+  #Restaurant.first
 
   def inventory_item_params
     params.require(:inventory_item).permit(:quantity)

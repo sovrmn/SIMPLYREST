@@ -4,17 +4,17 @@
 
 
 
-<table class="table">
+<table class="table around row-content ">
 
   <thead>
-    <tr>
+    <tr class="col-name">
       <th scope="col">#</th>
       <th scope="col">Produit</th>
       <th scope="col">Catégorie</th>
       <th scope="col">Stock</th>
-      <th scope="col">Unité</th>
       <th scope="col">Niveau de stock</th>
-      <th scope="col">Qté à commander</th>
+      <th scope="col">Delta</th>
+      <th scope="col">Fournisseur</th>
       <th scope="col">Qté commandée</th>
       <th scope="col">Prix unitaire</th>
       <th scope="col">Total H.T.</th>
@@ -27,8 +27,7 @@
       <th scope="row"></th>
       <td><%= item.product.name %></td>
       <td><%= item.product.category %></td>
-      <td><%= item.quantity %></td>
-      <td><%= item.product.unit %></td>
+      <td><%= item.quantity %><%= item.product.unit %></td>
       <td></td>
       <td></td>
       <td></td>
@@ -40,5 +39,4 @@
   </tbody>
 
 </table>
-
 </div>
