@@ -1,6 +1,12 @@
 class OrdersController < ApplicationController
+  before_action :set_restaurant
   def index
-    @orders = Order.all
+     if params[:supplier].present?
+      #improve search
+      @orders = @restaurant.orders.joins(:supplier).where(suppliers: { name: params[:supplier] })
+    else
+       @orders = @restaurant.orders
+    end
   end
 
   def new
@@ -8,11 +14,8 @@ class OrdersController < ApplicationController
   end
 
   def search
-    if params[:supplier].present?
-      @orders = Order.where(supplier: params[query])
-    else
-      @orders = Order.all
-    end
+
+
   end
 
   private
@@ -21,5 +24,18 @@ class OrdersController < ApplicationController
     #params.require(:order).permit()
   end
 
+  def set_restaurant
+    @restaurant = current_user.restaurants.first
+  end
+
 end
+
+
+
+
+
+
+
+
+
 

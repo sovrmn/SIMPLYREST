@@ -1,5 +1,5 @@
  <div class="sidebar">
-      <%= link_to "Gérer mes stocks", "#", class: "side-link" %>
+      <%= link_to "Gérer mes stocks",  restaurant_inventory_items_path(@restaurant), class: "side-link" %>
       <%= link_to "Gérer mes commandes", "#", class: "side-link" %>
-      <%= link_to "Suivre mes commandes", restaurant_orders_path(:restaurant_id), class: "side-link" %>
+      <%= link_to "Suivre mes commandes", restaurant_orders_path(@restaurant), class: "side-link" %>
     </div>
