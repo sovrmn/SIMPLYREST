@@ -1,0 +1,33 @@
+<% @orders.each do |order| %>
+
+<li><%= order.order_number %></li>
+<li><%= order.supplier.name %></li>
+<li><%= order.total %></li>
+<% end %>
+
+<div class="around">
+  <table>
+      <thead class="column">
+        <tr>
+          <th class ="col-name">#</th>
+          <th class ="col-name">Nom du fournisseur</th>
+          <th class ="col-name">Total de la commande</th>
+          <th class ="col-name">Statut</th>
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+        <th class ="row-table">1</th>
+        <td class ="row-content">Mark</td>
+        <td class ="row-content">Otto</td>
+        <td class ="row-content">@mdo</td>
+      </tr>
+      <tr>
+        <th class ="row-table">1</th>
+        <td class ="row-content">Mark</td>
+        <td class ="row-content">Otto</td>
+        <td class ="row-content">@mdo</td>
+      </tr>
+    </tbody>
+  </table>
