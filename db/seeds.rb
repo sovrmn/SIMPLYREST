@@ -7,3 +7,24 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # 136
 # 147
+InventoryItem.destroy_all
+Product.destroy_all
+p "products destroyed"
+Restaurant.destroy_all
+p "Restaurants destroyed"
+
+#seeds restaurant
+marius = Restaurant.create!(name: "Marius et Lucien", user:User.first)
+
+#seeds products
+bananes = Product.create!(name: "bananes", category: "fruits et légumes", unit:"kg")
+carottes = Product.create!(name: "carottes", category: "fruits et légumes", unit:"kg")
+oranges = Product.create!(name: "oranges", category: "fruits et légumes", unit:"kg")
+
+#seeds inventory_items
+inventory_bananes = InventoryItem.create!(product:bananes, quantity:"3", restaurant:marius)
+inventory_carottes = InventoryItem.create!(product:carottes, quantity:"3", restaurant:marius)
+inventory_oranges = InventoryItem.create!(product:oranges, quantity:"3", restaurant:marius)
+
+
+
