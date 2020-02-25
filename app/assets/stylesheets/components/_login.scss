@@ -1,0 +1,30 @@
+.signin {
+  height: 90vh;
+  object-fit: cover;
+  color: white;
+  margin: 0px;
+
+}
+
+.signin-form {
+  background-color: white;
+  border-radius: 5px;
+  padding: 50px;
+  margin: 100px 0px;
+
+}
+.signin h2{
+  text-align: center;
+  color: black;
+}
+
+#signup{
+  color: black;
+  opacity: 0.5;
+    &:hover {
+      color: black;
+      opacity: 1;
+      text-decoration: none;
+  }
+}
+
