@@ -34,7 +34,7 @@ class InventoryItemsController < ApplicationController
           # total d'un ingrédient toutes recettes confondues
          @optimal_stock_total += @optimal_stock_per_recipe
         end
-        return @optimal_stock_total.round(2)
+        return @optimal_stock_total
     end
 
 
