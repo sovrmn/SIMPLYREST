@@ -243,3 +243,6 @@ order_waiting = Order.create(total: 431.54, order_number: "BC-73-2020-02" ,deliv
 order_waiting_again = Order.create(total: 390.28, order_number: "BC-74-2020-02" ,delivered: false, restaurant: restaurant, supplier: metro)
 p "orders created"
 
+# order_item
+order_item_one = OrderItem.create(quantity: 1, unit: 'g', price: 1, completed: false, supplier_item: aubergine_metro, order: order_waiting)
+order_item_two = OrderItem.create(quantity: 1, unit: 'g', price: 4, completed: false, supplier_item: fleurSel_metro, order: order_waiting)

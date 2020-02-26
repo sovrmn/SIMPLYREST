@@ -5,13 +5,8 @@ const channels = require.context('.', true, /_channel\.js$/)
 channels.keys().forEach(channels)
 
 
-// toggle de la side bar
-$(document).ready(function () {
-    $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').toggleClass('active');
-        $(this).toggleClass('active');
-    });
-});
+
+
 
 // toggle du shopping cart
 $(document).ready(function () {

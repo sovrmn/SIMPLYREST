@@ -30,21 +30,7 @@
         <th scope="row"></th>
         <td><%= item.product.name %></td>
         <td><%= item.product.category %></td>
-        <td><% @restaurant = item.restaurant %>
-            <% @product = item.product  %>
-            <% @recipes_with_same_ingredient= Ingredient.where(product: @product) %>
-            <% @optimal_stock_total = 0 %>
-            <% @recipes_with_same_ingredient.each do |ingredient|  %>
-              <% @ingredient_quantity = ingredient.quantity  %>
-              <% @recipe = ingredient.recipe  %>
-              <% @restaurant_recipe = RestaurantRecipe.where(restaurant: @restaurant, recipe: @recipe) %>
-              <% @plate = @restaurant_recipe.first.plate %>
-              <% @optimal_stock_per_recipe = @ingredient_quantity * @plate%>
-              <% @optimal_stock_total += @optimal_stock_per_recipe %>
-              <% @optimal_stock_total %>
-            <% end %>
-        <%= @optimal_stock_total.round(2) %><%= item.product.unit %>
-        </td>
+        <td><%= item.optimal_quantity.round(2) %><%= item.product.unit %></td>
         <td><%= item.quantity %><%= item.product.unit %></td>
         <td>barre d'alerte avec niveau de stock</td>
         <td> bouton qui scrolle avec quantités</td>
