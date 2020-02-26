@@ -2,8 +2,9 @@
 
   <h1>Vos commandes</h1>
 
+      <%= render './layouts/shopping_cart', order: @orders %>
   <div class='searchform'>
-      <%= form_tag(orders_search_path, method: 'get') do %>
+      <%= form_tag(restaurant_orders_path, method: 'get') do %>
       <div class="field p-3 d-flex justify-content-around align-items-center">
         <%= 'Fournisseur :' %><%= text_field_tag 'supplier' %>
       </div>
