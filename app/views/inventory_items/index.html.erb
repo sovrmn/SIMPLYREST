@@ -1,64 +1,84 @@
+
 <div class="container mt-5">
+  <div><h3 class="border text-right">Mon panier</h3></div>
+
 
 <h1>Mes stocks</h1>
 
 
 
-<table class="table around row-content ">
-<div></div>
+<table class="table">
+
   <thead>
-    <tr class="col-name">
-      <th scope="col">#</th>
-      <th scope="col">Produit</th>
-      <th scope="col">Catégorie</th>
-      <th scope="col">Stock</th>
-      <th scope="col">Unité</th>
-      <th scope="col">Niveau de stock</th>
-      <th scope="col">Delta</th>
-    </tr>
-  </thead>
-  <tbody>
-    <%@inventory_items.each do |item|  %>
     <tr>
-      <th scope="row"></th>
-      <td><%= item.product.name %></td>
-      <td><%= item.product.category %></td>
-      <td><%= item.quantity %> <%= item.product.unit %></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <%end %>
-  </tbody>
-
-</table>
-<table class="table around row-content ">
-
-  <thead>
-    <tr class="col-name">
+      <th scope="col">#</th>
+      <th scope="col">Article</th>
+      <th scope="col">Catégorie</th>
+      <th scope="col">Stock optimal
+        </th>
+      <th scope="col">Stock en cours</th>
+      <th scope="col">Niveau de stock</th>
+      <th scope="col">Commander</th>
       <th scope="col">Fournisseur</th>
-      <th scope="col">Qté commandée</th>
       <th scope="col">Prix unitaire</th>
       <th scope="col">Total H.T.</th>
-      <th scope="col">Total T.T.C.</th>
     </tr>
   </thead>
   <tbody>
     <%@inventory_items.each do |item|  %>
-    <tr>
-      <th scope="row"></th>
-      <% item.product.supplier_items.each do |product| %>
-        <td><%=product.supplier.name %></td>
+      <tr>
+        <th scope="row"></th>
+        <td><%= item.product.name %></td>
+        <td><%= item.product.category %></td>
+        <td><% @restaurant = item.restaurant %>
+            <% @product = item.product  %>
+            <% @recipes_with_same_ingredient= Ingredient.where(product: @product) %>
+            <% @optimal_stock_total = 0 %>
+            <% @recipes_with_same_ingredient.each do |ingredient|  %>
+              <% @ingredient_quantity = ingredient.quantity  %>
+              <% @recipe = ingredient.recipe  %>
+              <% @restaurant_recipe = RestaurantRecipe.where(restaurant: @restaurant, recipe: @recipe) %>
+              <% @plate = @restaurant_recipe.first.plate %>
+              <% @optimal_stock_per_recipe = @ingredient_quantity * @plate%>
+              <% @optimal_stock_total += @optimal_stock_per_recipe %>
+              <% @optimal_stock_total %>
+            <% end %>
+        <%= @optimal_stock_total.round(2) %><%= item.product.unit %>
+        </td>
+        <td><%= item.quantity %><%= item.product.unit %></td>
+        <td>barre d'alerte avec niveau de stock</td>
+        <td> bouton qui scrolle avec quantités</td>
+        <td>fournisseur référent + option autre fournisseur+ bouton add to cart</td>
         <td></td>
-        <td><%= product.price_per_product%><%=€%></td>
         <td></td>
         <td></td>
-      <% end %>
-    </tr>
-    <%end %>
+      </tr>
+    <% end %>
   </tbody>
 
 </table>
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
