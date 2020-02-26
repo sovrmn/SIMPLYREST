@@ -1,3 +1,19 @@
+.wrapper {
+  align-items: strech;
+  display: flex;
+  width: 100%;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
 .sidebar {
   margin: 0;
   padding: 0;
