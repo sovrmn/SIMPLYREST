@@ -1,29 +1,31 @@
 <div class="wrapper">
-  <!-- Sidebar -->
   <nav id="sidebar">
-    <ul class="list-unstyled components">
-      <p>Marius & Lucien</p>
-        <li class="active">
-          <%= link_to "Gérer mes stocks", "#", class: "side-link" %>
-        </li>
-        <li>
-            <%= link_to "Gérer mes commandes", "#", class: "side-link" %>
-        </li>
-        <li>
-            <%= link_to "Suivre mes commandes", restaurant_orders_path(:restaurant_id), class: "side-link" %>
-        </li>
-    </ul>
+
+    <div class="sidebar-header">
+      <h3>Marius & Lucien</h3>
+    </div>
+        <div>
+
+          <ul class="list-unstyled components">
+            <li class="active">
+              <%= link_to "Gérer mes stocks", "#", class: "side-link" %>
+            </li>
+            <li>
+                <%= link_to "Gérer mes commandes", "#", class: "side-link" %>
+            </li>
+            <li>
+                <%= link_to "Suivre mes commandes", restaurant_orders_path(:restaurant_id), class: "side-link" %>
+            </li>
+          </ul>
+        </div>
   </nav>
 
-    <!-- Page Content -->
   <div id="content">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <button type="button" id="sidebarCollapse" class="btn btn-info">
-            <i class="fas fa-align-left"></i>
-            <span>Toggle Sidebar</span>
-        </button>
-      </div>
-    </nav>
-  </div>
+      <button type="button" id="sidebarCollapse" class="navbar-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+  <div>
 </div>
