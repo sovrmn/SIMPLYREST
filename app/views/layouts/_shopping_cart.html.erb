@@ -1,8 +1,8 @@
-<body class="foo">
   <header>
-    <div id="cd-cart-trigger"><a class="cd-img-replace" href="#0">Cart</a></div>
+    <div id="cd-cart-trigger"><a class="toggle-cart" href="#">ToggleCart</a></div>
   </header>
 
+<div class="shopping">
 <!-- nav bar des commandes par fournisseurs -->
   <nav id="main-nav">
     <ul class="list-inline tabs-underlined d-flex">
@@ -18,23 +18,32 @@
     </ul>
   </nav>
 
-
-  <div id="cd-shadow-layer"></div>
-
   <div id="cd-cart">
-    <h2>Cart</h2>
+    <h2>Mon panier</h2>
     <ul class="cd-cart-items">
-      <li>
+      <div class="order-items">
         <span class="cd-qty">1x</span> Product Name
         <div class="cd-price">€€€€€</div>
-        <a href="#0" class="cd-item-remove cd-img-replace">Remove</a>
-      </li>
+        <a href="#0" class="cd-item-remove cd-img-replace">Editer la commande</a>
+      </div>
+      <div class="order-items">
+        <span class="cd-qty">1x</span> Product Name
+        <div class="cd-price">€€€€€</div>
+        <a href="#0" class="cd-item-remove cd-img-replace">Editer la commande</a>
+      </div>
+       <div class="order-items">
+        <span class="cd-qty">1x</span> Product Name
+        <div class="cd-price">€€€€€</div>
+        <a href="#0" class="cd-item-remove cd-img-replace">Editer la commande</a>
+      </div>
     </ul> <!-- cd-cart-items -->
 
     <div class="cd-cart-total">
       <p>Total <span> €€€€€ </span></p>
+      <button class="btn-success rounded order-btn">Valider</button>
+      <button class="btn-danger rounded order-btn">Annuler</button>
     </div> <!-- cd-cart-total -->
   </div> <!-- cd-cart -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/main.js"></script> <!-- Gem jQuery -->
-</body>
+</div>
