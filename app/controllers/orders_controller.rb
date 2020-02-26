@@ -3,9 +3,9 @@ class OrdersController < ApplicationController
   def index
      if params[:supplier].present?
       #improve search (ILIKE %)
-      sql_query = "suppliers.name ILIKE :query \ "
+      sql_query = "suppliers.name ILIKE :suppliers"
 
-      @orders = @restaurant.orders.joins(:supplier).where(suppliers: { name: params[:supplier] })
+      @orders = @restaurant.orders.joins(:supplier).where(sql_query, suppliers: "%#{params[:supplier]}%")
     else
        @orders = @restaurant.orders
     end
@@ -15,10 +15,6 @@ class OrdersController < ApplicationController
     @order = Order.new
   end
 
-  def search
-
-
-  end
 
   private
 

@@ -26,7 +26,21 @@
               <% else %>
               <td> En attende de livraison</td>
               <% end %>
-            <td class="row-content"><i class="fas fa-arrow-down"></i></td>
+                <td class="row-content order-details" id="collapsible<%= order.id %>"><i class="fas fa-arrow-down"></i></td>
+              <tr class="col-name text-center d-none collapsible<%= order.id %> headline">
+                <th scope="col">Produit</th>
+                <th scope="col">Quantité</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Statut</th>
+                <th scope="col">#</th>
+              </tr>
+                <tr class="text-center d-none collapsible<%= order.id %> product-list">
+                  <th scope="row"></th>
+                  <td class="row-content">#</td>
+                  <td class="row-content">#</td>
+                  <td class="row-content">#</td>
+                  <td class="row-content">#</i></td>
+                </tr>
           </tr>
         </tbody>
       <% end %>
