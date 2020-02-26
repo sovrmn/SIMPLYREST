@@ -24,3 +24,5 @@ require("channels")
 import "bootstrap";
 import {orderCollap} from "../plugins/collapsible";
 orderCollap ();
+import {toggleSide} from "../plugins/toggleSideBar";
+toggleSide ();
