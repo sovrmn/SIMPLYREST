@@ -1,5 +1,31 @@
- <div class="sidebar">
-      <%= link_to "Gérer mes stocks", "#", class: "side-link" %>
-      <%= link_to "Gérer mes commandes", "#", class: "side-link" %>
-      <%= link_to "Suivre mes commandes", restaurant_orders_path(:restaurant_id), class: "side-link" %>
+<div class="wrapper">
+  <nav id="sidebar">
+
+    <div class="sidebar-header">
+      <h3>Marius & Lucien</h3>
     </div>
+        <div>
+
+          <ul class="list-unstyled components">
+            <li class="active">
+              <%= link_to "Gérer mes stocks", "#", class: "side-link" %>
+            </li>
+            <li>
+                <%= link_to "Gérer mes commandes", "#", class: "side-link" %>
+            </li>
+            <li>
+                <%= link_to "Suivre mes commandes", restaurant_orders_path(:restaurant_id), class: "side-link" %>
+            </li>
+          </ul>
+        </div>
+  </nav>
+
+  <div id="content">
+      <button type="button" id="sidebarCollapse" class="navbar-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+  <div>
+</div>
