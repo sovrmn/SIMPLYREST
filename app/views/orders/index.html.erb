@@ -18,7 +18,7 @@
       </thead>
       <% @orders.each do |order| %>
         <tbody>
-          <tr class="text-center align-items-center">
+          <tr class="text-center justify-content-center">
             <th scope="row"><%= order.order_number %></th>
             <td class="row-content"><%= order.supplier.name %></td>
             <td class="row-content"><%= order.total %> €</td>
@@ -32,7 +32,11 @@
 
                 <%= simple_form_for order, remote: true do |f| %>
                   <%= f.input :delivered, as: :hidden, input_html: { value: true } %>
-                  <%= f.submit "Réceptionné", class: "button-green order-btn text-center" %>
+                    <% if order.delivered %>
+                    <i class="fas fa-check"></i>
+                    <% else %>
+                      <%= f.submit "Réceptionné", class: "button-green order-btn text-center" %>
+                    <% end %>
                 <% end %>
               </td>
               <tr class="col-name text-center d-none collapsible<%= order.id %> headline">
