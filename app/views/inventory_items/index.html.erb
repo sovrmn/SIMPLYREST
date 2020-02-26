@@ -23,8 +23,7 @@
       <th scope="row"></th>
       <td><%= item.product.name %></td>
       <td><%= item.product.category %></td>
-      <td><%= item.quantity %></td>
-      <td><%= item.product.unit %></td>
+      <td><%= item.quantity %> <%= item.product.unit %></td>
       <td></td>
       <td></td>
       <td></td>
@@ -50,16 +49,13 @@
     <%@inventory_items.each do |item|  %>
     <tr>
       <th scope="row"></th>
-      <td><%= item.product.name %></td>
-      <td><%= item.product.category %></td>
-      <td><%= item.quantity %></td>
-      <td><%= item.product.unit %></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <% item.product.supplier_items.each do |product| %>
+        <td><%=product.supplier.name %></td>
+        <td></td>
+        <td><%= product.price_per_product%><%=€%></td>
+        <td></td>
+        <td></td>
+      <% end %>
     </tr>
     <%end %>
   </tbody>

@@ -1,8 +1,11 @@
 class InventoryItemsController < ApplicationController
   before_action :set_restaurant, only: :index
 
+
   def index
     @inventory_items = @restaurant.inventory_items
+
+
   end
 
   # def update
@@ -16,6 +19,15 @@ class InventoryItemsController < ApplicationController
   #   @inventory_item.destroy
   #   redirect_to restaurant_inventory_items_path
   # end
+
+  def displaysupplier
+    @inventory_item = InventoryItem.find(params[:id])
+    @product = @inventory_item.Product
+    @supplier_items = @product.supplier_items
+  end
+
+
+
 
   private
 
