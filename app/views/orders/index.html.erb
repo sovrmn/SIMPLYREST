@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container order_index">
 
   <h1>Vos commandes</h1>
 
@@ -22,40 +22,61 @@
           <th scope="col">Total</th>
           <th scope="col">Statut</th>
           <th scope="col">Details</th>
+          <th scope="col">Valider reception</th>
         </tr>
       </thead>
       <% @orders.each do |order| %>
         <tbody>
-          <tr class="text-center">
+          <tr class="text-center justify-content-center">
             <th scope="row"><%= order.order_number %></th>
             <td class="row-content"><%= order.supplier.name %></td>
             <td class="row-content"><%= order.total %> €</td>
               <% if order.delivered %>
-              <td >Livrée</td>
-              <% else %>
-              <td> En attende de livraison</td>
+                <td >Livrée</td>
+                <% else %>
+                <td> En attende de livraison</td>
               <% end %>
-                <td class="row-content order-details" id="collapsible<%= order.id %>"><i class="fas fa-arrow-down"></i></td>
+              <td class="row-content order-details" id="collapsible<%= order.id %>"><i class="fas fa-arrow-down"></i></td>
+              <td class="row-content">
+
+                <%= simple_form_for order, remote: true do |f| %>
+                  <%= f.input :delivered, as: :hidden, input_html: { value: true } %>
+                    <% if order.delivered %>
+                    <i class="fas fa-check"></i>
+                    <% else %>
+                      <%= f.submit "Réceptionné", class: "button-green order-btn text-center" %>
+                    <% end %>
+                <% end %>
+              </td>
               <tr class="col-name text-center d-none collapsible<%= order.id %> headline">
                 <th scope="col">Produit</th>
                 <th scope="col">Quantité</th>
                 <th scope="col">Prix</th>
                 <th scope="col">Statut</th>
                 <th scope="col">#</th>
+                <th scope="col">#</th>
               </tr>
-                <tr class="text-center d-none collapsible<%= order.id %> product-list">
-                  <th scope="row"></th>
-                  <td class="row-content">#</td>
-                  <td class="row-content">#</td>
-                  <td class="row-content">#</td>
-                  <td class="row-content">#</i></td>
-                </tr>
-          </tr>
-        </tbody>
-      <% end %>
-    </table>
+              <% order.order_items.each do |order_item| %>
+              <tr class="text-center d-none collapsible<%= order.id %> product-list">
+                <th scope="row"><%= order_item.supplier_item.product.name %></th>
+                <td class="row-content"><%= order_item.quantity %></td>
+                <td class="row-content"><%= order_item.price %></td>
+                <% if order_item.completed %>
+                <td class="row-content"> Receptionné </td>
+                <% else %>
+                <td class="row-content"> Non receptionné </td>
+                <% end %>
+                <td class="row-content"></td>
+                <td class="row-content"></td>
+              </tr>
+              <% end %>
+            </tr>
+          </tbody>
+        <% end %>
+      </table>
   </div>
-
 </div>
+
+
 
 
