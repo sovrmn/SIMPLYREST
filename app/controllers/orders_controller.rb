@@ -2,7 +2,9 @@ class OrdersController < ApplicationController
   before_action :set_restaurant
   def index
      if params[:supplier].present?
-      #improve search (IIKE %)
+      #improve search (ILIKE %)
+      sql_query = "suppliers.name ILIKE :query \ "
+
       @orders = @restaurant.orders.joins(:supplier).where(suppliers: { name: params[:supplier] })
     else
        @orders = @restaurant.orders
