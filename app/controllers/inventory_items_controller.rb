@@ -1,8 +1,11 @@
 class InventoryItemsController < ApplicationController
   before_action :set_restaurant, only: :index
 
+
   def index
     @inventory_items = @restaurant.inventory_items
+
+
   end
 
   # def update
@@ -17,11 +20,21 @@ class InventoryItemsController < ApplicationController
   #   redirect_to restaurant_inventory_items_path
   # end
 
+  def displaysupplier
+    @inventory_item = InventoryItem.find(params[:id])
+    @product = @inventory_item.Product
+    @supplier_items = @product.supplier_items
+  end
+
+
+
+
   private
 
   def set_restaurant
-    @restaurant = Restaurant.first #on ne récupère que le 1er restaurant du current user car il n'en a qu'un
+    @restaurant = current_user.restaurants.first #on ne récupère que le 1er restaurant du current user car il n'en a qu'un
   end
+  #Restaurant.first
 
   def inventory_item_params
     params.require(:inventory_item).permit(:quantity)

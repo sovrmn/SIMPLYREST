@@ -13,6 +13,8 @@ Ingredient.destroy_all
 p "ingredients destroyed"
 Recipe.destroy_all
 p "recipes destroyed"
+Order.destroy_all
+p "orders destroyed"
 Product.destroy_all
 p "products destroyed"
 Supplier.destroy_all
@@ -77,48 +79,48 @@ p "products created"
 
 # ingredients :
 # Boeuf bourgignon
-oignon_bourguignon = Ingredient.create!(quantity: 56.25, recipe: bourguignon, product: oignon)
-boeuf_bourguignon = Ingredient.create!(quantity: 250, recipe: bourguignon, product: boeufAubrac)
-carotte_bourguignon = Ingredient.create!(quantity: 56.25, recipe: bourguignon, product: carotte)
-persil_bourguignon = Ingredient.create!(quantity: "", recipe: bourguignon, product: persil)
-epices_bourguignon = Ingredient.create!(quantity: "", recipe: bourguignon, product: epices)
-thym_bourguignon = Ingredient.create!(quantity: "", recipe: bourguignon, product: thym)
-tournesol_bourguignon = Ingredient.create!(quantity: 4.125, recipe: bourguignon, product: huileTournesol)
-farine_bourguignon = Ingredient.create!(quantity: 6.25, recipe: bourguignon, product: farine)
-vin_bourguignon = Ingredient.create!(quantity: 12.50, recipe: bourguignon, product: vin)
-fondsVeau_bourguignon = Ingredient.create!(quantity: 12.50, recipe: bourguignon, product: fondsVeau)
-pdtg_bourguignon = Ingredient.create!(quantity: 125, recipe: bourguignon, product: pdtg)
-fleurSel_bourguignon = Ingredient.create!(quantity: "", recipe: bourguignon, product: fleurSel)
+oignon_bourguignon = Ingredient.create!(quantity: 0.05625, recipe: bourguignon, product: oignon)
+boeuf_bourguignon = Ingredient.create!(quantity: 0.250, recipe: bourguignon, product: boeufAubrac)
+carotte_bourguignon = Ingredient.create!(quantity: 0.4625, recipe: bourguignon, product: carotte)
+persil_bourguignon = Ingredient.create!(quantity: 0.015, recipe: bourguignon, product: persil)
+epices_bourguignon = Ingredient.create!(quantity: 0.008, recipe: bourguignon, product: epices)
+thym_bourguignon = Ingredient.create!(quantity: 0.01, recipe: bourguignon, product: thym)
+tournesol_bourguignon = Ingredient.create!(quantity: 0,002, recipe: bourguignon, product: huileTournesol)
+farine_bourguignon = Ingredient.create!(quantity: 0.008, recipe: bourguignon, product: farine)
+vin_bourguignon = Ingredient.create!(quantity: 0.015, recipe: bourguignon, product: vin)
+fondsVeau_bourguignon = Ingredient.create!(quantity: 0.015, recipe: bourguignon, product: fondsVeau)
+pdtg_bourguignon = Ingredient.create!(quantity: 0.125, recipe: bourguignon, product: pdtg)
+fleurSel_bourguignon = Ingredient.create!(quantity: 0.008, recipe: bourguignon, product: fleurSel)
 # cote de boeuf = cdb
-boeuf_cdb = Ingredient.create!(quantity: 1070, recipe: cdb, product: coteAubrac)
-pdt_cdb = Ingredient.create!(quantity: 500, recipe: cdb, product: pdtg)
-beurre_cdb = Ingredient.create!(quantity: 20, recipe: cdb, product: beurre)
+boeuf_cdb = Ingredient.create!(quantity: 1.070, recipe: cdb, product: coteAubrac)
+pdt_cdb = Ingredient.create!(quantity: 0.500, recipe: cdb, product: pdtg)
+beurre_cdb = Ingredient.create!(quantity: 0.020, recipe: cdb, product: beurre)
 huileOlive_cdb = Ingredient.create!(quantity: 0.07, recipe: cdb, product: huileOlive)
-salade_cdb = Ingredient.create!(quantity: "", recipe: cdb, product: salade)
+salade_cdb = Ingredient.create!(quantity: 0.05, recipe: cdb, product: salade)
 #rillettes de saumon = saumonR
-saumon_saumonR = Ingredient.create!(quantity: 57.143, recipe: saumonR, product: saumon)
-noisette_saumonR = Ingredient.create!(quantity: 21.43, recipe: saumonR, product: noisette)
-citronConfit_saumonR = Ingredient.create!(quantity: 21.43, recipe: saumonR, product: citronConfit)
-fleurSel_saumonR = Ingredient.create!(quantity: "", recipe: saumonR, product: fleurSel)
+saumon_saumonR = Ingredient.create!(quantity: 0.57143, recipe: saumonR, product: saumon)
+noisette_saumonR = Ingredient.create!(quantity: 0.2143, recipe: saumonR, product: noisette)
+citronConfit_saumonR = Ingredient.create!(quantity: 0.2143, recipe: saumonR, product: citronConfit)
+fleurSel_saumonR = Ingredient.create!(quantity: 0.008, recipe: saumonR, product: fleurSel)
 #falafel
-poisChiches_falafel = Ingredient.create!(quantity: 40, recipe: falafel, product: poisChiches)
-huileTournesol_falafel = Ingredient.create!(quantity: 0.013, recipe: falafel, product: huileTournesol)
-carotte_falafel = Ingredient.create!(quantity: 12, recipe: falafel, product: carotte)
-persil_falafel = Ingredient.create!(quantity: "", recipe: falafel, product: persil)
-coriandre_falafel = Ingredient.create!(quantity: "", recipe: falafel, product: coriandre )
-cumin_falafel = Ingredient.create!(quantity: 2, recipe: falafel, product: cumin )
+poisChiches_falafel = Ingredient.create!(quantity: 0.45, recipe: falafel, product: poisChiches)
+huileTournesol_falafel = Ingredient.create!(quantity: 0.0013, recipe: falafel, product: huileTournesol)
+carotte_falafel = Ingredient.create!(quantity: 0.012, recipe: falafel, product: carotte)
+persil_falafel = Ingredient.create!(quantity: 0.008, recipe: falafel, product: persil)
+coriandre_falafel = Ingredient.create!(quantity: 0.006, recipe: falafel, product: coriandre )
+cumin_falafel = Ingredient.create!(quantity: 0.004, recipe: falafel, product: cumin )
 huileOlive_falafel = Ingredient.create!(quantity: 0.0012, recipe: falafel, product: huileOlive)
-aubergine_falafel = Ingredient.create!(quantity: 160, recipe: falafel, product: aubergine )
-ail_falafel = Ingredient.create!(quantity: 4, recipe: falafel, product: ail )
-fleurSel_falafel = Ingredient.create!(quantity: "", recipe: falafel, product: fleurSel )
-citronVert_falafel = Ingredient.create!(quantity: "", recipe: falafel, product: citronVert)
-poivre_falafel = Ingredient.create!(quantity: "", recipe: falafel, product: poivre)
+aubergine_falafel = Ingredient.create!(quantity: 0.160, recipe: falafel, product: aubergine )
+ail_falafel = Ingredient.create!(quantity: 0.004, recipe: falafel, product: ail )
+fleurSel_falafel = Ingredient.create!(quantity: 0.004, recipe: falafel, product: fleurSel )
+citronVert_falafel = Ingredient.create!(quantity: 0.004, recipe: falafel, product: citronVert)
+poivre_falafel = Ingredient.create!(quantity: 0.003, recipe: falafel, product: poivre)
 # riz au lait = rizLait
-riz_rizLait = Ingredient.create!(quantity: "", recipe: rizLait, product: rizRond)
-lait_rizLait = Ingredient.create!(quantity: "", recipe: rizLait, product: lait)
-sucre_rizLait = Ingredient.create!(quantity: "", recipe: rizLait, product: sucre)
-mures_rizLait = Ingredient.create!(quantity: 66.66, recipe: rizLait, product: mure)
-tonka_rizLait = Ingredient.create!(quantity: 1, recipe: rizLait, product: tonka)
+riz_rizLait = Ingredient.create!(quantity: 0.1, recipe: rizLait, product: rizRond)
+lait_rizLait = Ingredient.create!(quantity: 0.1, recipe: rizLait, product: lait)
+sucre_rizLait = Ingredient.create!(quantity: 0.04, recipe: rizLait, product: sucre)
+mures_rizLait = Ingredient.create!(quantity: 0.6666, recipe: rizLait, product: mure)
+tonka_rizLait = Ingredient.create!(quantity: 0.01, recipe: rizLait, product: tonka)
 p "ingredients created"
 
 # suppliers :
