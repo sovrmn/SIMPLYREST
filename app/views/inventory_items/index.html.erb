@@ -32,7 +32,21 @@
         <td><%= item.product.category %></td>
         <td><%= item.optimal_quantity.round(2) %><%= item.product.unit %></td>
         <td><%= item.quantity %><%= item.product.unit %></td>
-        <td>barre d'alerte avec niveau de stock</td>
+        <td>
+          <div class="progressBar d-flex">
+            <div class="progressRed">
+            </div>
+            <div class="progressOrange">
+            </div>
+            <div class="progressGreen">
+            </div>
+             <div  class="mt-3">
+               <span id="stocklevel"><%= ((item.quantity/item.optimal_quantity)*100).round(1)%></span>
+             %
+              </div>
+          </div>
+
+        </td>
         <td>
           <div class="quantitybutton d-flex">
             <span id="minusbutton">-</span>

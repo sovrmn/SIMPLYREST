@@ -1,0 +1,50 @@
+.progressBar {
+  background-color: lightgrey;
+  width: 100px;
+  height: 10px;
+
+}
+
+
+.progressRed {
+    width: 0%;
+    height: 100%;
+    background-color: $red-stock;
+    // animation: color 2s linear 0s alternate;
+}
+
+.progressOrange{
+    width: 0%;
+    height: 100%;
+    background-color: orange;
+    // animation: color 2s linear 0s alternate;
+}
+.progressGreen{
+    width: 0%;
+    height: 100%;
+    background-color: green;
+    // animation: color 2s linear 0s alternate;
+}
+
+
+// @keyframes color{
+//     33% {
+//     background-color: $red-stock;
+//     background-color: red;
+//     width: 33%;/*At 30%, change the width to 30%*/
+//     }
+//     66% {
+//     background-color: orange;
+//     width: 66%;
+//     }
+//     // 70% {
+//     // background-color: green;
+//     // width: 100%;
+//     // }
+
+// }
+
+// @keyframes slidein {
+//   from { transform: scaleX(0); }
+//   to   { transform: scaleX(1); }
+// }

@@ -27,3 +27,5 @@ orderCollap();
 import {toggleSide} from "../plugins/toggleSideBar";
 toggleSide();
 // import {minusPlusButton} from "../plugins/minusPlusButton";
+import {move} from "../plugins/move";
+move();
