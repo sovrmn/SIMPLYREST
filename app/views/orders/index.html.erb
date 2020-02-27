@@ -35,7 +35,7 @@
                     <% if order.delivered %>
                       <i class="fas fa-check"></i>
                     <% else %>
-                      <%= f.submit "Réceptionné", class: "button-green order-btn" %>
+                      <%= f.submit "Réceptionné", class: "button-green-order" %>
                     <% end %>
                 <% end %>
               </td>
@@ -57,7 +57,31 @@
                 <% else %>
                 <td class="row-content"> Non receptionné </td>
                 <% end %>
-                <td class="row-content"><i class="far fa-edit"></i></td>
+                <td class="row-content">
+
+                  <button type="button" data-toggle="modal" data-target="#exampleModal">
+                  <i class="far fa-edit"></i>
+                </button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"><%= order_item.supplier_item.product.name %></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                      ....
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
                 <td class="row-content"></td>
               </tr>
               <% end %>
@@ -67,6 +91,7 @@
       </table>
   <!-- </div> -->
 </div>
+
 
 
 

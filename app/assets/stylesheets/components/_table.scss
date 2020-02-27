@@ -16,12 +16,11 @@ width: 800px;
 
 }
 
-// .row-content {
-//   padding: 0px !important;
-//   margin-bottom: 0px !important;
-//   padding-top: 15px !important;
+.row-content {
+  justify-content: center;
+  align-items: stretch;
 
-// }
+}
 
 .validate-btn {
   margin-bottom: 10px !important;
