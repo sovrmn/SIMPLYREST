@@ -7,8 +7,8 @@ li {
 h3 {
   padding: 16px;
   font-size: 1.5em;
-
 }
+
 .side-link {
   color: $baby-white;
   text-decoration: none;
@@ -22,6 +22,9 @@ h3 {
     width: 40px;
     height: 40px;
     background: #f5f5f5;
+    right: -40px;
+    position: absolute;
+    top: 0;
 }
 
 #sidebarCollapse span {
@@ -42,11 +45,11 @@ h3 {
     opacity: 0;
 }
 #sidebarCollapse span:nth-of-type(3) {
-    /* second one is not visible */
+    /* third one is not visible */
     opacity: 0;
 }
 #sidebarCollapse span:last-of-type {
-    /* rotate third one */
+    /* rotate fourth one */
     transform: rotate(-45deg) translate(2px, -3px);
 }
 
@@ -62,13 +65,15 @@ h3 {
     display: flex;
     align-items: stretch;
     perspective: 1500px;
-    height: 100vh;
 }
 
 #sidebar {
     min-width: 250px;
     max-width: 250px;
+    position:sticky;
     background: $persian-green;
+    height:100vh;
+    top: 0;
     color: #fff;
     transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
     transform-origin: center left; /* Set the transformed position of sidebar to center left side. */
@@ -76,5 +81,5 @@ h3 {
 
 #sidebar.active {
     margin-left: -250px;
-    transform: rotateY(100deg); /* Rotate sidebar vertically by 100 degrees. */
+    // transform: rotateY(100deg); /* Rotate sidebar vertically by 100 degrees. */
 }
