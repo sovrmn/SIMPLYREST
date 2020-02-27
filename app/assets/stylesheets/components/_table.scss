@@ -1,18 +1,32 @@
-.around {
-  background-color: $baby-white;
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width: 800px;
-  .table {
-  width: 800px;
+// .around {
+//   background-color: $baby-white;
+//   border-radius: 5px;
+//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+//   width: 800px;
+//   .table {
+//   width: 800px;
 
-  }
+//   }
+// }
+
+
+.table {
+background-color: $baby-white;
+width: 800px;
+
 }
 
-.row-content {
-  padding: 0px 5px 0px 5px;
-}
+// .row-content {
+//   padding: 0px !important;
+//   margin-bottom: 0px !important;
+//   padding-top: 15px !important;
 
+// }
+
+.validate-btn {
+  margin-bottom: 10px !important;
+
+}
 
 .col-name {
 background-color: $persian-green;
@@ -22,7 +36,6 @@ opacity: 1;
 
 
 .column {
-
 background-color: $persian-green;
 opacity: 0.7;
 color: $baby-white;

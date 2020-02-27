@@ -250,6 +250,10 @@ boeufAubrac_order_item = OrderItem.create(quantity: 8, unit: 'kg', price: 195.76
 boeufAubrac_order_item = OrderItem.create(quantity: 8, unit: 'kg', price: 195.76, completed: false, supplier_item: cote_c2b, order: order_waiting)
 
 # order_item
-order_item_one = OrderItem.create(quantity: 1, unit: 'g', price: 1, completed: false, supplier_item: aubergine_metro, order: order_waiting)
-order_item_two = OrderItem.create(quantity: 1, unit: 'g', price: 4, completed: false, supplier_item: fleurSel_metro, order: order_waiting)
+
+order_item_one = OrderItem.create(quantity: 1, unit: 'kg', price: 1, completed: false, supplier_item: aubergine_metro, order: order_waiting)
+order_item_two = OrderItem.create(quantity: 1, unit: 'kg', price: 4, completed: false, supplier_item: fleurSel_metro, order: order_waiting)
+order_item_thre = OrderItem.create(quantity: 1, unit: 'g', price: 1, completed: false, supplier_item: aubergine_metro, order: order_waiting)
+order_item_four = OrderItem.create(quantity: 1, unit: 'g', price: 4, completed: false, supplier_item: fleurSel_metro, order: order_waiting)
 p "order_items created"
+
