@@ -14,6 +14,8 @@ Recipe.destroy_all
 p "recipes destroyed"
 Order.destroy_all
 p "orders destroyed"
+OrderItem.destroy_all
+p "order items destroyed"
 Product.destroy_all
 p "products destroyed"
 Supplier.destroy_all
@@ -238,11 +240,20 @@ tonka_inv = InventoryItem.create(quantity: 0.2,restaurant: restaurant ,product: 
 p "inventory items created"
 
 # ? orders :
-order_delivered = Order.create(total: 638.05, order_number: "BC-72-2020-01" ,delivered: true, restaurant: restaurant, supplier: metro)
-order_waiting = Order.create(total: 431.54, order_number: "BC-73-2020-02" ,delivered: false, restaurant: restaurant, supplier: c2b)
-order_waiting_again = Order.create(total: 390.28, order_number: "BC-74-2020-02" ,delivered: false, restaurant: restaurant, supplier: metro)
+order_delivered = Order.create(total: 638.05, order_number: "BC-72-2020-01" ,delivered: true, restaurant: restaurant, supplier: metro, validated: true)
+order_waiting = Order.create(total: 431.54, order_number: "BC-73-2020-02" ,delivered: false, restaurant: restaurant, supplier: c2b, validated: false)
+order_waiting_again = Order.create(total: 390.28, order_number: "BC-74-2020-02" ,delivered: false, restaurant: restaurant, supplier: metro, validated: true)
 p "orders created"
 
+
+boeufAubrac_order_item = OrderItem.create(quantity: 8, unit: 'kg', price: 195.76, completed: false, supplier_item: boeufAubrac_c2b, order: order_waiting)
+boeufAubrac_order_item = OrderItem.create(quantity: 8, unit: 'kg', price: 195.76, completed: false, supplier_item: cote_c2b, order: order_waiting)
+
 # order_item
+
 order_item_one = OrderItem.create(quantity: 1, unit: 'kg', price: 1, completed: false, supplier_item: aubergine_metro, order: order_waiting)
 order_item_two = OrderItem.create(quantity: 1, unit: 'kg', price: 4, completed: false, supplier_item: fleurSel_metro, order: order_waiting)
+order_item_thre = OrderItem.create(quantity: 1, unit: 'g', price: 1, completed: false, supplier_item: aubergine_metro, order: order_waiting)
+order_item_four = OrderItem.create(quantity: 1, unit: 'g', price: 4, completed: false, supplier_item: fleurSel_metro, order: order_waiting)
+p "order_items created"
+

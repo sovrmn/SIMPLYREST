@@ -23,6 +23,15 @@ require("channels")
 // ----------------------------------------------------
 import "bootstrap";
 import {orderCollap} from "../plugins/collapsible";
-orderCollap ();
+orderCollap();
 import {toggleSide} from "../plugins/toggleSideBar";
-toggleSide ();
+toggleSide();
+
+import {toggleShoppingCart} from "../plugins/toggleShoppingCart";
+toggleShoppingCart();
+import {displayOrderAndItems} from "../plugins/displayOrderAndItems";
+displayOrderAndItems();
+import {minusPlusButton} from "../plugins/minusplusbutton";
+minusPlusButton();
+import {move} from "../plugins/move";
+move();
