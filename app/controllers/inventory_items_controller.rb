@@ -5,7 +5,7 @@ class InventoryItemsController < ApplicationController
   def index
     @inventory_items = @restaurant.inventory_items
 
-
+    @order_item = OrderItem.new
   end
 
   def optimal_stock
