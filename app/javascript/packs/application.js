@@ -28,7 +28,6 @@ import {toggleSide} from "../plugins/toggleSideBar";
 toggleSide();
 import {toggleShoppingCart} from "../plugins/toggleShoppingCart";
 toggleShoppingCart();
-import {displayOrderAndItems} from "../plugins/displayOrderAndItems";
+import {displayOrderAndItems} from "../plugins/shoppingCartDisplay";
 displayOrderAndItems();
 // import {minusPlusButton} from "../plugins/minusPlusButton";
-

@@ -19,11 +19,13 @@
     <h2>Mon panier</h2>
     <ul class="cd-cart-items">
       <% @orders.each do |order| %>
-        <div class="order-items d-none" id="<%= order.id %>">
-          <span class="cd-qty">1x</span> Product Name
-          <div class="cd-price">€€€€€</div>
-          <a href="#0" class="cd-item-remove cd-img-replace">Editer la commande</a>
-        </div>
+        <% order.order_items.each do |order_item| %>
+          <div class="order-items d-none" id="<%= order.id %>">
+            <span class="cd-qty"><%= order_item.quantity order_item.unit %>x</span><%= order_item.product.name %>
+            <div class="cd-price"><%= order_item.supplier_item.price_per_product %>€</div>
+            <a href="#0" class="cd-item-remove cd-img-replace">Editer la commande</a>
+          </div>
+        <%end %>
       <%end %>
     </ul> <!-- cd-cart-items -->
     <div class="cd-cart-total">
