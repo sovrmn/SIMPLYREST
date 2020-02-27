@@ -1,0 +1,35 @@
+span {
+  cursor:pointer;
+   }
+​
+  .quantitybutton {
+  }
+​
+  #minusbutton, #plusbutton {
+    width:25px;
+    height:25px;
+    background:#f2f2f2;
+    padding:2px 5px 14px 5px;
+    border:1px solid #ddd;
+    border-radius:4px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+  }
+​
+  #quantityinput {
+    height: 25px;
+    width: 60px;
+    background: $baby-white;
+    border:1px solid #ddd;
+    border-radius:4px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+
+
+
+

@@ -12,10 +12,9 @@
         <th scope="col">Stock optimal</th>
         <th scope="col">Stock en cours</th>
         <th scope="col">Niveau de stock</th>
-        <th scope="col">Commander</th>
-        <th scope="col">Fournisseur</th>
-        <th scope="col">Prix unitaire</th>
-        <th scope="col">Total H.T.</th>
+
+
+
       </tr>
     </thead>
     <tbody>
@@ -41,7 +40,29 @@
           </td>
           <td><%= item.quantity %><%= item.product.unit %></td>
           <td>barre d'alerte avec niveau de stock</td>
-          <td> bouton qui scrolle avec quantités</td>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Commander</th>
+        <th scope="col">Fournisseur</th>
+        <th scope="col">Prix unitaire</th>
+        <th scope="col">Total H.T.</th>
+
+
+
+
+
+
+
+
+          <td>
+              <div class="quantitybutton d-flex">
+                <span id="minusbutton">-</span>
+                <input id="quantityinput" type="text" value="<%= ((@optimal_stock_total - item.quantity) > 0) ? (@optimal_stock_total - item.quantity).round(2) : 0 %>"/>
+                <span id="plusbutton">+</span>
+              </div>
+          </td>
           <td>
             <div class="d-flex justify-content-between">
             <%= item.product.suppliers.first.name %>
@@ -63,8 +84,8 @@
                     <% item.product.supplier_items.each do |supplier_item| %>
                       <%= simple_form_for [supplier_item, @order_item] do |f| %>
                         <div class="d-flex justify-content-between"> <%= supplier_item.supplier.name %> <%= supplier_item.price_per_product %>€</div>
-                        <%= f.input :quantity %>
-                        <%= f.submit %>
+                        <%= f.input :quantity, input_html: { value: "#{((@optimal_stock_total - item.quantity) > 0) ? (@optimal_stock_total - item.quantity).round(2) : 0 }" }, as: :hidden %>
+                        <%= f.button :submit, "#{supplier_item.supplier.name}" %>
                       <% end %>
                     <% end %>
                   </div>
