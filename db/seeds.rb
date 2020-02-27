@@ -244,5 +244,5 @@ order_waiting_again = Order.create(total: 390.28, order_number: "BC-74-2020-02" 
 p "orders created"
 
 # order_item
-order_item_one = OrderItem.create(quantity: 1, unit: 'g', price: 1, completed: false, supplier_item: aubergine_metro, order: order_waiting)
-order_item_two = OrderItem.create(quantity: 1, unit: 'g', price: 4, completed: false, supplier_item: fleurSel_metro, order: order_waiting)
+order_item_one = OrderItem.create(quantity: 1, unit: 'kg', price: 1, completed: false, supplier_item: aubergine_metro, order: order_waiting)
+order_item_two = OrderItem.create(quantity: 1, unit: 'kg', price: 4, completed: false, supplier_item: fleurSel_metro, order: order_waiting)
