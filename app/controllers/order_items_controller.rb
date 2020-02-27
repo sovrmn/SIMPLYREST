@@ -39,7 +39,8 @@ class OrderItemsController < ApplicationController
 
     if @order_item.save
     # Redirection vers les orders pour validation
-      redirect_to restaurant_orders_path(@restaurant)
+      # redirect_to restaurant_orders_path(@restaurant)
+      redirect_to restaurant_inventory_items_path(@restaurant)
     else
     # Sinon rester sur la page d'inventory
       render "/inventory_items/index"
@@ -127,7 +128,7 @@ class OrderItemsController < ApplicationController
   def order_item_params
     params.require(:order_item).permit(:quantity, :price)
   end
-  
+
 
 
 

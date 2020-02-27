@@ -69,37 +69,42 @@
               <td>
                 <div class="d-flex justify-content-between">
                 <%= item.product.suppliers.first.name %>
-                <button type="button" class="btn btn-primary width: 200px" data-toggle="modal" data-target="#exampleModal-<%= item.id %>"> > </button>
+                <button type="button" class="button-green-supplier" data-toggle="modal" data-target="#exampleModal-<%= item.id %>"><strong>> </strong></button>
                 </div>
 
                   <!-- Modal -->
 
                 <div class="modal fade" id="exampleModal-<%= item.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
                   <div class="modal-dialog" role="document">
-                    <div class="modal-content">
+                    <div class="modal-content" style="width: 340px">
                       <div class="modal-header">
                         <h5 class="modal-title" id="Modalpriceperfourn">Choisissez votre fournisseur</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
-                      <div class="modal-body">
-                        <% item.product.supplier_items.each do |supplier_item| %>
-                          <%= simple_form_for [supplier_item, @order_item] do |f| %>
-                            <div class="d-flex justify-content-between"> <%= supplier_item.supplier.name %> <%= supplier_item.price_per_product %>€</div>
-                            <%= f.input :quantity, input_html: { value: "#{((item.optimal_quantity - item.quantity) > 0) ? (item.optimal_quantity - item.quantity).round(2) : 0 }" }, as: :hidden %>
-                            <%= f.button :submit, "#{supplier_item.supplier.name}" %>
-                          <% end %>
-                        <% end %>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary text-center height: 50px" data-dismiss="modal">Close</button>
+                      <div class='text-center m-0'>
+                        <p class="font-weight-bold text-center"> Fournisseur - Prix unitaire (€HT) </p>
+                            <li><% item.product.supplier_items.each do |supplier_item| %>
+                              <%= simple_form_for [supplier_item, @order_item] do |f| %>
+                                <%= f.input :quantity, input_html: { value: "#{((item.optimal_quantity - item.quantity) > 0) ? (item.optimal_quantity - item.quantity).round(2) : 0 }" }, as: :hidden %>
+                                  <%= f.button :submit, "#{supplier_item.supplier.name}      -      #{supplier_item.price_per_product}€", class: "button-grey" %>
+                                <% end %>
+                            <% end %>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary text-center height: 50px" data-dismiss="modal">Close</button>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </td>
-              <td>3€</td>
+              <td>
+                <% item.product.supplier_items.each do |supplier_item| %>
+                  <% @order_item.price %>
+                   <% end  %>
+              </td>
               <td>3€</td>
             </tr>
           <% end %>
