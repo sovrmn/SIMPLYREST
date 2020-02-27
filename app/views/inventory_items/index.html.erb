@@ -1,7 +1,6 @@
 <div class="container mt-5">
   <div><h3 class="border text-right">Mon panier</h3></div>
 
-
   <div class="d-flex">
   <div>
     <h1>Mes stocks</h1>
@@ -22,29 +21,29 @@
               <th scope="row"></th>
               <td><%= item.product.name %></td>
               <td><%= item.product.category %></td>
-              <td><% @restaurant = item.restaurant %>
-                  <% @product = item.product  %>
-                  <% @recipes_with_same_ingredient= Ingredient.where(product: @product) %>
-                  <% @optimal_stock_total = 0 %>
-                  <% @recipes_with_same_ingredient.each do |ingredient|  %>
-                    <% @ingredient_quantity = ingredient.quantity  %>
-                    <% @recipe = ingredient.recipe  %>
-                    <% @restaurant_recipe = RestaurantRecipe.where(restaurant: @restaurant, recipe: @recipe) %>
-                    <% @plate = @restaurant_recipe.first.plate %>
-                    <% @optimal_stock_per_recipe = @ingredient_quantity * @plate%>
-                    <% @optimal_stock_total += @optimal_stock_per_recipe %>
-                    <% @optimal_stock_total %>
-                  <% end %>
-              <%= @optimal_stock_total.round(2) %><%= item.product.unit %>
-              </td>
+              <td><%= item.optimal_quantity.round(2) %><%= item.product.unit %></td>
               <td><%= item.quantity %><%= item.product.unit %></td>
-              <td>barre d'alerte avec niveau de stock</td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+              <td>
+                <div class="progressBar d-flex">
 
+                  <div class="progressRed">
+                  </div>
+                  <div class="progressOrange">
+                  </div>
+                  <div class="progressGreen">
+                  </div>
+                </div>
+                <div class="mt-3 text-center">
+                   <span id="stocklevel"><%= ((item.quantity/item.optimal_quantity)*100).round(1)%></span>
+                 %
+                 </div>
+              </td>
+            </tr>
+           <% end %>
+         </tbody>
+        </table>
+</div>
+  
     <div>
       <h1>Mes commandes</h1>
       <table class="table">
@@ -109,24 +108,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

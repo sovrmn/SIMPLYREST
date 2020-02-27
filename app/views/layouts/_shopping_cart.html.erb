@@ -1,0 +1,38 @@
+  <header>
+    <div id="cd-cart-trigger"><a class="toggle-cart" href="#">ToggleCart</a></div>
+  </header>
+
+<div class="shopping">
+<!-- nav bar des commandes par fournisseurs -->
+  <nav id="main-nav">
+    <ul class="list-inline tabs-underlined d-flex">
+      <li>
+          <% @orders.each do |order| %>
+            <input id="tab_<%= order.id %>" data-order="<%= order.id %>" type="radio" name="tabs" class="tab radio">
+            <label for="tab_<%= order.id %>"><%= order.supplier.name%></label>
+          <%end %>
+      </li>
+    </ul>
+  </nav>
+
+  <div id="cd-cart">
+    <h2>Mon panier</h2>
+    <ul class="cd-cart-items">
+      <% @orders.each do |order| %>
+        <div class="order-items d-none" id="<%= order.id %>">
+          <span class="cd-qty">1x</span> Product Name
+          <div class="cd-price">€€€€€</div>
+          <a href="#0" class="cd-item-remove cd-img-replace">Editer la commande</a>
+        </div>
+      <%end %>
+    </ul> <!-- cd-cart-items -->
+    <div class="cd-cart-total">
+      <p>Total <span> €€€€€ </span></p>
+      <button class="btn-success rounded order-btn">Valider</button>
+      <button class="btn-danger rounded order-btn">Annuler</button>
+    </div> <!-- cd-cart-total -->
+  </div> <!-- cd-cart -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/main.js"></script> <!-- Gem jQuery -->
+</div>
+
