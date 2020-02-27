@@ -23,6 +23,7 @@ require("channels")
 // ----------------------------------------------------
 import "bootstrap";
 import {orderCollap} from "../plugins/collapsible";
-orderCollap ();
+orderCollap();
 import {toggleSide} from "../plugins/toggleSideBar";
-toggleSide ();
+toggleSide();
+// import {minusPlusButton} from "../plugins/minusPlusButton";
