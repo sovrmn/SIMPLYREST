@@ -4,15 +4,5 @@
 const channels = require.context('.', true, /_channel\.js$/)
 channels.keys().forEach(channels)
 
+// définir la première tab avec la class checked
 
-
-
-
-// toggle du shopping cart
-$(document).ready(function () {
-    $('.toggle-cart').on('click', function () {
-        $('.shopping').toggleClass('active');
-        $(this).toggleClass('active');
-        return false
-    });
-});
