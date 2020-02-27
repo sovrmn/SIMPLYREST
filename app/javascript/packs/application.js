@@ -26,9 +26,12 @@ import {orderCollap} from "../plugins/collapsible";
 orderCollap();
 import {toggleSide} from "../plugins/toggleSideBar";
 toggleSide();
+
 import {toggleShoppingCart} from "../plugins/toggleShoppingCart";
 toggleShoppingCart();
 import {displayOrderAndItems} from "../plugins/displayOrderAndItems";
 displayOrderAndItems();
-// import {minusPlusButton} from "../plugins/minusPlusButton";
-
+import {minusPlusButton} from "../plugins/minusplusbutton";
+minusPlusButton();
+import {move} from "../plugins/move";
+move();
