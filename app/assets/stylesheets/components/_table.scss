@@ -9,10 +9,17 @@
 //   }
 // }
 
+td {
+  height:100px;
+}
+
+th {
+  height:100px;
+}
 
 .table {
-background-color: $baby-white;
-width: 800px;
+background-color: white;
+width: 500px;
 
 }
 
@@ -68,3 +75,12 @@ color: $persian-green;
   background-color: #eaeaea;
   text-align: center;
 }
+
+
+.table-fixed tbody {
+    overflow-y: visible;
+
+}
+
+
+
