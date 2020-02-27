@@ -32,7 +32,7 @@ h3 {
     background: #555;
     transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
 }
-
+// tranformation des batons en croix
 #sidebarCollapse span:first-of-type {
     /* rotate first one */
     transform: rotate(45deg) translate(2px, 1px);

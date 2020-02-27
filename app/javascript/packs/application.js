@@ -22,3 +22,7 @@ require("channels")
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 import "bootstrap";
+import {orderCollap} from "../plugins/collapsible";
+orderCollap ();
+import {toggleSide} from "../plugins/toggleSideBar";
+toggleSide ();

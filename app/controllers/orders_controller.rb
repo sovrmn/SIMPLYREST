@@ -1,25 +1,45 @@
 class OrdersController < ApplicationController
-  def index
-    @orders = Order.all
-  end
+  before_action :set_restaurant
 
-  def new
+  def index
+
+    if params[:supplier].present?
+      #improve search (ILIKE %)
+      sql_query = "suppliers.name ILIKE :suppliers"
+
+      @orders = @restaurant.orders.joins(:supplier).where(sql_query, suppliers: "%#{params[:supplier]}%")
+    else
+      @orders = @restaurant.orders
+    end
     @order = Order.new
   end
 
-  def search
-    if params[:supplier].present?
-      @orders = Order.where(supplier: params[query])
-    else
-      @orders = Order.all
-    end
+  def update
+    @order = Order.find(params[:id])
+    @order.update(order_params)
+    redirect_to restaurant_orders_path(@restaurant)
   end
 
   private
 
   def order_params
-    #params.require(:order).permit()
+    params.require(:order).permit(:delivered)
+  end
+
+  def set_restaurant
+    @restaurant = current_user.restaurants.first
   end
 
 end
+
+
+
+
+
+
+
+
+
+
+
 

@@ -2,6 +2,11 @@
   background-color: $baby-white;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 800px;
+  .table {
+  width: 800px;
+
+  }
 }
 
 .row-content {
@@ -28,4 +33,20 @@ border-radius: 10px;
 
 .row-table {
   padding: 0px 5px 5px 10px;
+}
+
+
+.headline {
+background-color: $baby-white;
+font-size: 12px;
+color: $persian-green;
+
+}
+
+.product-list {
+  font-size: 12px;
+}
+
+.order_index {
+
 }
