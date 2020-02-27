@@ -7,10 +7,10 @@
 
 
 
-<table class="table">
+<table class="table text-left">
 
   <thead>
-    <tr>
+    <tr class="header ">
       <th scope="col">#</th>
       <th scope="col">Article</th>
       <th scope="col">Catégorie</th>
@@ -32,11 +32,26 @@
         <td><%= item.product.category %></td>
         <td><%= item.optimal_quantity.round(2) %><%= item.product.unit %></td>
         <td><%= item.quantity %><%= item.product.unit %></td>
-        <td>barre d'alerte avec niveau de stock</td>
+        <td>
+          <div class="progressBar d-flex">
+
+            <div class="progressRed">
+            </div>
+            <div class="progressOrange">
+            </div>
+            <div class="progressGreen">
+            </div>
+          </div>
+           <div class="mt-3 text-center">
+             <span id="stocklevel"><%= ((item.quantity/item.optimal_quantity)*100).round(1)%></span>
+           %
+            </div>
+        </td>
         <td>
           <div class="quantitybutton d-flex">
             <span id="minusbutton">-</span>
-            <input id="quantityinput" type="text" value="1"/>
+            <% quantity = 5 %>
+            <input id="quantityinput" type="text" value="<%= quantity %>"/>
             <span id="plusbutton">+</span>
           </div>
         </td>
