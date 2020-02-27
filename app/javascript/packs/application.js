@@ -31,11 +31,8 @@ import {toggleShoppingCart} from "../plugins/toggleShoppingCart";
 toggleShoppingCart();
 import {displayOrderAndItems} from "../plugins/shoppingCartDisplay";
 displayOrderAndItems();
-<<<<<<< HEAD
-// import {minusPlusButton} from "../plugins/minusPlusButton";
-=======
+
 import {minusPlusButton} from "../plugins/minusplusbutton";
 minusPlusButton();
 import {move} from "../plugins/move";
 move();
->>>>>>> ae61d7330d8662fcc1cdfd053325f8f038f46104

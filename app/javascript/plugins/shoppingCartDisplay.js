@@ -15,7 +15,6 @@ const displayOrderAndItems = () => {
       display.classList.remove('d-none');
     });
   });
-
 };
 
 export {displayOrderAndItems};
