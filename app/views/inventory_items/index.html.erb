@@ -33,7 +33,13 @@
         <td><%= item.optimal_quantity.round(2) %><%= item.product.unit %></td>
         <td><%= item.quantity %><%= item.product.unit %></td>
         <td>barre d'alerte avec niveau de stock</td>
-        <td> bouton qui scrolle avec quantités</td>
+        <td>
+          <div class="quantitybutton d-flex">
+            <span id="minusbutton">-</span>
+            <input id="quantityinput" type="text" value="1"/>
+            <span id="plusbutton">+</span>
+          </div>
+        </td>
         <td>fournisseur référent + option autre fournisseur+ bouton add to cart</td>
         <td></td>
         <td></td>
