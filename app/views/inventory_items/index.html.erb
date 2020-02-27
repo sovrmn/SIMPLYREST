@@ -43,7 +43,7 @@
          </tbody>
         </table>
 </div>
-  
+
     <div>
       <h1>Mes commandes</h1>
       <table class="table">
@@ -62,7 +62,7 @@
               <td>
                   <div class="quantitybutton d-flex">
                     <span id="minusbutton">-</span>
-                    <input id="quantityinput" type="text" value="<%= ((@optimal_stock_total - item.quantity) > 0) ? (@optimal_stock_total - item.quantity).round(2) : 0 %>"/>
+                    <input id="quantityinput" type="text" value="<%= ((item.optimal_quantity - item.quantity) > 0) ? (item.optimal_quantity - item.quantity).round(2) : 0 %>"/>
                     <span id="plusbutton">+</span>
                   </div>
               </td>
@@ -87,7 +87,7 @@
                         <% item.product.supplier_items.each do |supplier_item| %>
                           <%= simple_form_for [supplier_item, @order_item] do |f| %>
                             <div class="d-flex justify-content-between"> <%= supplier_item.supplier.name %> <%= supplier_item.price_per_product %>€</div>
-                            <%= f.input :quantity, input_html: { value: "#{((@optimal_stock_total - item.quantity) > 0) ? (@optimal_stock_total - item.quantity).round(2) : 0 }" }, as: :hidden %>
+                            <%= f.input :quantity, input_html: { value: "#{((item.optimal_quantity - item.quantity) > 0) ? (item.optimal_quantity - item.quantity).round(2) : 0 }" }, as: :hidden %>
                             <%= f.button :submit, "#{supplier_item.supplier.name}" %>
                           <% end %>
                         <% end %>
