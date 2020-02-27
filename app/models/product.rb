@@ -4,4 +4,5 @@ class Product < ApplicationRecord
   has_many :suppliers, through: :supplier_items
   has_many :inventory_items
   has_many :restaurants, through: :inventory_items
+  has_many :order_items, through: :supplier_items
 end

@@ -8,10 +8,14 @@ channels.keys().forEach(channels)
 
 
 
+
+
+// toggle du shopping cart
 $(document).ready(function () {
-    $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').toggleClass('active');
+    $('.toggle-cart').on('click', function () {
+        $('.shopping').toggleClass('active');
         $(this).toggleClass('active');
+        return false
     });
 });
 
