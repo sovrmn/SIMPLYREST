@@ -10,8 +10,8 @@
 <table class="table">
 
   <thead>
-    <tr>
-      <th scope="col">#</th>
+    <tr class="header">
+      <th  scope="col">#</th>
       <th scope="col">Article</th>
       <th scope="col">Catégorie</th>
       <th scope="col">Stock optimal
@@ -34,18 +34,18 @@
         <td><%= item.quantity %><%= item.product.unit %></td>
         <td>
           <div class="progressBar d-flex">
+
             <div class="progressRed">
             </div>
             <div class="progressOrange">
             </div>
             <div class="progressGreen">
             </div>
-             <div  class="mt-3">
-               <span id="stocklevel"><%= ((item.quantity/item.optimal_quantity)*100).round(1)%></span>
-             %
-              </div>
           </div>
-
+           <div  class="mt-3">
+             <span id="stocklevel"><%= ((item.quantity/item.optimal_quantity)*100).round(1)%></span>
+           %
+            </div>
         </td>
         <td>
           <div class="quantitybutton d-flex">
