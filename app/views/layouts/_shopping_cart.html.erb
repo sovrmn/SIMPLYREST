@@ -2,14 +2,17 @@
     <div id="cd-cart-trigger"><a class="toggle-cart" href="#"><i class="fas fa-shopping-cart"></i></a></div>
   </header>
 
-<div class="shopping">
+<div class="shopping active">
 <!-- nav bar des commandes par fournisseurs -->
   <nav id="main-nav">
     <ul class="list-inline tabs-underlined d-flex">
       <li>
           <% @orders.each do |order| %>
-            <input id="tab_<%= order.id %>" data-order="<%= order.id %>" type="radio" name="tabs" class="tab radio">
-            <label for="tab_<%= order.id %>"><%= order.supplier.name%></label>
+
+            <% if order.delivered? == false && order.validated == false %>
+              <input id="tab_<%= order.id %>" data-order="<%= order.id %>" type="radio" name="tabs" class="tab radio">
+              <label for="tab_<%= order.id %>"><%= order.supplier.name%></label>
+            <%end %>
           <%end %>
       </li>
     </ul>
@@ -17,22 +20,29 @@
 
   <div id="cd-cart">
     <h2>Mon panier</h2>
-    <ul class="cd-cart-items">
+
       <% @orders.each do |order| %>
+        <% total = 0 %>
+        <% @order_total = 0 %>
         <div class="order-items d-none" id="<%= order.id %>">
-          <span class="cd-qty">1x</span> Product Name
-          <div class="cd-price">€€€€€</div>
-          <a href="#0" class="cd-item-remove cd-img-replace">Editer la commande</a>
+          <% order.order_items.each do |order_item| %>
+            <span> <strong> <%= order_item.supplier_item.product.name %></strong></span> <br>
+            <span class="cd-qty"><%= order_item.quantity %><%= order_item.unit %> à <%= order_item.supplier_item.price_per_product %>€ le <%= order_item.unit %></span>
+
+            <% total = total + (order_item.quantity * order_item.supplier_item.price_per_product) %>
+            <p id="total">Total: <%= total %> €</p>
+
+            <% @order_total += total %>
+          <%end %>
+          <% if order.delivered? == false && order.validated == false %>
+            <p id="grand-total">Total : <%= @order_total %> € </p>
+            <button class="btn-success rounded-pill order-btn">Valider</button>
+            <button class="btn-danger rounded-pill order-btn">Annuler</button>
+          <%end %>
         </div>
       <%end %>
-    </ul> <!-- cd-cart-items -->
-    <div class="cd-cart-total">
-      <p>Total <span> €€€€€ </span></p>
-      <button class="btn-success rounded order-btn">Valider</button>
-      <button class="btn-danger rounded order-btn">Annuler</button>
-    </div> <!-- cd-cart-total -->
+
   </div> <!-- cd-cart -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/main.js"></script> <!-- Gem jQuery -->
 </div>
-

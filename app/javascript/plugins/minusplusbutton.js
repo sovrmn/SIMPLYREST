@@ -12,10 +12,8 @@ const minusPlusButton = () => {
         currentValue = 0;
       }
       input.value = currentValue;
-
     });
   };
-
 
   const plus = document.getElementById("plusbutton");
   if (plus) {
@@ -23,12 +21,10 @@ const minusPlusButton = () => {
       const input = document.getElementById('quantityinput');
       let currentValue = parseInt(input.value);
       currentValue = currentValue + 1;
-        input.value = currentValue;
+      input.value = currentValue;
     });
   }
 }
 
 
 export {minusPlusButton};
-
-

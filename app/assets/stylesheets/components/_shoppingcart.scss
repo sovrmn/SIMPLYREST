@@ -10,6 +10,7 @@
   position: absolute;
   background: white;
   box-shadow: -2px 3px 24px black;
+  z-index: 50;
 }
 
 .active {
@@ -39,8 +40,16 @@
 
 .order-items {
   width: 100%;
-  border-top: 2px black;
-  border-bottom: 2px black;
+  margin-left: 24px;
+}
+
+#total {
+  border-bottom: solid 1px;
+}
+
+#grand-total {
+  font-weight: bold;
+  font-size: 24px;
 }
 
 .cd-cart-total p {
@@ -57,6 +66,7 @@
 
 .order-btn {
    position: relative;
+   border-radius: 14px;
 }
 
 #cd-cart {
@@ -68,15 +78,4 @@
 }
 #cd-cart.speed-in {
   right: 0;
-}
-
-.order-items {
-  width: 100%;
-  border-bottom: solid;
-  border-bottom-width: thin;
-}
-
-.order-items:first-child{
-  border-top: solid;
-  border-top-width: thin;
 }

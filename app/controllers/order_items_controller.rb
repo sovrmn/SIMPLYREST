@@ -39,9 +39,10 @@ class OrderItemsController < ApplicationController
 
     if @order_item.save
     # Redirection vers les orders pour validation
-      redirect_to restaurant_orders_path(@restaurant)
+      # redirect_to restaurant_orders_path(@restaurant)
+      redirect_to restaurant_inventory_items_path(@restaurant)
     else
-    # Sinon rester sur la page d'inventory
+    # Sinon rester sur la page d'inventories
       render "/inventory_items/index"
     end
   end
@@ -128,9 +129,6 @@ class OrderItemsController < ApplicationController
   #     register_order_item.order = @draftorder
   #   end
   # end
-
-
-
 
 
 end

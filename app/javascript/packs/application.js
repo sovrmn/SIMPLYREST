@@ -22,30 +22,27 @@ require("channels")
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 import "bootstrap";
+
 import {orderCollap} from "../plugins/collapsible";
-document.addEventListener('turbolinks:load', () => {
-  orderCollap();
-});
 
 import {toggleSide} from "../plugins/toggleSideBar";
-document.addEventListener('turbolinks:load', () => {
-  toggleSide();
-});
 
 import {toggleShoppingCart} from "../plugins/toggleShoppingCart";
-document.addEventListener('turbolinks:load', () => {
-  toggleShoppingCart();
-});
 
 import {displayOrderAndItems} from "../plugins/shoppingCartDisplay";
-document.addEventListener('turbolinks:load', () => {
-  displayOrderAndItems();
-});
 
 import {minusPlusButton} from "../plugins/minusplusbutton";
-document.addEventListener('turbolinks:load', () => {
-  minusPlusButton();
-});
 
 import {move} from "../plugins/move";
-move();
+
+
+
+document.addEventListener('turbolinks:load', () => {
+  orderCollap();
+  toggleSide();
+  toggleShoppingCart();
+  displayOrderAndItems();
+  minusPlusButton();
+  move();
+
+});

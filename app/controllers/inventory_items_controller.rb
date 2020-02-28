@@ -3,6 +3,7 @@ class InventoryItemsController < ApplicationController
 
 
   def index
+    @orders = @restaurant.orders.where(validated: false)
     @inventory_items = @restaurant.inventory_items
 
     @order_item = OrderItem.new
@@ -19,22 +20,22 @@ class InventoryItemsController < ApplicationController
       #je créé un array dans lequel je vais additionner toutes les stocks nécessaires d'un ingrédient donnée pour chaque recette
       @optimal_stock_total = 0
 
-        @recipes_with_same_ingredient.each do |ingredient|
-          #je récupère la quantité d'ingrédient pour la recette en cours d'itération
-          @ingredient_quantity = ingredient.quantity
-          #je récupère la recette de mon ingredient
-          @recipe = ingredient.recipe
-          # on récupère le plat du restaurant sur lequel on itère dans la table restaurant recipe où les plates ont été definies
-          @restaurant_recipe = RestaurantRecipe.where(restaurant: @restaurant).where(recipe: @recipe)
-          # on récupère le nombre de plate pour la recette instanciée précédemment
-          @plate = @restaurant_recipe.plate
+      @recipes_with_same_ingredient.each do |ingredient|
+        #je récupère la quantité d'ingrédient pour la recette en cours d'itération
+        @ingredient_quantity = ingredient.quantity
+        #je récupère la recette de mon ingredient
+        @recipe = ingredient.recipe
+        # on récupère le plat du restaurant sur lequel on itère dans la table restaurant recipe où les plates ont été definies
+        @restaurant_recipe = RestaurantRecipe.where(restaurant: @restaurant).where(recipe: @recipe)
+        # on récupère le nombre de plate pour la recette instanciée précédemment
+        @plate = @restaurant_recipe.plate
 
-          # on calcule l'optimal stock du produit et pour la recette sur laquelle ont est
-          @optimal_stock_per_recipe = @ingredient_quantity * @plate
-          # total d'un ingrédient toutes recettes confondues
-         @optimal_stock_total += @optimal_stock_per_recipe
-        end
-        return @optimal_stock_total
+        # on calcule l'optimal stock du produit et pour la recette sur laquelle ont est
+        @optimal_stock_per_recipe = @ingredient_quantity * @plate
+        # total d'un ingrédient toutes recettes confondues
+       @optimal_stock_total += @optimal_stock_per_recipe
+      end
+      return @optimal_stock_total
     end
 
 
