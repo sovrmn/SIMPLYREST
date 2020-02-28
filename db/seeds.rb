@@ -231,9 +231,9 @@ mure_inv = InventoryItem.create(quantity: 0.6,restaurant: restaurant ,product: m
 tonka_inv = InventoryItem.create(quantity: 0.2,restaurant: restaurant ,product: tonka)
 p "inventory items created"
 # ? orders :
-order_delivered = Order.create(total: 638.05, order_number: "BC-72-2020-01" ,delivered: true, restaurant: restaurant, supplier: metro, validated: false)
+order_delivered = Order.create(total: 638.05, order_number: "BC-72-2020-01" ,delivered: false, restaurant: restaurant, supplier: metro, validated: false)
 order_waiting = Order.create(total: 431.54, order_number: "BC-73-2020-02" ,delivered: false, restaurant: restaurant, supplier: c2b, validated: false)
-order_waiting_again = Order.create(total: 390.28, order_number: "BC-74-2020-02" ,delivered: false, restaurant: restaurant, supplier: metro, validated: false)
+order_waiting_again = Order.create(total: 390.28, order_number: "BC-74-2020-02" ,delivered: true, restaurant: restaurant, supplier: metro, validated: true)
 p "orders created"
 boeufAubrac_order_item = OrderItem.create(quantity: 8, unit: 'kg', price: 195.76, completed: false, supplier_item: boeufAubrac_c2b, order: order_waiting)
 coteAubrac_order_item = OrderItem.create(quantity: 6, unit: 'kg', price: 98.45, completed: false, supplier_item: cote_c2b, order: order_waiting)
