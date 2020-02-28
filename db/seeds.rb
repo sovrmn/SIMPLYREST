@@ -12,10 +12,10 @@ Ingredient.destroy_all
 p "ingredients destroyed"
 Recipe.destroy_all
 p "recipes destroyed"
-Order.destroy_all
-p "orders destroyed"
 OrderItem.destroy_all
 p "order items destroyed"
+Order.destroy_all
+p "orders destroyed"
 Product.destroy_all
 p "products destroyed"
 Supplier.destroy_all
