@@ -246,8 +246,8 @@ order_waiting_again = Order.create(total: 390.28, order_number: "BC-74-2020-02" 
 p "orders created"
 
 
-boeufAubrac_order_item = OrderItem.create(quantity: 8, unit: 'kg', price: 195.76, completed: false, supplier_item: boeufAubrac_c2b, order: order_waiting)
-boeufAubrac_order_item = OrderItem.create(quantity: 8, unit: 'kg', price: 195.76, completed: false, supplier_item: cote_c2b, order: order_waiting)
+boeufaubrac_order_item = OrderItem.create(quantity: 8, unit: 'kg', price: 195.76, completed: false, supplier_item: boeufAubrac_c2b, order: order_waiting)
+boeufaubrac_order_item = OrderItem.create(quantity: 8, unit: 'kg', price: 195.76, completed: false, supplier_item: cote_c2b, order: order_waiting)
 
 # order_item
 
