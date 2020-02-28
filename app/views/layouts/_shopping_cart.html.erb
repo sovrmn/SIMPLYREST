@@ -1,4 +1,5 @@
   <header>
+  <header>
     <div id="cd-cart-trigger"><a class="toggle-cart" href="#">ToggleCart</a></div>
   </header>
 
@@ -8,6 +9,7 @@
     <ul class="list-inline tabs-underlined d-flex">
       <li>
           <% @orders.each do |order| %>
+
             <% if order.delivered? == false && order.validated == false %>
               <input id="tab_<%= order.id %>" data-order="<%= order.id %>" type="radio" name="tabs" class="tab radio">
               <label for="tab_<%= order.id %>"><%= order.supplier.name%></label>
