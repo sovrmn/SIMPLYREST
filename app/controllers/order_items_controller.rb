@@ -42,7 +42,7 @@ class OrderItemsController < ApplicationController
       # redirect_to restaurant_orders_path(@restaurant)
       redirect_to restaurant_inventory_items_path(@restaurant)
     else
-    # Sinon rester sur la page d'inventory
+    # Sinon rester sur la page d'inventories
       render "/inventory_items/index"
     end
   end
