@@ -4,6 +4,7 @@ const orderCollap = () => {
 
   const collapsible = document.querySelectorAll(".order-details");
 
+
   collapsible.forEach((btn)=>{
     btn.addEventListener("click", (event) => {
 
