@@ -111,17 +111,14 @@
                   </div>
                 </td>
                 <td>
-                  3€
+                  <% if item.product.order_items.joins(:order).where(orders: { validated: false} ).size > 0 %>
+                      <%= item.product.order_items.joins(:order).where(orders: { validated: false} ).last.supplier_item.price_per_product %>
+                    <% end %>
                 </td>
                 <td>
-                  <% item.product.supplier_items.each do |supplier_item| %>
-                    <% @order_items = supplier_item.order_items %>
-                    <% @order_items.each do |order_item| %>
-                        <% if (order_item.order.validated == false) %>
-                          <%= order_item.supplier_item.price_per_product * order_item.quantity %>€
-                        <% end  %>
-                    <% end  %>
-                  <% end  %>
+                  <% if item.product.order_items.joins(:order).where(orders: { validated: false} ).size > 0 %>
+                      <%= (item.product.order_items.joins(:order).where(orders: { validated: false} ).last.supplier_item.price_per_product * item.product.order_items.joins(:order).where(orders: { validated: false} ).last.quantity).round(2) %>
+                    <% end %>
                 </td>
               </tr>
             <% end %>
