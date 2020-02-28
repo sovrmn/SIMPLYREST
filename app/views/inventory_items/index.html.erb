@@ -1,14 +1,13 @@
 <div class="container">
-  <div><h3 class="border text-right"></h3>
 
   </div>
    <%= render './layouts/shopping_cart', order: @orders %>
-  <h1>Mes stocks</h1>
+  <h1 class="ml-3">Mes stocks</h1>
 
   <div class="container d-flex justify-content-around">
-     <div class=" mx-auto bg-white rounded shadow ml-5">
+     <div class="bg-white rounded shadow">
       <!-- Fixed header table-->
-        <table class="table table-fixed">
+        <table class="table table-fixed ml-3">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -50,9 +49,10 @@
         </div>
 
         <!-- End of table-->
+
         <!-- Second table-->
 
-        <div class="mx-auto bg-white rounded shadow ml-3">
+        <div class="bg-white rounded shadow ml-3">
           <table class="table table-fixed">
             <thead>
               <tr>
