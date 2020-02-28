@@ -3,6 +3,7 @@ class InventoryItemsController < ApplicationController
 
 
   def index
+    @orders = @restaurant.orders.where(validated: false)
     @inventory_items = @restaurant.inventory_items
 
     @order_item = OrderItem.new
