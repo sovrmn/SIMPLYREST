@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show, :new, :create]
   end
   resources :orders, only: [:update]
+  resources :order_items, only: [:update]
 
   resources :supplier_items, only: [] do
     resource :order_items, only: :create
