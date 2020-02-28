@@ -1,7 +1,9 @@
 const displayOrderAndItems = () => {
 
+
   $('.tab:first').addClass('checked');
   const radios = document.querySelectorAll('.radio');
+
 
   radios.forEach((radio) => {
     radio.addEventListener("click",(event) => {
