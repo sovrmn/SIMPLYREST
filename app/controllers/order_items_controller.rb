@@ -47,6 +47,13 @@ class OrderItemsController < ApplicationController
     end
   end
 
+    private
+
+  def order_item_params
+    params.require(:order_item).permit(:quantity, :price)
+  end
+
+
   # def total_order(order)
   #   @restaurant = Restaurant.where(user: current_user).first
   #   if order.restaurant == @restaurant
@@ -122,14 +129,6 @@ class OrderItemsController < ApplicationController
   #     register_order_item.order = @draftorder
   #   end
   # end
-
-  private
-
-  def order_item_params
-    params.require(:order_item).permit(:quantity, :price)
-  end
-
-
 
 
 end

@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:delivered)
+    params.require(:order).permit(:delivered, :validated)
   end
 
   def set_restaurant
