@@ -31,7 +31,7 @@
                     <%= f.submit "Valider la commande", class: "button-green-order" %>
                   <% end %>
                 </td>
-                <tr class="col-name text-center d-none collapsible <%= order.id %> headline">
+                <tr class="col-name text-center d-none collapsible<%= order.id %> headline">
                   <th scope="col">Produit</th>
                   <th scope="col">Quantité</th>
                   <th scope="col">Prix</th>
@@ -39,7 +39,7 @@
                   <th scope="col">Editer</th>
                 </tr>
                 <% order.order_items.each do |order_item| %>
-                <tr class="text-center d-none collapsible <%= order.id %> product-list">
+                <tr class="text-center d-none collapsible<%= order.id %> product-list">
                   <th scope="row"><%= order_item.supplier_item.product.name.capitalize %></th>
                   <td class="row-content"><%= order_item.quantity.round(0) %> <%= order_item.supplier_item.product.unit %></td>
                   <td class="row-content"><%= order_item.price %> €</td>

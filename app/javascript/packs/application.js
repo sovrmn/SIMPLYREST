@@ -23,15 +23,29 @@ require("channels")
 // ----------------------------------------------------
 import "bootstrap";
 import {orderCollap} from "../plugins/collapsible";
-orderCollap();
+document.addEventListener('turbolinks:load', () => {
+  orderCollap();
+});
+
 import {toggleSide} from "../plugins/toggleSideBar";
-toggleSide();
+document.addEventListener('turbolinks:load', () => {
+  toggleSide();
+});
 
 import {toggleShoppingCart} from "../plugins/toggleShoppingCart";
-toggleShoppingCart();
+document.addEventListener('turbolinks:load', () => {
+  toggleShoppingCart();
+});
+
 import {displayOrderAndItems} from "../plugins/shoppingCartDisplay";
-displayOrderAndItems();
+document.addEventListener('turbolinks:load', () => {
+  displayOrderAndItems();
+});
+
 import {minusPlusButton} from "../plugins/minusplusbutton";
-minusPlusButton();
+document.addEventListener('turbolinks:load', () => {
+  minusPlusButton();
+});
+
 import {move} from "../plugins/move";
 move();
