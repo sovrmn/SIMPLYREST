@@ -1,7 +1,31 @@
 .orders {
 margin-top: 20px;
-margin-left: 80px;
-background-color: $baby-white;
+margin-left: 50px;
+margin-right: 50px;
+width: 100%;
+border-radius: 5px;
 }
 
+.orders-waiting {
+box-shadow: 0 0 15px rgba(0,0,0,0.2);
+border-radius: 5px;
+padding: 10px;
+margin-bottom: 40px;
+background-color: $baby-white;
+width: 850px;
+padding-right: 10px;
+
+
+}
+
+.orders-validated {
+box-shadow: 0 0 15px rgba(0,0,0,0.2);
+border-radius: 5px;
+padding: 10px;
+background-color: $baby-white;
+width: 850px;
+margin-bottom: 30px;
+
+
+}
 

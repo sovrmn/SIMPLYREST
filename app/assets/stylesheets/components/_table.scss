@@ -9,20 +9,24 @@
 //   }
 // }
 
-td {
-  height:100px;
-}
+// td {
+//   height:100px;
+// }
 
-th {
-  height:100px;
-}
+// th {
+//   height:100px;
+// }
 
 .table {
 background-color: white;
-width: 500px;
-
+margin-right: 10px;
 }
 
+.table th, .table td {
+    padding: 0.75rem;
+    vertical-align: text-bottom;
+    border-top: 1px solid #dee2e6;
+  }
 // .row-content {
 //   padding: 0px !important;
 //   margin-bottom: 0px !important;
@@ -37,6 +41,7 @@ width: 500px;
 
 .col-name {
 background-color: $persian-green;
+color: $baby-white;
 opacity: 1;
 
 }
