@@ -68,7 +68,11 @@
               </td>
               <td>
                 <div class="d-flex justify-content-between">
-                <%= item.product.suppliers.first.name %>
+                  <% if item.product.order_items.joins(:order).where(orders: { validated: false} ).size.zero? %>
+                    <%= item.product.suppliers.first.name %>
+                  <% else %>
+                    <%= item.product.order_items.joins(:order).where(orders: { validated: false} ).last.supplier_item.supplier.name %>
+                  <% end %>
                 <button type="button" class="button-green-supplier" data-toggle="modal" data-target="#exampleModal-<%= item.id %>"><strong>> </strong></button>
                 </div>
 
@@ -85,12 +89,12 @@
                       </div>
                       <div class='text-center m-0'>
                         <p class="font-weight-bold text-center"> Fournisseur - Prix unitaire (€HT) </p>
-                            <li><% item.product.supplier_items.each do |supplier_item| %>
+                            <% item.product.supplier_items.each do |supplier_item| %>
                               <%= simple_form_for [supplier_item, @order_item] do |f| %>
                                 <%= f.input :quantity, input_html: { value: "#{((item.optimal_quantity - item.quantity) > 0) ? (item.optimal_quantity - item.quantity).round(2) : 0 }" }, as: :hidden %>
                                   <%= f.button :submit, "#{supplier_item.supplier.name}      -      #{supplier_item.price_per_product}€", class: "button-grey" %>
                                 <% end %>
-                            <% end %>
+                              <% end %>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary text-center height: 50px" data-dismiss="modal">Close</button>
@@ -101,11 +105,22 @@
                 </div>
               </td>
               <td>
-                <% item.product.supplier_items.each do |supplier_item| %>
-                  <% @order_item.price %>
-                   <% end  %>
+                <% if item.product.order_items.joins(:order).where(orders: { validated: false} ).size > 0 %>
+                    <%= item.product.suppliers.first.name %>
+                  <% else %>
+                    <%= item.product.order_items.joins(:order).where(orders: { validated: false} ).last.supplier_item.supplier.name %>
+                  <% end %>
               </td>
-              <td>3€</td>
+              <td>
+                <% item.product.supplier_items.each do |supplier_item| %>
+                  <% @order_items = supplier_item.order_items %>
+                  <% @order_items.each do |order_item| %>
+                      <% if (order_item.order.validated == false) %>
+                        <%= order_item.supplier_item.price_per_product * order_item.quantity %>€
+                      <% end  %>
+                  <% end  %>
+                <% end  %>
+              </td>
             </tr>
           <% end %>
         </tbody>
