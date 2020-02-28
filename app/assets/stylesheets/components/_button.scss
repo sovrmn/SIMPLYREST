@@ -53,3 +53,37 @@
 }
 
 
+.button-grey {
+  background-color: #F4F4F4;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align:center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+  border: 1px solid transparent;
+  transition: opacity 0.3s ease;
+  width: 270px;
+
+  &:hover {
+    color: white;
+    background-color: #128779;
+  }
+}
+
+.button-green-supplier {
+  color: #18A999;
+  background-color: #F4F4F4;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align:center;
+  transition: opacity 0.3s ease;
+  border: 1px solid #18A999;
+  width: 32px;
+
+  &:hover {
+    color: white;
+    background-color: #18A999;
+  }
+}
+
+
