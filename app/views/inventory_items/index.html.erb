@@ -105,11 +105,7 @@
                 </div>
               </td>
               <td>
-                <% if item.product.order_items.joins(:order).where(orders: { validated: false} ).size > 0 %>
-                    <%= item.product.suppliers.first.name %>
-                  <% else %>
-                    <%= item.product.order_items.joins(:order).where(orders: { validated: false} ).last.supplier_item.supplier.name %>
-                  <% end %>
+                3€
               </td>
               <td>
                 <% item.product.supplier_items.each do |supplier_item| %>
