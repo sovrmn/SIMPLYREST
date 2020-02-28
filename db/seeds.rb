@@ -24,11 +24,15 @@ Restaurant.destroy_all
 p "Restaurants destroyed"
 User.destroy_all
 <<<<<<< HEAD
+<<<<<<< HEAD
 p "Users destroyed"
 
 =======
 p "users destroyed"
 >>>>>>> 2f15fb2f267347927872b4f6db964b64185af118
+=======
+p "users destroyed"
+>>>>>>> 409e749bb10c60aeac5799b1b0f5723ab3bfc6d7
 # users :
 owner = User.create!(email:'brad.pitt.hollywood@gmail.com', password:'nespresso')
 p "users created"
@@ -241,11 +245,16 @@ order_waiting_again = Order.create(total: 390.28, order_number: "BC-74-2020-02" 
 p "orders created"
 boeufAubrac_order_item = OrderItem.create(quantity: 8, unit: 'kg', price: 195.76, completed: false, supplier_item: boeufAubrac_c2b, order: order_waiting)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 409e749bb10c60aeac5799b1b0f5723ab3bfc6d7
 coteAubrac_order_item = OrderItem.create(quantity: 6, unit: 'kg', price: 98.45, completed: false, supplier_item: cote_c2b, order: order_waiting)
 
 # order_item
 order_item_one = OrderItem.create(quantity: 1, unit: 'g', price: 1, completed: false, supplier_item: aubergine_metro, order: order_waiting_again)
 order_item_two = OrderItem.create(quantity: 1, unit: 'g', price: 4, completed: false, supplier_item: fleurSel_metro, order: order_waiting_again)
+<<<<<<< HEAD
 =======
 boeufAubrac_order_item = OrderItem.create(quantity: 8, unit: 'kg', price: 195.76, completed: false, supplier_item: cote_c2b, order: order_waiting)
 # order_item
@@ -254,4 +263,8 @@ order_item_two = OrderItem.create(quantity: 1, unit: 'kg', price: 4, completed: 
 order_item_thre = OrderItem.create(quantity: 1, unit: 'g', price: 1, completed: false, supplier_item: aubergine_metro, order: order_waiting)
 order_item_four = OrderItem.create(quantity: 1, unit: 'g', price: 4, completed: false, supplier_item: fleurSel_metro, order: order_waiting)
 >>>>>>> 2f15fb2f267347927872b4f6db964b64185af118
+=======
+order_item_thre = OrderItem.create(quantity: 1, unit: 'g', price: 1, completed: false, supplier_item: aubergine_metro, order: order_waiting)
+order_item_four = OrderItem.create(quantity: 1, unit: 'g', price: 4, completed: false, supplier_item: fleurSel_metro, order: order_waiting)
+>>>>>>> 409e749bb10c60aeac5799b1b0f5723ab3bfc6d7
 p "order_items created"
