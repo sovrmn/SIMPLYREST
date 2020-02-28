@@ -31,6 +31,7 @@ import {toggleShoppingCart} from "../plugins/toggleShoppingCart";
 toggleShoppingCart();
 import {displayOrderAndItems} from "../plugins/shoppingCartDisplay";
 displayOrderAndItems();
+
 import {minusPlusButton} from "../plugins/minusplusbutton";
 minusPlusButton();
 import {move} from "../plugins/move";

@@ -1,7 +1,7 @@
 OrderItem.destroy_all
-p "oder items destroyed"
+p "Order items destroyed"
 InventoryItem.destroy_all
-p "inventory items destroyed"
+p "Inventory items destroyed"
 RestaurantRecipe.destroy_all
 p "Restaurant Recipes destroyed"
 RecipeSale.destroy_all
@@ -9,22 +9,21 @@ p "Recipe Sales destroyed"
 SupplierItem.destroy_all
 p "Supplier items destroyed"
 Ingredient.destroy_all
-p "ingredients destroyed"
+p "Ingredients destroyed"
 Recipe.destroy_all
-p "recipes destroyed"
+p "Recipes destroyed"
 Order.destroy_all
-p "orders destroyed"
+p "Orders destroyed"
 OrderItem.destroy_all
-p "order items destroyed"
+p "Order items destroyed"
 Product.destroy_all
-p "products destroyed"
+p "Products destroyed"
 Supplier.destroy_all
-p "suppliers destroyed"
+p "Suppliers destroyed"
 Restaurant.destroy_all
-p "restaurants destroyed"
+p "Restaurants destroyed"
 User.destroy_all
 p "users destroyed"
-
 # users :
 owner = User.create!(email:'brad.pitt.hollywood@gmail.com', password:'nespresso')
 p "users created"
@@ -38,7 +37,6 @@ saumonR = Recipe.create!(name: "Rillettes de saumon", category: 'poisson', user:
 falafel = Recipe.create!(name: "Falafel", category: "végétarien", user: owner)
 rizLait = Recipe.create!(name: "Riz au lait de mûres sauvages ", category: "dessert", user: owner)
 p "recipes created"
-
 # products pour Boeuf bourgignon + cote de boeuf
 boeufAubrac = Product.create!(name: 'Bœuf Aubrac', category: 'viande', unit: 'kg')
 coteAubrac = Product.create!(name: 'Cote de Bœuf Aubrac', category: 'viande', unit: 'kg')
@@ -77,7 +75,6 @@ sucre = Product.create!(name: 'sucre', category: 'épicerie sucrée', unit: 'kg'
 mure = Product.create!(name: 'mûres sauvages', category: 'fruit', unit: 'kg')
 tonka = Product.create!(name: 'fêves tonka', category: 'épicerie sucrée', unit: 'kg')
 p "products created"
-
 # ingredients :
 # Boeuf bourgignon
 oignon_bourguignon = Ingredient.create!(quantity: 0.05625, recipe: bourguignon, product: oignon)
@@ -123,7 +120,6 @@ sucre_rizLait = Ingredient.create!(quantity: 0.04, recipe: rizLait, product: suc
 mures_rizLait = Ingredient.create!(quantity: 0.6666, recipe: rizLait, product: mure)
 tonka_rizLait = Ingredient.create!(quantity: 0.01, recipe: rizLait, product: tonka)
 p "ingredients created"
-
 # suppliers :
 c2b = Supplier.create!(name: "C2B" ,typology: "viandes", email: "c2b@gmail.com")
 daybyday = Supplier.create!(name: "DaybyDay" ,typology: "épicerie en g" ,email: "daybyday@gmail.com" )
@@ -136,7 +132,6 @@ g20 = Supplier.create!(name: "G20" ,typology: "GMS",email: "g20@gmail.com")
 chapoutier = Supplier.create!(name: "Chapoutier" ,typology: "vins & spiritueux" ,email: "chapoutier@gmail.com")
 aksha = Supplier.create!(name: "Aksha" ,typology: "primeur" ,email: "aksha@gmail.com")
 p "suppliers created"
-
 # supplierItems :
 cote_c2b = SupplierItem.create(price_per_product: 24.76, supplier: c2b, product: coteAubrac)
 cote_metro = SupplierItem.create(price_per_product: 15.65, supplier: metro, product: coteAubrac)
@@ -182,7 +177,6 @@ citronVert_lenoble = SupplierItem.create(price_per_product: 4.10, supplier: leno
 rizRond_metro = SupplierItem.create(price_per_product: 1.09, supplier: metro , product: rizRond)
 mure_jayden = SupplierItem.create(price_per_product: 18.99, supplier: jayden , product: mure)
 p "suppliers items created"
-
 # restaurant_recipes :
 bourguignon_restaurant_recipes = RestaurantRecipe.create(plate: 22, restaurant: restaurant, recipe: bourguignon)
 cdb_restaurant_recipes = RestaurantRecipe.create(plate: 23, restaurant: restaurant, recipe: cdb)
@@ -190,7 +184,6 @@ saumonR_restaurant_recipes = RestaurantRecipe.create(plate: 13, restaurant: rest
 falafel_restaurant_recipes = RestaurantRecipe.create(plate: 87, restaurant: restaurant, recipe: falafel)
 rizLait_restaurant_recipes = RestaurantRecipe.create(plate: 31, restaurant: restaurant, recipe: rizLait)
 p "restaurant recipes created"
-
 # recipes_sales :
 bourguignon_sales = RecipeSale.create(quantity: 75, restaurant: restaurant, recipe: bourguignon)
 cdb_sales = RecipeSale.create(quantity: 80, restaurant: restaurant, recipe: cdb)
@@ -198,9 +191,7 @@ saumonR_sales = RecipeSale.create(quantity: 48, restaurant: restaurant, recipe: 
 falafel_sales = RecipeSale.create(quantity: 197, restaurant: restaurant, recipe: falafel)
 rizLait_sales = RecipeSale.create(quantity: 98, restaurant: restaurant, recipe: rizLait)
 p "recipes sales created"
-
 # ? inventory_items :
-
 boeufAubrac_inv = InventoryItem.create(quantity: 4,restaurant: restaurant ,product: boeufAubrac)
 coteAubrac_inv = InventoryItem.create(quantity: 6,restaurant: restaurant ,product: coteAubrac)
 oignon_inv = InventoryItem.create(quantity: 2,restaurant: restaurant ,product: oignon)
@@ -238,22 +229,18 @@ sucre_inv = InventoryItem.create(quantity: 2.5,restaurant: restaurant ,product: 
 mure_inv = InventoryItem.create(quantity: 0.6,restaurant: restaurant ,product: mure)
 tonka_inv = InventoryItem.create(quantity: 0.2,restaurant: restaurant ,product: tonka)
 p "inventory items created"
-
 # ? orders :
-order_delivered = Order.create(total: 638.05, order_number: "BC-72-2020-01" ,delivered: true, restaurant: restaurant, supplier: metro, validated: true)
+order_delivered = Order.create(total: 638.05, order_number: "BC-72-2020-01" ,delivered: true, restaurant: restaurant, supplier: metro, validated: false)
 order_waiting = Order.create(total: 431.54, order_number: "BC-73-2020-02" ,delivered: false, restaurant: restaurant, supplier: c2b, validated: false)
-order_waiting_again = Order.create(total: 390.28, order_number: "BC-74-2020-02" ,delivered: false, restaurant: restaurant, supplier: metro, validated: true)
+order_waiting_again = Order.create(total: 390.28, order_number: "BC-74-2020-02" ,delivered: false, restaurant: restaurant, supplier: metro, validated: false)
 p "orders created"
-
-
 boeufAubrac_order_item = OrderItem.create(quantity: 8, unit: 'kg', price: 195.76, completed: false, supplier_item: boeufAubrac_c2b, order: order_waiting)
-boeufAubrac_order_item = OrderItem.create(quantity: 8, unit: 'kg', price: 195.76, completed: false, supplier_item: cote_c2b, order: order_waiting)
+
+coteAubrac_order_item = OrderItem.create(quantity: 6, unit: 'kg', price: 98.45, completed: false, supplier_item: cote_c2b, order: order_waiting)
 
 # order_item
-
-order_item_one = OrderItem.create(quantity: 1, unit: 'kg', price: 1, completed: false, supplier_item: aubergine_metro, order: order_waiting)
-order_item_two = OrderItem.create(quantity: 1, unit: 'kg', price: 4, completed: false, supplier_item: fleurSel_metro, order: order_waiting)
+order_item_one = OrderItem.create(quantity: 1, unit: 'g', price: 1, completed: false, supplier_item: aubergine_metro, order: order_waiting_again)
+order_item_two = OrderItem.create(quantity: 1, unit: 'g', price: 4, completed: false, supplier_item: fleurSel_metro, order: order_waiting_again)
 order_item_thre = OrderItem.create(quantity: 1, unit: 'g', price: 1, completed: false, supplier_item: aubergine_metro, order: order_waiting)
 order_item_four = OrderItem.create(quantity: 1, unit: 'g', price: 4, completed: false, supplier_item: fleurSel_metro, order: order_waiting)
 p "order_items created"
-
