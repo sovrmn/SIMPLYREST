@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: $baby-white;
+  height: 80px;
 
 }
 
@@ -10,4 +11,12 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-title {
+  font-family: 'Karla', ;
+  align-items: center;
+  margin-bottom: 0px;
+  margin-left: 10px;
+  font-size: 24px;
 }
