@@ -6,27 +6,33 @@
         <div>
 
           <ul class="list-unstyled components">
-            <li class="active">
-              <%= link_to "Gérer mes stocks", restaurant_inventory_items_path(:restaurant_id), class: "side-link" %>
+            <li id="dashboard" class="active">
+              <i class="fas fa-home mr-2"></i>
+              <%= link_to "Mon tableau de bord", root_path(:restaurant_id), class: "side-link" %>
             </li>
-            <li>
-                <%= link_to "Gérer mes commandes", "#", class: "side-link" %>
+            <li id="order">
+              <i class="fas fa-shopping-cart mr-2"></i>
+                <%= link_to "Passer des commandes", restaurant_inventory_items_path(:restaurant_id), class: "side-link" %>
             </li>
-            <li>
+            <li id="follow-up">
+              <i class="fas fa-tasks mr-2"></i>
                 <%= link_to "Suivre mes commandes", restaurant_orders_path(@restaurant), class: "side-link" %>
             </li>
           </ul>
         </div>
-<!--       <button type="button" id="sidebarCollapse" class="navbar-btn">
+<!--        <button type="button" id="sidebarCollapse" class="navbar-btn">
           <span></span>
           <span></span>
           <span></span>
           <span></span>
-      </button>
- -->  </nav>
+      </button> -->
+</nav>
 
   <div id="content">
   <div>
 </div>
+
+
+
 
 
