@@ -79,3 +79,47 @@
 #cd-cart.speed-in {
   right: 0;
 }
+
+.mybasket {
+
+  background-color: $persian-green;
+  color:$baby-white;
+  margin: 10px;
+  padding: 12px;
+  width: fit-content;
+  float: right;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+
+    &:hover {
+      background-color: $dark-persian-green;
+    }
+
+
+}
+
+.mybasket p {
+  font-size: 16px;
+  margin-bottom: 0px;
+  margin-right: 10px;
+
+    &:hover {
+      font-weight: bold;
+      text-decoration:none;
+      color: white;
+
+    }
+
+
+}
+
+.mybasket i {
+  font-size: 18px;
+  margin-bottom: 0px;
+  text-align: center;
+
+  &:hover {
+  text-decoration:none;
+
+  }
+}
