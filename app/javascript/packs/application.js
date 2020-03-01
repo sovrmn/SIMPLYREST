@@ -36,7 +36,6 @@ import {minusPlusButton} from "../plugins/minusplusbutton";
 import {move} from "../plugins/move";
 
 
-
 document.addEventListener('turbolinks:load', () => {
   orderCollap();
   toggleSide();
