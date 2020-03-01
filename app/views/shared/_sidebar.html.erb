@@ -1,18 +1,18 @@
 <div class="wrapper">
-  <nav id="sidebar">
+  <nav class="sidebar">
 
     <div class="sidebar-header">
+      <h2>  </h2>
     </div>
         <div>
-
           <ul class="list-unstyled components">
             <li id="dashboard" class="active">
-              <i class="fas fa-home mr-2"></i>
+              <i class="fas fa-poll mr-2"></i>
               <%= link_to "Mon tableau de bord", root_path(:restaurant_id), class: "side-link" %>
             </li>
             <li id="order">
               <i class="fas fa-shopping-cart mr-2"></i>
-                <%= link_to "Passer des commandes", restaurant_inventory_items_path(:restaurant_id), class: "side-link" %>
+                <%= link_to "Vérifier mes stocks et passer des commandes", restaurant_inventory_items_path(:restaurant_id), class: "side-link" %>
             </li>
             <li id="follow-up">
               <i class="fas fa-tasks mr-2"></i>

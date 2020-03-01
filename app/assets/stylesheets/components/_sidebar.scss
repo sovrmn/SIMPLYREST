@@ -1,24 +1,18 @@
-li {
-  padding: 16px;
-  font-size: 16px;
-  display: block;
-  margin-top: 10px;
-}
 
 h3 {
   padding: 16px;
   font-size: 1.5em;
 }
 
-.side-link {
-  color: $baby-white;
-  text-decoration: none;
+// .side-link {
+//   color: $baby-white;
+//   text-decoration: none;
 
-}
-.side-link:hover {
-  text-decoration: none;
-  color: black;
-  }
+// }
+// .side-link:hover {
+//   text-decoration: none;
+//   color: black;
+//   }
 #sidebarCollapse {
     width: 30px;
     height: 30px;
@@ -66,24 +60,69 @@ h3 {
     display: flex;
     align-items: stretch;
     perspective: 1500px;
+    position:relative;
 }
 
-#sidebar {
+.wrapper .sidebar {
     min-width: 15%;
-    max-width:  22%;
+    max-width:  20%;
     position:sticky;
     background: $persian-green;
-    opacity:0.9;
+    opacity:1;
     height:110vh;
     top: -5%;
     left: 0%;
-    margin-top: 10px;
+    margin-top: 0px;
     color: #fff;
     transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
     transform-origin: center left; /* Set the transformed position of sidebar to center left side. */
+
 }
 
-#sidebar.active {
+.wrapper .sidebar h2 {
+  margin-bottom: 44px;
+}
+
+
+.wrapper .sidebar ul li {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(225,225,225,0.05);
+  font-size: 16px;
+  display: block;
+
+}
+
+.wrapper .sidebar ul li a {
+  color: $light-gray;
+}
+
+.wrapper .sidebar ul li a .fas {
+  width: 25px;
+  color: $light-gray;
+}
+
+.wrapper .sidebar .fas:hover{
+    color: $light-gray;
+  }
+
+
+.wrapper .sidebar ul li:hover {
+    background-color: #249689;
+    font-weight: bold;
+    text-decoration: none;
+
+}
+
+.wrapper .sidebar ul li a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.sidebar.active {
     margin-left: -250px;
     // transform: rotateY(100deg); /* Rotate sidebar vertically by 100 degrees. */
 }
