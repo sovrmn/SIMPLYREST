@@ -12,12 +12,12 @@
           <thead class="header-inventory">
             <tr>
               <!-- Stock section -->
-              <div class="stock-section" >
-                <th scope="col">Article</th>
-                <th scope="col">Catégorie</th>
-                <th scope="col">Stock optimal</th>
-                <th scope="col">Stock en cours</th>
-                <th scope="col">Niveau de stock</th>
+              <div class="stock-section">
+                <th id="article" class="bg-light" scope="col">Article</th>
+                <th class="bg-light" scope="col">Catégorie</th>
+                <th class="bg-light" scope="col">Stock optimal</th>
+                <th class="bg-light" scope="col">Stock en cours</th>
+                <th class="bg-light" scope="col">Niveau de stock</th>
               </div>
 
               <!-- Order section -->
@@ -36,11 +36,11 @@
               <tr>
                   <!-- Stock section -->
                   <div class="stock-section">
-                    <td><%= item.product.name %></td>
-                    <td><%= item.product.category %></td>
-                    <td><%= item.optimal_quantity.round(2) %> <%= item.product.unit %></td>
-                    <td><%= item.quantity %> <%= item.product.unit %></td>
-                    <td>
+                    <td id="article" class="bg-light" ><%= item.product.name.capitalize %></td>
+                    <td class="bg-light" ><%= item.product.category.capitalize %></td>
+                    <td class="bg-light stock-optimal" ><%= item.optimal_quantity.round(2) %> <%= item.product.unit %></td>
+                    <td class="bg-light" ><%= item.quantity %> <%= item.product.unit %></td>
+                    <td class="bg-light" >
                       <div class="progressBar d-flex">
                         <div class="progressRed">
                         </div>
@@ -50,7 +50,7 @@
                         </div>
                       </div>
                       <div class="mt-2 text-center">
-                         <span id="stocklevel"><%= ((item.quantity/item.optimal_quantity)*100).round(1)%></span>
+                         <span id="stocklevel"><%= "%.0f" % (item.quantity/item.optimal_quantity*100)%></span>
                        %
                      </div>
                     </td>
@@ -61,14 +61,14 @@
                   <div class="order-section">
                     <div class="quantitybutton d-flex">
                     <span id="minusbutton">-</span>
-                    <input id="quantityinput" type="text" value="<%= ((item.optimal_quantity - item.quantity) > 0) ? (item.optimal_quantity - item.quantity).round(2) : 0 %>"/>
+                    <input id="quantityinput" type="text" value="<%= ((item.optimal_quantity - item.quantity) > 0) ? (item.optimal_quantity - item.quantity).ceil : 0 %>"/>
                     <span id="plusbutton">+</span>
                   </div>
                   </td>
                 <td>
                   <div class="d-flex justify-content-between">
                     <% if item.product.order_items.joins(:order).where(orders: { validated: false} ).size.zero? %>
-                      <%= item.product.suppliers.first.name %>
+                      <%= item.product.suppliers.first.name.capitalize %>
                     <% else %>
                       <%= item.product.order_items.joins(:order).where(orders: { validated: false} ).last.supplier_item.supplier.name %>
                     <% end %>
