@@ -1,0 +1,105 @@
+// 1ere div
+
+// je fixe la hauteur du content order (hauteurde l'écran - hauteur de la navbar)
+.content-order{
+  display: flex;
+  height: calc(100vh - 10vh);
+  overflow-y:hidden;
+}
+
+
+.inventory-table {
+  flex-grow:1;
+  background-color: $very-light-gray;
+  color: #444;
+  padding: 0px 10px;
+}
+
+.inventory-table-header,
+.inventory-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+#inventory-table-header {
+  font-weight: bold;
+  background-color:$persian-green;
+  color: $baby-white;
+  text-align:center;
+}
+// je fixe la hauteur du body du tableau à 100 vh pour pourvoir scroller sur la hauteur de l'écran et pas plus
+.inventory-table-body {
+  height: 100%;
+  overflow-y: auto;
+}
+#order-box {
+  background-color:$persian-green;
+  color: $baby-white;
+  text-align:center;
+  font-weight: bold;
+}
+
+
+.box {
+  background-color: $very-light-gray;
+  color: black;
+  padding: 15px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(225,225,225,0.05);
+}
+
+.inventory-table-body #icon-box {
+}
+
+#plus-minus-column {
+  background-color: $baby-white;
+}
+
+
+
+.myshopping-cart {
+  color: $baby-white;
+  text-align:center;
+}
+
+.myshopping-cart-header {
+  display: flex;
+  background-color: $persian-green;
+  color: $baby-white;
+  font-weight: bold;
+  text-align:center;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.myshopping-cart-header p {
+  padding-top:12px;
+  padding-bottom:12px;
+  margin:0px;
+}
+
+.myshopping-cart-header i {
+  padding-top:12px;
+  padding-bottom:12px;
+}
+
+.myshopping-cart-body {
+  height: 100%;
+  overflow-y: auto;
+}
+.myshopping-cart-row {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  background-color: $very-light-gray;
+  color: black;
+}
+
+
+.shopping-cart-box {
+  background-color: $very-light-gray;
+  color: black;
+  padding: 5px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(225,225,225,0.05);
+}
