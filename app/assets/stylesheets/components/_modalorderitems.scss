@@ -39,11 +39,22 @@
 
 .modal-content {
 border-radius: 5px;
+width: 100%;
 }
 
 .modal-header {
   text-align: center;
 }
+
+.modal-body {
+  text-align: left;
+  display: flex;
+  h6 {
+    margin-bottom: 0px;
+    margin-top: 5px;
+    }
+}
+
 
 .field {
   display: flex;
