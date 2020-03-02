@@ -64,14 +64,13 @@ h3 {
 }
 
 .wrapper .sidebar {
-    min-width: 15%;
-    max-width:  20%;
+    max-width:  15%;
     position:sticky;
     background: $persian-green;
     opacity:1;
-    height:110vh;
-    top: -5%;
-    left: 0%;
+    height: calc(100vh - 10vh);
+    top: 10vh;
+    left: 0;
     margin-top: 0px;
     color: #fff;
     transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
