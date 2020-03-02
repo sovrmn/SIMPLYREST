@@ -8,11 +8,11 @@
           <ul class="list-unstyled components">
             <li id="dashboard" class="active">
               <i class="fas fa-poll mr-2"></i>
-              <%= link_to "Mon tableau de bord", root_path(:restaurant_id), class: "side-link" %>
+              <%= link_to "Mon tableau de bord", root_path(@restaurant), class: "side-link" %>
             </li>
             <li id="order">
               <i class="fas fa-shopping-cart mr-2"></i>
-                <%= link_to "Vérifier mes stocks et passer des commandes", restaurant_inventory_items_path(:restaurant_id), class: "side-link" %>
+                <%= link_to "Vérifier mes stocks et passer des commandes", restaurant_inventory_items_path(@restaurant), class: "side-link" %>
             </li>
             <li id="follow-up">
               <i class="fas fa-tasks mr-2"></i>

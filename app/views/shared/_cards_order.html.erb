@@ -1,0 +1,118 @@
+<!-- Commandes en attente de validation -->
+
+<div class="card-product-header">
+  <div class="card-product-num-header">
+    <h2> # </h2>
+  </div>
+  <div class="card-product-supplier-header">
+    <h2> Fournisseur </h2>
+  </div>
+  <div class="card-product-total-header">
+    <h2> Total </h2>
+    </div>
+  <div class="card-product-action-header">
+   <h2> Action </h2>
+  </div>
+</div>
+
+
+  <% @orders.each do |order| %>
+  <% if order.validated %>
+  <% else %>
+  <div class="card-product">
+    <div class="card-product-num">
+      <h2><%= order.order_number %></h2>
+    </div>
+    <div class="card-product-supplier">
+      <h2> <%= order.supplier.name %> </h2>
+    </div>
+    <div class="card-product-total">
+      <h2> <%= order.total %> € </h2>
+      </div>
+    <div class="card-product-action">
+      <%= simple_form_for order, remote: true do |f| %>
+      <%= f.input :validated, as: :hidden, input_html: { value: true } %>
+      <%= f.submit "Valider la commande", class: "button-green-order" %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
+
+
+<br>
+<!-- Commandes validée non reçu -->
+  <div class="card-product-header">
+    <div class="card-product-num-header">
+      <h2> # </h2>
+    </div>
+    <div class="card-product-supplier-header">
+      <h2> Fournisseur </h2>
+    </div>
+    <div class="card-product-total-header">
+      <h2> Total </h2>
+    </div>
+    <div class="card-product-action-header">
+     <h2> Action </h2>
+    </div>
+</div>
+
+  <% @orders.each do |order| %>
+  <% if order.delivered %>
+  <% else %>
+    <div class="card-product">
+      <div class="card-product-num">
+        <h2><%= order.order_number %></h2>
+      </div>
+      <div class="card-product-supplier">
+        <h2> <%= order.supplier.name %> </h2>
+      </div>
+      <div class="card-product-total">
+        <h2> <%= order.total %> € </h2>
+      </div>
+      <div class="card-product-action">
+        <%= simple_form_for order, remote: true do |f| %>
+        <%= f.input :delivered, as: :hidden, input_html: { value: true } %>
+        <%= f.submit "Réceptionné", class: "button-green-order" %>
+        <% end %>
+      </div>
+  <% end %>
+    </div>
+  <% end %>
+<br>
+  <!-- Commandes reçu -->
+<div class="card-product-header">
+  <div class="card-product-num-header">
+    <h2> # </h2>
+  </div>
+  <div class="card-product-supplier-header">
+    <h2> Fournisseur </h2>
+  </div>
+  <div class="card-product-total-header">
+    <h2> Total </h2>
+  </div>
+  <div class="card-product-action-header">
+   <h2> Action </h2>
+  </div>
+</div>
+
+  <% @orders.each do |order| %>
+  <% if order.delivered == false %>
+  <% else %>
+    <div class="card-product">
+      <div class="card-product-num">
+        <h2><%= order.order_number %></h2>
+      </div>
+      <div class="card-product-supplier">
+        <h2> <%= order.supplier.name %> </h2>
+      </div>
+      <div class="card-product-total">
+        <h2> <%= order.total %> € </h2>
+      </div>
+      <div class="card-product-action">
+        <h2> Receptionné le xx/xx/xx </h2>
+      </div>
+  <% end %>
+    </div>
+  <% end %>
+
