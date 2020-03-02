@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :order_items, only: [:update]
 
   resources :supplier_items, only: [] do
-    resource :order_items, only: :create
+    resource :order_items, only: [:create]
   end
 
    # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

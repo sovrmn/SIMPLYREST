@@ -28,7 +28,7 @@ const move =() =>{
           progressGreen.style.width = `${width}px`;
         }
 
-       }, 10);
+       }, 30);
     })
 
 
