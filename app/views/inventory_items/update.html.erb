@@ -1,0 +1,125 @@
+<table class="table table-fixed">
+  <thead>
+    <tr>
+      <th scope="col">Produits</th>
+      <th scope="col">Stock initial (qt)</th>
+      <th scope="col">Achats (qt)</th>
+      <th scope="col">Ventes (qt)</th>
+      <th scope="col">Offerts (qt)</th>
+      <th scope="col">Pertes (qt)</th>
+      <th scope="col">Stock final théor. (qt)</th>
+      <th scope="col">Stock final réel (qt)</th>
+      <th scope="col">Ecart réel/théor (qt/%)</th>
+      <th scope="col">Variation de stocks </th>
+      <th scope="col">Niv. optimal</th>
+      <th scope="col">Niv. Réel/optimal</th>
+      <th scope="col">C.U initial (€)</th>
+      <th scope="col">Stock initial (€)</th>
+      <th scope="col">C.U final (€)</th>
+      <th scope="col">Stock final (€)</th>
+   </tr>
+  </thead>
+
+  <tbody>
+    <% @restaurant = current_user.restaurants.first %>
+    <%@inventory_items.each do |item|  %>
+      <tr>
+        <td><%= item.product.name %></td>
+        <td><%= item.quantity %><%= item.product.unit %></td>
+        <td>
+          <% if item.product.order_items.joins(:order).where(orders: { validated: true, delivered: true} ).nil? == false %>
+            <% @order_items_product = item.product.order_items.joins(:order).where(orders: { validated: true, delivered: true} ) %>
+            <% tot_qty_bought = 0 %>
+            <% tot_price = 0 %>
+            <% avg_price = 0 %>
+            <% @order_items_product.each do |order_item|%>
+              <% tot_qty_bought += order_item.quantity %>
+              <% tot_price += order_item.price %>
+              <% avg_price = tot_price / tot_qty_bought %>
+            <% end %>
+            <%= tot_qty_bought.round(1)%><%= item.product.unit %>
+            <%= avg_price.round(1)%>
+          <% end %>
+        </td>
+        <td>
+            <% @product = item.product %>
+            <% @recipes_with_same_ingredient = Ingredient.where(product: @product) %>
+            <% @tot_quantity_sold = 0 %>
+            <% @recipes_with_same_ingredient.each do |ingredient| %>
+              <% @ingredient_quantity = ingredient.quantity %>
+              <% @recipe = ingredient.recipe %>
+              <%# attention: si on ajoute des dates, il faut calculer toutes les quantités des recettes vendues du restaurant sur la période donnée (where /array)%>
+              <% @recipe_sold = RecipeSale.find_by(recipe: @recipe, restaurant: @restaurant) %>
+              <% @quantity_sold_per_recipe = @ingredient_quantity * @recipe_sold.quantity %>
+              <% @tot_quantity_sold += @quantity_sold_per_recipe %>
+            <% end %>
+          <%= @tot_quantity_sold.round(1) %><%= item.product.unit %>
+        </td>
+        <td>0</td>
+        <td>
+          <div class="quantitybutton d-flex">
+            <span id="minusbutton">-</span>
+            <input id="quantityinput" type="text" value="0"/>
+            <span id="plusbutton">+</span>
+            <%= item.product.unit %>
+          </div>
+      </td>
+      <td><% tot_stock = item.quantity + tot_qty_bought - @tot_quantity_sold  %>
+        <%# attention: inclure pertes%>
+          <%= tot_stock.round(1) %><%= item.product.unit %>
+      </td>
+      <td>
+          <div class="quantitybutton d-flex">
+            <span id="minusbutton">-</span>
+            <input id="quantityinput" type="text" value="<%= tot_stock.round(1)%>"/>
+            <span id="plusbutton">+</span>
+            <%= item.product.unit %>
+          </div>
+      </td>
+      <td>
+        <%# différence entre tot_stock (théorique) et stock réel renseigné dans le bouton. Attention: inclure pertes / inclure sotcks réels valeur remontée%>
+        <% ecart_stock  = 0  %>
+        <%= ecart_stock.round(1) %><%= item.product.unit %>
+        <% if tot_stock != 0 %>
+        <%= "#{(ecart_stock / tot_stock).round(1)} %" %>
+        <% else  %>
+        na.
+        <% end  %>
+      </td>
+      <td>
+        <%# Attention:  prendre stock réel normalement issu du plus/minus button%>
+        <% var_stock = tot_stock - item.quantity %>
+        <%= var_stock.round(1) %><%= item.product.unit %>
+      </td>
+      <td><%= item.optimal_quantity.round(1) %><%= item.product.unit %></td>
+      <td>
+          <div class="progressBar d-flex">
+
+            <div class="progressRed">
+            </div>
+            <div class="progressOrange">
+            </div>
+            <div class="progressGreen">
+            </div>
+          </div>
+
+          <div class="mt-3 text-center">
+             <span id="stocklevel"><%= ((tot_stock/item.optimal_quantity)*100).round(1)%></span>
+           %
+           </div>
+        </td>
+        <td>
+          <% @items_per_supplier = item.product.supplier_items %>
+          <% @costs_per_supplier = @items_per_supplier.map do |item| %>
+              <% item.price_per_product %>
+            <% end  %>
+          <%= @costs_per_supplier.size > 0 ? average_initial_cost = (@costs_per_supplier.sum / @costs_per_supplier.size).round(1) : "na." %>€
+        </td>
+        <td><%= @stock_initial_value = (average_initial_cost * item.quantity).round(1) %>€</td>
+        <%# Attention:  0 et 0 dans les quantités sorties à modifier pour pertes et offerts%>
+        <td><% @stock_final_value = @stock_initial_value + (tot_qty_bought * avg_price) - ((@tot_quantity_sold + 0 + 0) * average_initial_cost) %>
+        <%= tot_stock !=0 ? average_final_cost = (@stock_final_value / tot_stock).round(1) : "na." %>€
+        </td>
+        <td><%= @stock_final_value.round(1) %>€</td>
+  <% end %>
+</table>

@@ -1,8 +1,8 @@
 <div class="container">
 
-  </div>
+
    <%= render './layouts/shopping_cart', order: @orders %>
-  <h1 class="ml-3">Mes stocks</h1>
+  <h1 class="ml-3 text-center" style="font-size: 2.0em;">Mes stocks <%='.................................'%>Mes commandes </h1>
 
   <div class="container d-flex justify-content-around">
      <div class="bg-white rounded shadow">
@@ -13,9 +13,9 @@
               <th scope="col">#</th>
               <th scope="col">Article</th>
               <th scope="col">Catégorie</th>
-              <th scope="col">Stock optimal</th>
-              <th scope="col">Stock en cours</th>
-              <th scope="col">Niveau de stock</th>
+              <th scope="col">Niv. optimal</th>
+              <th scope="col">Niv. en cours</th>
+              <th scope="col">En cours/optimal</th>
             </tr>
           </thead>
           <tbody>
@@ -48,9 +48,12 @@
           </table>
         </div>
 
+
         <!-- End of table-->
 
         <!-- Second table-->
+
+
 
         <div class="bg-white rounded shadow ml-3">
           <table class="table table-fixed">
@@ -84,7 +87,7 @@
 
                     <!-- Modal -->
 
-                  <div class="modal fade" id="exampleModal-<%= item.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="true">
+                  <div class="modal fade" id="exampleModal-<%= item.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content" style="width: 340px">
                         <div class="modal-header">
@@ -108,7 +111,6 @@
                         </div>
                       </div>
                     </div>
-                  </div>
                 </td>
                 <td>
                   <% if item.product.order_items.joins(:order).where(orders: { validated: false} ).size > 0 %>
@@ -125,8 +127,9 @@
           </tbody>
         </table>
       </div>
+
      <!--End of second table-->
- </div>
+  </div>
 </div>
 
 
