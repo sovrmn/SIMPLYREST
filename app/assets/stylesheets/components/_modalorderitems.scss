@@ -16,3 +16,41 @@
     pointer-events: auto;
   }
 }
+
+.button-modal {
+  color: #18A999;
+  font-size: 12px;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align:center;
+  justify-content: center;
+  margin-bottom: 0px;
+  transition: opacity 0.3s ease;
+  padding: 10px 8px;
+  border: 1px solid #18A999;
+  width: 100%;
+
+  &:hover {
+    color: #18A999;
+  }
+}
+
+
+.modal-content {
+border-radius: 5px;
+}
+
+.modal-header {
+  text-align: center;
+}
+
+.field {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background: none;
+}
+
+

@@ -1,36 +1,4 @@
-<% @orders.each do |order| %>
 
-<li><%= order.order_number %></li>
-<li><%= order.supplier.name %></li>
-<li><%= order.total %></li>
-<% end %>
-
-<div class="around">
-  <table>
-      <thead class="column">
-        <tr>
-          <th class ="col-name">#</th>
-          <th class ="col-name">Nom du fournisseur</th>
-          <th class ="col-name">Total de la commande</th>
-          <th class ="col-name">Statut</th>
-        </tr>
-      </thead>
-
-    <tbody>
-      <tr>
-        <th class ="row-table">1</th>
-        <td class ="row-content">Mark</td>
-        <td class ="row-content">Otto</td>
-        <td class ="row-content">@mdo</td>
-      </tr>
-      <tr>
-        <th class ="row-table">1</th>
-        <td class ="row-content">Mark</td>
-        <td class ="row-content">Otto</td>
-        <td class ="row-content">@mdo</td>
-      </tr>
-    </tbody>
-  </table>
 
 <!-- query pour index order -->
 
@@ -267,6 +235,8 @@
     <!-- </div> -->
   </div>
 
+<!-- order à receptionner -->
+
 <div class="to_receive">
   <div class="card-product-header">
     <div class="card-product-num-header">
@@ -306,6 +276,218 @@
     <% end %>
   </div>
   <% end %>
+
+<!-- order à valider test modal -->
+
+<% @orders.each do |order| %>
+  <% if order.validated %>
+  <% else %>
+  <div class="card-product">
+    <div class="card-product-num">
+      <h2><%= order.order_number %></h2>
+    </div>
+    <div class="card-product-supplier">
+      <h2> <%= order.supplier.name %> </h2>
+    </div>
+    <div class="card-product-total">
+      <h2> <%= order.total %> € </h2>
+      </div>
+    <div class="card-product-action">
+      <button type="button" data-toggle="modal" data-target="#Modal<%= order_item.id %>">
+      </button>
+      <% order.order_items.each do |order_item| %>
+        <div class="modal fade" id="Modal<%= order.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><%= order_item.supplier_item.product.name.capitalize %></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <h5>Quantité : </h5>
+
+                <%= simple_form_for order, remote: true do |f| %>
+                <div class="field">
+                  <div class="champ">
+                    <%= f.input :validated, as: :hidden, input_html: { value: true } %>
+                    <%= f.submit "Valider la commande", class: "button-green-order" %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        <% end %>
+    </div>
+    <% end %>
+  </div>
+<% end %>
+
+
+<!-- order à valider original -->
+
+  <% @orders.each do |order| %>
+  <% if order.validated %>
+  <% else %>
+  <div class="card-product">
+    <div class="card-product-num">
+      <h2><%= order.order_number %></h2>
+    </div>
+    <div class="card-product-supplier">
+      <h2> <%= order.supplier.name %> </h2>
+    </div>
+    <div class="card-product-total">
+      <h2> <%= order.total %> € </h2>
+      </div>
+    <div class="card-product-action">
+      <%= simple_form_for order, remote: true do |f| %>
+      <%= f.input :validated, as: :hidden, input_html: { value: true } %>
+      <%= f.submit "Valider la commande", class: "button-green-order" %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
+
+
+
+
+  <!-- order -->
+
+  <!-- Commandes validée non reçu -->
+  <div class="card-product-header">
+    <div class="card-product-num-header">
+      <h2> # </h2>
+    </div>
+    <div class="card-product-supplier-header">
+      <h2> Fournisseur </h2>
+    </div>
+    <div class="card-product-total-header">
+      <h2> Total </h2>
+    </div>
+    <div class="card-product-action-header">
+     <h2> Action </h2>
+    </div>
+  </div>
+
+  <% @orders.each do |order| %>
+  <% if order.delivered%>
+
+  <% else %>
+    <div class="card-product">
+      <div class="card-product-num">
+        <h2><%= order.order_number %></h2>
+      </div>
+      <div class="card-product-supplier">
+        <h2> <%= order.supplier.name %> </h2>
+      </div>
+      <div class="card-product-total">
+        <h2> <%= order.total %> € </h2>
+      </div>
+      <div class="card-product-action">
+        <%= simple_form_for order, remote: true do |f| %>
+        <%= f.input :delivered, as: :hidden, input_html: { value: true } %>
+        <%= f.submit "Réceptionné", class: "button-green-order" %>
+        <% end %>
+      </div>
+       </div>
+      <% end %>
+  <% end %>
+<br>
+  <!-- Commandes reçu -->
+<div class="card-product-header">
+  <div class="card-product-num-header">
+    <h2> # </h2>
+  </div>
+  <div class="card-product-supplier-header">
+    <h2> Fournisseur </h2>
+  </div>
+  <div class="card-product-total-header">
+    <h2> Total </h2>
+  </div>
+  <div class="card-product-action-header">
+   <h2> Action </h2>
+  </div>
+</div>
+
+  <% @orders.each do |order| %>
+  <% if order.delivered? %>
+  <% else %>
+    <div class="card-product">
+      <div class="card-product-num">
+        <h2><%= order.order_number %></h2>
+      </div>
+      <div class="card-product-supplier">
+        <h2> <%= order.supplier.name %> </h2>
+      </div>
+      <div class="card-product-total">
+        <h2> <%= order.total %> € </h2>
+      </div>
+      <div class="card-product-action">
+        <h2> Receptionné le xx/xx/xx </h2>
+      </div>
+
+    </div>
+    <% end %>
+  <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
