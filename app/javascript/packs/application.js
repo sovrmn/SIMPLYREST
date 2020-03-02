@@ -35,6 +35,8 @@ import {minusPlusButton} from "../plugins/minusplusbutton";
 
 import {move} from "../plugins/move";
 
+import {initSelect2} from "../plugins/init_select2";
+
 
 document.addEventListener('turbolinks:load', () => {
   orderCollap();
@@ -43,5 +45,5 @@ document.addEventListener('turbolinks:load', () => {
   displayOrderAndItems();
   minusPlusButton();
   move();
-
+  initSelect2();
 });

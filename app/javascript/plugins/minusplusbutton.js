@@ -9,6 +9,10 @@ const minusPlusButton = () => {
       // console.log('salut');
       const input = minusButton.nextElementSibling;
       // console.log(input);
+      const prixunitaireht = document.getElementById(`prixunitaireht-${input.dataset.itemid}`);
+      const prixtotalht = document.getElementById(`totalht-${input.dataset.itemid}`);
+      const valeurunitaireht = parseFloat(prixunitaireht.innerHTML);
+
       let currentValue = parseFloat(input.value);
       if (currentValue > 0) {
         currentValue = currentValue - 1;
@@ -16,6 +20,8 @@ const minusPlusButton = () => {
         currentValue = 0;
       }
       input.value = currentValue;
+      const valeurtotalht = valeurunitaireht * currentValue;
+      prixtotalht.innerHTML =valeurtotalht.toFixed(1);
     });
 
   });
@@ -27,9 +33,17 @@ const minusPlusButton = () => {
       // console.log('salut');
       const input = plusButton.previousElementSibling;
       // console.log(input);
+      const prixunitaireht = document.getElementById(`prixunitaireht-${input.dataset.itemid}`);
+      const prixtotalht = document.getElementById(`totalht-${input.dataset.itemid}`);
+      const valeurunitaireht = parseFloat(prixunitaireht.innerHTML);
+
+
       let currentValue = parseFloat(input.value);
       currentValue = currentValue + 1;
       input.value = currentValue;
+      // console.log (parseFloat(prixunitaireht.innerHTML) * currentValue);
+      const valeurtotalht = valeurunitaireht * currentValue;
+      prixtotalht.innerHTML = valeurtotalht.toFixed(1);
     });
 
   });
