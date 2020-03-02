@@ -1,132 +1,146 @@
-
-h3 {
-  padding: 16px;
-  font-size: 1.5em;
+.fa-2x {
+  font-size: 3em;
+}
+.fa {
+  position: relative;
+  display: table-cell;
+  width: 60px;
+  height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  font-size:20px;
+  color: $baby-white;
 }
 
-// .side-link {
-//   color: $baby-white;
-//   text-decoration: none;
+#logo-marius {
+    height: 50px;
+    overflow: hidden;
+    position:fixed;
+    padding-left: 14px;
+}
 
-// }
-// .side-link:hover {
-//   text-decoration: none;
-//   color: black;
-//   }
-#sidebarCollapse {
-    width: 30px;
-    height: 30px;
-    background: #f5f5f5;
-    right: -40px;
+#logos{
+  margin-left: 5px;
+  padding-top: 8px;
+}
+
+.settings {
     position: absolute;
-    top: 0;
+    bottom: 0;
 }
 
-#sidebarCollapse span {
-    width: 80%;
-    height: 2px;
-    margin: 0 auto;
-    display: block;
-    background: #555;
-    transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
-}
-// tranformation des batons en croix
-#sidebarCollapse span:first-of-type {
-    /* rotate first one */
-    transform: rotate(45deg) translate(2px, 1px);
-}
-#sidebarCollapse span:nth-of-type(2) {
-    /* second one is not visible */
-    opacity: 0;
-}
-#sidebarCollapse span:nth-of-type(3) {
-    /* third one is not visible */
-    opacity: 0;
-}
-#sidebarCollapse span:last-of-type {
-    /* rotate fourth one */
-    transform: rotate(-45deg) translate(2px, -3px);
+.nav-text {
+  font-size: 18px;
 }
 
-#sidebarCollapse.active span {
-    /* no rotation */
-    transform: none;
-    /* all bars are visible */
-    opacity: 1;
-    margin: 5px auto;
-}
-
-.wrapper {
-    display: flex;
-    align-items: stretch;
-    perspective: 1500px;
-    position:relative;
-}
-
-.wrapper .sidebar {
-    min-width: 15%;
-    max-width:  20%;
-    position:sticky;
-    background: $persian-green;
-    opacity:1;
-    height:110vh;
-    top: -5%;
-    left: 0%;
-    margin-top: 0px;
-    color: #fff;
-    transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
-    transform-origin: center left; /* Set the transformed position of sidebar to center left side. */
-
-}
-
-.wrapper .sidebar h2 {
-  margin-bottom: 44px;
+.side-link{
+  color: inherit;
 }
 
 
-.wrapper .sidebar ul li {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 12px;
-  padding-right: 12px;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  border-top: 1px solid rgba(225,225,225,0.05);
-  font-size: 16px;
-  display: block;
+.main-menu:hover,nav.main-menu.expanded {
+  width:250px;
+  overflow:visible;
 
 }
 
-.wrapper .sidebar ul li a {
-  color: $light-gray;
+.main-menu {
+  margin-right: 0;
+  background:#4BAD9E;
+  border-right:1px solid #e5e5e5;
+  top:0;
+  bottom:0;
+  height:100vh;
+  left:0;
+  width: 58px;
+  overflow:hidden;
+  -webkit-transition:width .05s linear;
+  transition:width .05s linear;
+  -webkit-transform:translateZ(0) scale(1,1);
+  z-index:1000;
+  position: fixed;
 }
 
-.wrapper .sidebar ul li a .fas {
-  width: 25px;
-  color: $light-gray;
+.main-menu li {
+  position:relative;
+  display:block;
+  width:250px;
+  padding-bottom:10px;
+  color: $baby-white;
 }
 
-.wrapper .sidebar .fas:hover{
-    color: $light-gray;
+
+.main-menu li:hover{
+  background-color: $dark-persian-green;
+  opacity: 0.8;
   }
 
-
-.wrapper .sidebar ul li:hover {
-    background-color: $dark-persian-green;
-    font-weight: bold;
-    text-decoration: none;
-
+.main-menu li>a {
+  position:relative;
+  display:table;
+  border-collapse:collapse;
+  border-spacing:0;
+  color:#999;
+   font-family: arial;
+  font-size: 14px;
+  text-decoration:none;
+  -webkit-transform:translateZ(0) scale(1,1);
+  -webkit-transition:all .1s linear;
+  transition:all .1s linear;
 }
 
-.wrapper .sidebar ul li a:hover {
-    text-decoration: none;
-    color: white;
+.main-menu .nav-icon {
+  position:relative;
+  display:table-cell;
+  width:60px;
+  height:36px;
+  text-align:center;
+  vertical-align:middle;
+  font-size:18px;
 }
 
-.sidebar.active {
-    margin-left: -250px;
-    // transform: rotateY(100deg); /* Rotate sidebar vertically by 100 degrees. */
+.main-menu .nav-text {
+  position:relative;
+  display:table-cell;
+  vertical-align:middle;
+  width:190px;
+  font-family: 'Titillium Web', sans-serif;
+  padding-bottom: 6px;
+}
+
+.main-menu>ul.logout {
+  position:absolute;
+  left:0;
+  bottom:0;
 }
 
 
+a:hover,a:focus {
+  text-decoration:none;
+}
 
+nav {
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  -o-user-select:none;
+  user-select:none;
+}
 
+nav ul,nav li {
+  outline:0;
+  margin:0;
+  padding:0;
+}
+
+.main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
+  color:#fff;
+  background-color:#5fa2db;
+}
+
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+}
