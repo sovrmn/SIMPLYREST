@@ -14,8 +14,14 @@
   z-index: 50;
 }
 
+
+.display {
+  right: -100%;
+  display:none;
+}
 .active {
   right: 15%;
+
 }
 
 .tabs-underlined {
