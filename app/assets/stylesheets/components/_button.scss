@@ -16,7 +16,6 @@
   }
 }
 
-
 .button-green-order {
   color: #18A999;
   background-color: white;
@@ -28,6 +27,7 @@
   transition: opacity 0.3s ease;
   padding: 0.375rem 0.75rem;
   border: 1px solid #18A999;
+  margin-bottom: 20px;
 
   &:hover {
     color: #18A999;

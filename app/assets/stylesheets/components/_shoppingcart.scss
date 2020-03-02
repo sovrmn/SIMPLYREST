@@ -1,21 +1,27 @@
 #global-container {
   width: 100em;
+  position: relative;
 }
 
 .shopping {
-  width: 65%;
-  height: 60%;
+  width: 35%;
+  height: 35%;
   top: 0;
-  right: 0px;
+  right: -200%;
   position: absolute;
   background: white;
   box-shadow: -2px 3px 24px black;
   z-index: 50;
 }
 
+<<<<<<< HEAD
 .display {
   right: -100%;
   display:none;
+=======
+.active {
+  right: 15%;
+>>>>>>> f398258ffcfe2a3d99e64385df004632b6ac07b2
 }
 
 .tabs-underlined {
@@ -80,3 +86,51 @@
 #cd-cart.speed-in {
   right: 0;
 }
+
+// basket on top right of inventory table
+.mybasket {
+
+  background-color: $persian-green;
+  color:$baby-white;
+  margin: 10px;
+  padding: 12px;
+  width: fit-content;
+  float: right;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  position:relative;
+
+    &:hover {
+      background-color: $dark-persian-green;
+    }
+
+
+}
+
+.mybasket p {
+  font-size: 16px;
+  margin-bottom: 0px;
+  margin-right: 10px;
+
+    &:hover {
+      font-weight: bold;
+      text-decoration:none;
+      color: white;
+
+    }
+
+
+}
+
+.mybasket i {
+  font-size: 18px;
+  margin-bottom: 0px;
+  text-align: center;
+
+  &:hover {
+  text-decoration:none;
+
+  }
+}
+
+
