@@ -9,6 +9,24 @@ class InventoryItemsController < ApplicationController
     @order_item = OrderItem.new
   end
 
+  def update
+    # on récupère l'item
+    @restaurant = current_user.restaurants.first
+    # @inventory_item = InventoryItem.update(inventory_item_params)
+
+
+    @inventory_items = InventoryItem.where(restaurant: @restaurant)
+
+    # @inventory_items.each do |item|
+    #   @product = item.product
+    # # on récupère la quantité
+    #   @quantity = item.quantity
+    #   @quantity = params[:inventory_item][:quantity]
+    # # on update la quantité (méthode dans views)
+    #   item.update(inventory_item_params)
+    # end
+  end
+
   def optimal_stock
     @restaurant = @inventory_items.restaurant
     @inventory_items.each do |item|
@@ -16,7 +34,7 @@ class InventoryItemsController < ApplicationController
       @product = item.product
       #on récupère toutes les recettes avec le meme ingredient @product
       #j'obtiens un array avec toutes les recettes comportant @product et avecles quantités
-      @recipes_with_same_ingredient= Ingredient.where(product: @product)
+      @recipes_with_same_ingredient = Ingredient.where(product: @product)
       #je créé un array dans lequel je vais additionner toutes les stocks nécessaires d'un ingrédient donnée pour chaque recette
       @optimal_stock_total = 0
 
@@ -74,6 +92,7 @@ class InventoryItemsController < ApplicationController
   end
 
 end
+
 
 
 

@@ -1,39 +1,58 @@
-<div class="wrapper">
-  <nav class="sidebar">
+<nav class="main-menu">
+  <ul>
+    <p id="logos">
+      <%= link_to root_path do %>
+        <%= image_tag 'logo.png', style: "width: 40px;" %>
+      <% end %>
+      <% if user_signed_in? %>
+        <img id="logo-marius" src="https://ugc.zenchef.com/3/4/8/1/5/9/1/5/0/0/4/8/8/1509118348_124/b1dc39882f75627107596328add8ff3b.png" alt="">
+      <% end %>
+    </p>
+    <li class="has-subnav">
+        <i class="fa fa-home fa-2x"></i>
+        <span id="dashboard" class="nav-text">
+            <%= link_to "Tableau de bord", root_path(@restaurant), class: "side-link" %>
+        </span>
+    </li>
+    <li class="has-subnav">
+        <i class="fa fa-cash-register fa-2x"></i>
+        <span class="nav-text">
+            <%= link_to "Gestion du stock", restaurant_inventory_items_path(@restaurant), class: "side-link" %>
+        </span>
+    </li>
+    <li id="new-order" class="has-subnav">
+        <i class="fa fa-cart-plus fa-2x"></i>
+        <span class="nav-text">
+            <%= link_to "Nouvelle commande", restaurant_orders_path(@restaurant), class: "side-link" %>
+        </span>
+    </li>
+    <li id="follow-up" class="has-subnav">
+      <i class="fa fa-list fa-2x"></i>
+      <span class="nav-text">
+          <%= link_to "Suivre mes commandes", restaurant_orders_path(@restaurant), class: "side-link" %>
+      </span>
+    </li>
+  </ul>
 
-    <div class="sidebar-header">
-      <h2>  </h2>
-    </div>
-        <div>
-          <ul class="list-unstyled components">
-            <li id="dashboard" class="active">
-              <i class="fas fa-poll mr-2"></i>
-              <%= link_to "Mon tableau de bord", root_path(@restaurant), class: "side-link" %>
-            </li>
-            <li id="order">
-              <i class="fas fa-shopping-cart mr-2"></i>
-                <%= link_to "Vérifier mes stocks et passer des commandes", restaurant_inventory_items_path(@restaurant), class: "side-link" %>
-            </li>
-            <li id="follow-up">
-              <i class="fas fa-tasks mr-2"></i>
-                <%= link_to "Suivre mes commandes", restaurant_orders_path(@restaurant), class: "side-link" %>
-            </li>
-          </ul>
-        </div>
-<!--        <button type="button" id="sidebarCollapse" class="navbar-btn">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-      </button> -->
+
+  <div class="d-flex">
+    <ul class="settings">
+      <li>
+        <i class="fa fa-users-cog fa-2x has-subnav"></i>
+          <span class="nav-text">Paramètres</span>
+      </li>
+      <li>
+        <i class="fa fa-power-off fa-2x has-subnav"></i>
+          <span class="nav-text">
+            <% if user_signed_in? %>
+              <%= link_to "Log Out", destroy_user_session_path(@user), class: "side-link" %>
+            <% else %>
+              <%= link_to "Log in", new_user_session_path, class: "side-link" %>
+            <% end %>
+          </span>
+      </li>
+    </ul>
+  </div>
 </nav>
-
-  <div id="content">
-  <div>
-
-</div>
-
-
-
 
 

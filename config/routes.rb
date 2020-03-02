@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'restaurants#show'
+  get '/restaurants/:restaurant_id/inventory_items/update', to: 'inventory_items#update', as: :inventory_items_update
   resources :restaurants, only: [:show] do
     resources :inventory_items, only: [:index]
     resources :orders, only: [:index, :show, :new, :create]

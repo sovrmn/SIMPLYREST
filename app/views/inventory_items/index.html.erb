@@ -1,129 +1,71 @@
-<div class="container">
-  <div >
-    <%= render './layouts/shopping_cart', order: @orders %>
-  </div>
-
-
-  <div class="container d-flex justify-content-around">
-     <div class="table stock-table">
-
-        <table class="inventory-table">
-          <!-- Fixed header table-->
-          <thead class="header-inventory">
-            <tr>
-              <!-- Stock section -->
-              <div class="stock-section">
-                <th id="article" class="bg-light" scope="col">Article</th>
-                <th class="bg-light" scope="col">Catégorie</th>
-                <th class="bg-light" scope="col">Stock optimal</th>
-                <th class="bg-light" scope="col">Stock en cours</th>
-                <th class="bg-light" scope="col">Niveau de stock</th>
+<!-- <div class="container"> -->
+  <div class="content-order">
+  <!--new table -->
+    <div class="inventory-table">
+      <div class="inventory-table-header">
+        <div id="inventory-table-header" class="box">Article</div>
+        <div id="inventory-table-header" class="box"></div>
+        <div id="inventory-table-header" class="box">Catégorie</div>
+        <div id="inventory-table-header" class="box">Stock optimal</div>
+        <div id="inventory-table-header" class="box">Stock en cours</div>
+        <div id="inventory-table-header" class="box">Niveau de stock</div>
+        <div id="order-box" class="box inventory-table-header">Commander</div>
+      </div>
+      <!-- Table Rows -->
+      <div class="inventory-table-body">
+        <%@inventory_items.each do |item|  %>
+          <div class="inventory-row">
+            <div class="box"><%= item.product.name.capitalize %></i></div>
+            <div id="icon-box" class="box"><i class="fas fa-carrot"></i></div>
+            <div class="box"><%= item.product.category.capitalize %></div>
+            <div class="box"><%= item.optimal_quantity.round(2) %> <%= item.product.unit %></div>
+            <div class="box"><%= item.quantity %> <%= item.product.unit %></div>
+            <div class="box">
+              <div class="progressBar d-flex">
+                <div class="progressRed">
+                </div>
+                <div class="progressOrange">
+                </div>
+                <div class="progressGreen">
+                </div>
               </div>
-
-              <!-- Order section -->
-              <div class="order-section">
-                <th scope="col">Commander</th>
-                <th scope="col">Fournisseur</th>
-                <th scope="col">Prix unitaire</th>
-                <th scope="col">Total H.T.</th>
+              <div class="mt-2 text-center">
+                 <span id="stocklevel"><%= "%.0f" % (item.quantity/item.optimal_quantity*100)%></span>
+               %
+             </div>
+            </div>
+            <div id ="plus-minus-column" class="box">
+              <div class="quantitybutton d-flex">
+                <span id="minusbutton">-</span>
+                <input id="quantityinput" data-itemid="<%= item.id %>" type="text" value="<%= ((item.optimal_quantity - item.quantity) > 0) ? (item.optimal_quantity - item.quantity).ceil : 0 %>"/>
+                <span id="plusbutton">+</span>
               </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
 
-            </tr>
-          </thead>
-          <!-- body table-->
-          <tbody class="body-inventory">
-            <%@inventory_items.each do |item|  %>
-              <tr>
-                  <!-- Stock section -->
-                  <div class="stock-section">
-                    <td id="article" class="bg-light" ><%= item.product.name.capitalize %></td>
-                    <td class="bg-light" ><%= item.product.category.capitalize %></td>
-                    <td class="bg-light stock-optimal" ><%= item.optimal_quantity.round(2) %> <%= item.product.unit %></td>
-                    <td class="bg-light" ><%= item.quantity %> <%= item.product.unit %></td>
-                    <td class="bg-light" >
-                      <div class="progressBar d-flex">
-                        <div class="progressRed">
-                        </div>
-                        <div class="progressOrange">
-                        </div>
-                        <div class="progressGreen">
-                        </div>
-                      </div>
-                      <div class="mt-2 text-center">
-                         <span id="stocklevel"><%= "%.0f" % (item.quantity/item.optimal_quantity*100)%></span>
-                       %
-                     </div>
-                    </td>
-                  </div>
-
-                <!-- Order section -->
-                <td>
-                  <div class="order-section">
-                    <div class="quantitybutton d-flex">
-                    <span id="minusbutton">-</span>
-                    <input id="quantityinput" type="text" value="<%= ((item.optimal_quantity - item.quantity) > 0) ? (item.optimal_quantity - item.quantity).ceil : 0 %>"/>
-                    <span id="plusbutton">+</span>
-                  </div>
-                  </td>
-                <td>
-                  <div class="d-flex justify-content-between">
-                    <% if item.product.order_items.joins(:order).where(orders: { validated: false} ).size.zero? %>
-                      <%= item.product.suppliers.first.name.capitalize %>
-                    <% else %>
-                      <%= item.product.order_items.joins(:order).where(orders: { validated: false} ).last.supplier_item.supplier.name %>
-                    <% end %>
-                  <button type="button" class="button-green-supplier" data-toggle="modal" data-target="#exampleModal-<%= item.id %>"><strong>> </strong></button>
-                  </div>
-                  </div>
-
-
-                    <!-- Modal -->
-
-                  <div class="modal fade" id="exampleModal-<%= item.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content" style="width: 340px">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="Modalpriceperfourn">Choisissez votre fournisseur</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class='text-center m-0'>
-                          <p class="font-weight-bold text-center"> Fournisseur - Prix unitaire (€HT) </p>
-                              <% item.product.supplier_items.each do |supplier_item| %>
-                                <%= simple_form_for [supplier_item, @order_item] do |f| %>
-                                  <%= f.input :quantity, input_html: { value: "#{((item.optimal_quantity - item.quantity) > 0) ? (item.optimal_quantity - item.quantity).round(2) : 0 }" }, as: :hidden %>
-                                    <%= f.button :submit, "#{supplier_item.supplier.name}      -      #{supplier_item.price_per_product}€", class: "button-grey" %>
-                                  <% end %>
-                                <% end %>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary text-center height: 50px" data-dismiss="modal">Close</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <% if item.product.order_items.joins(:order).where(orders: { validated: false} ).size > 0 %>
-                      <%= item.product.order_items.joins(:order).where(orders: { validated: false} ).last.supplier_item.price_per_product %>
-                    <% end %>
-                    <span> €</span>
-                </td>
-                <td>
-                  <% if item.product.order_items.joins(:order).where(orders: { validated: false} ).size > 0 %>
-                      <%= (item.product.order_items.joins(:order).where(orders: { validated: false} ).last.supplier_item.price_per_product * item.product.order_items.joins(:order).where(orders: { validated: false} ).last.quantity).round(2) %>
-                    <% end %>
-                    <span> €</span>
-                </td>
-              </tr>
-             <% end %>
-           </tbody>
-          </table>
+    <!--panier -->
+    <div class="myshopping-cart">
+      <div class="myshopping-cart-header">
+        <i class="fas fa-shopping-cart"></i>
+        <p>Mon panier</p>
+      </div>
+      <div class="myshopping-cart-body">
+        <div class="myshopping-cart-row">
+          <div class="shopping-cart-box">Carottes</i></div>
+          <div class="shopping-cart-box">5</div>
+          <div class="shopping-cart-box">Jayden</div>
+          <div class="shopping-cart-box">px/u</div>
+          <div class="shopping-cart-box">sous tot HT</div>
         </div>
 
- </div>
-</div>
+      </div>
 
+    </div>
+
+
+  </div>
+<!-- </div> -->
 

@@ -1,20 +1,27 @@
 #global-container {
   width: 100em;
+  position: relative;
 }
 
 .shopping {
-  width: 65%;
-  height: 60%;
+  width: 35%;
+  height: 35%;
   top: 0;
-  right: 0px;
+  right: -200%;
   position: absolute;
   background: white;
   box-shadow: -2px 3px 24px black;
   z-index: 50;
 }
 
-.active {
+
+.display {
   right: -100%;
+  display:none;
+}
+.active {
+  right: 15%;
+
 }
 
 .tabs-underlined {
@@ -80,6 +87,7 @@
   right: 0;
 }
 
+// basket on top right of inventory table
 .mybasket {
 
   background-color: $persian-green;
@@ -90,6 +98,7 @@
   float: right;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  position:relative;
 
     &:hover {
       background-color: $dark-persian-green;
@@ -123,3 +132,5 @@
 
   }
 }
+
+
