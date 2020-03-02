@@ -11,13 +11,13 @@
     <li class="has-subnav">
         <i class="fa fa-home fa-2x"></i>
         <span id="dashboard" class="nav-text">
-            <%= link_to "Tableau de bord", root_path(:restaurant_id), class: "side-link" %>
+            <%= link_to "Tableau de bord", root_path(@restaurant), class: "side-link" %>
         </span>
     </li>
     <li class="has-subnav">
         <i class="fa fa-cash-register fa-2x"></i>
         <span class="nav-text">
-            <%= link_to "Gestion du stock", restaurant_inventory_items_path(:restaurant_id), class: "side-link" %>
+            <%= link_to "Gestion du stock", restaurant_inventory_items_path(@restaurant), class: "side-link" %>
         </span>
     </li>
     <li id="new-order" class="has-subnav">
@@ -33,6 +33,7 @@
       </span>
     </li>
   </ul>
+
 
   <div class="d-flex">
     <ul class="settings">
@@ -53,4 +54,5 @@
     </ul>
   </div>
 </nav>
+
 

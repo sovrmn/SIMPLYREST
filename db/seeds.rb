@@ -237,12 +237,16 @@ order_delivered_again = Order.create(total: 638.05, order_number: "BC-72-2020-01
 
 order_waiting = Order.create(total: 431.54, order_number: "BC-73-2020-02" ,delivered: false, restaurant: restaurant, supplier: c2b, validated: false)
 order_waiting_again = Order.create(total: 390.28, order_number: "BC-74-2020-02" ,delivered: true, restaurant: restaurant, supplier: metro, validated: true)
+order_waiting_2 = Order.create(total: 390.28, order_number: "BC-74-2020-03" ,delivered: false, restaurant: restaurant, supplier: metro, validated: true)
+
 p "orders created"
 boeufAubrac_order_item = OrderItem.create(quantity: 8, unit: 'kg', price: 80.88, completed: false, supplier_item: boeufAubrac_c2b, order: order_waiting)
 coteAubrac_order_item = OrderItem.create(quantity: 6, unit: 'kg', price: 98.45, completed: false, supplier_item: cote_c2b, order: order_waiting)
+c2b_waiting_2_item = OrderItem.create(quantity: 6, unit: 'kg', price: 98.45, completed: false, supplier_item: cote_c2b, order: order_waiting_2)
 boeufAubrac_order_item = OrderItem.create(quantity: 8, unit: 'kg', price: 72.88, completed: false, supplier_item: boeufAubrac_metro, order: order_delivered)
 boeufAubrac_order_item = OrderItem.create(quantity: 8, unit: 'kg', price: 80.88, completed: false, supplier_item: boeufAubrac_c2b, order: order_delivered_again)
 carrotte_order_item = OrderItem.create(quantity: 8, unit: 'kg', price: 10.16, completed: false, supplier_item: carotte_lenoble, order: order_delivered)
+
 
 # order_item
 order_item_one = OrderItem.create(quantity: 1, unit: 'kg', price: 1, completed: false, supplier_item: aubergine_metro, order: order_waiting_again)

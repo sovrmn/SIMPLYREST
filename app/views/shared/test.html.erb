@@ -1,36 +1,4 @@
-<% @orders.each do |order| %>
 
-<li><%= order.order_number %></li>
-<li><%= order.supplier.name %></li>
-<li><%= order.total %></li>
-<% end %>
-
-<div class="around">
-  <table>
-      <thead class="column">
-        <tr>
-          <th class ="col-name">#</th>
-          <th class ="col-name">Nom du fournisseur</th>
-          <th class ="col-name">Total de la commande</th>
-          <th class ="col-name">Statut</th>
-        </tr>
-      </thead>
-
-    <tbody>
-      <tr>
-        <th class ="row-table">1</th>
-        <td class ="row-content">Mark</td>
-        <td class ="row-content">Otto</td>
-        <td class ="row-content">@mdo</td>
-      </tr>
-      <tr>
-        <th class ="row-table">1</th>
-        <td class ="row-content">Mark</td>
-        <td class ="row-content">Otto</td>
-        <td class ="row-content">@mdo</td>
-      </tr>
-    </tbody>
-  </table>
 
 <!-- query pour index order -->
 
@@ -68,6 +36,458 @@
       </div>
     <% end %>
   </div>
+
+
+<!-- Index des orders, ancien code avec tableau -->
+
+
+
+  <div class="container orders-waiting">
+    <br>
+    <h4>Commandes en attente de validation <i class="fas fa-cart-arrow-down"></i></h4>
+    <br>
+    <div class="around">
+        <table class="table">
+          <thead>
+            <tr class="col-name text-center">
+              <th scope="col">#</th>
+              <th scope="col">Fournisseur</th>
+              <th scope="col">Total</th>
+
+              <th scope="col">Détails</th>
+              <th scope="col">Valider la commande</th>
+            </tr>
+          </thead>
+          <% @orders.each do |order| %>
+            <% if order.validated %>
+
+            <% else %>
+              <tbody>
+                <tr class="text-center align-items-center">
+                  <th scope="row" class="row-content"><%= order.order_number %></th>
+                  <td class="row-content"><%= order.supplier.name %></td>
+                  <td class="row-content"><%= order.total %> €</td>
+                  <td class="row-content order-details" id="collapsible<%= order.id %>"><i class="fas fa-arrow-down"></i></td>
+                  <td class="row-content validate-btn">
+
+                    <%= simple_form_for order, remote: true do |f| %>
+                      <%= f.input :validated, as: :hidden, input_html: { value: true } %>
+                      <%= f.submit "Valider la commande", class: "button-green-order" %>
+                    <% end %>
+                  </td>
+                  <tr class="col-name text-center d-none collapsible<%= order.id %> headline">
+                    <th scope="col">Produit</th>
+                    <th scope="col">Quantité</th>
+                    <th scope="col">Prix</th>
+                    <th scope="col">Statut</th>
+                    <th scope="col">Editer</th>
+                  </tr>
+                  <% order.order_items.each do |order_item| %>
+                  <tr class="text-center d-none collapsible<%= order.id %> product-list">
+                    <th scope="row"><%= order_item.supplier_item.product.name.capitalize %></th>
+                    <td class="row-content"><%= order_item.quantity.round(0) %> <%= order_item.supplier_item.product.unit %></td>
+                    <td class="row-content"><%= order_item.price %> €</td>
+                      <% if order_item.completed %>
+                        <td class="row-content"> Receptionné </td>
+                        <% else %>
+                        <td class="row-content"> Non receptionné </td>
+                      <% end %>
+                    <td class="row-content">
+                      <button type="button" data-toggle="modal" data-target="#Modal<%= order_item.id %>">
+                        <i class="far fa-edit"></i>
+                      </button>
+                      <div class="modal fade" id="Modal<%= order_item.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel"><%= order_item.supplier_item.product.name.capitalize %></h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <h5>Quantité : <%= order_item.quantity.round(0) %></h5>
+
+                              <%= simple_form_for order_item, method: :patch do |f| %>
+                              <div class="field">
+                                <div class="champ">
+                                  <%= f.input :quantity, label: "Ajuster la quantité"%>
+                                  <%= f.button :submit, "Mettre à jour", class: "button-green-order" %>
+                                </div>
+                                <% end %>
+                              </div>
+                            </div>
+                          </div>
+                          </div>
+                        </div>
+                      </td>
+                  </tr>
+                <% end %>
+                </tr>
+              </tbody>
+              <% end %>
+            <% end %>
+          </table>
+    </div>
+  </div>
+
+
+  <div class="container orders-validated">
+  <br>
+  <h4>Vos commandes livrées et en attente de livraison <i class="fas fa-shopping-cart"></i></h4>
+
+    <%= render 'shared/searchform' %>
+
+    <!-- <div class="around"> -->
+      <table class="table">
+        <thead>
+          <tr class="col-name text-center">
+            <th scope="col">#</th>
+            <th scope="col">Fournisseur</th>
+            <th scope="col">Total</th>
+            <th scope="col">Statut</th>
+            <th scope="col">Détails</th>
+            <th scope="col">Valider réception</th>
+          </tr>
+        </thead>
+        <% @orders.each do |order| %>
+        <% if order.validated %>
+
+          <tbody>
+            <tr class="text-center align-items-center">
+              <th scope="row" class="row-content"><%= order.order_number %></th>
+              <td class="row-content"><%= order.supplier.name %></td>
+              <td class="row-content"><%= order.total %> €</td>
+                <% if order.delivered %>
+                  <td class="row-content">Livrée</td>
+                  <% else %>
+                  <td class="row-content"> En attente de livraison</td>
+                <% end %>
+                <td class="row-content order-details" id="collapsible<%= order.id %>"><i class="fas fa-arrow-down"></i></td>
+                <td class="row-content validate-btn">
+
+                  <%= simple_form_for order, remote: true do |f| %>
+                    <%= f.input :delivered, as: :hidden, input_html: { value: true } %>
+                      <% if order.delivered %>
+                        <i class="fas fa-check"></i>
+                      <% else %>
+                        <%= f.submit "Réceptionné", class: "button-green-order" %>
+                      <% end %>
+                  <% end %>
+                </td>
+                <tr class="col-name text-center d-none collapsible<%= order.id %> headline">
+                  <th scope="col">Produit</th>
+                  <th scope="col">Quantité</th>
+                  <th scope="col">Prix</th>
+                  <th scope="col">Statut</th>
+                  <th scope="col">Editer</th>
+                  <th scope="col">#</th>
+                </tr>
+                <% order.order_items.each do |order_item| %>
+                <tr class="text-center d-none collapsible<%= order.id %> product-list">
+                  <th scope="row"><%= order_item.supplier_item.product.name.capitalize %></th>
+                  <td class="row-content"><%= order_item.quantity.round(0) %> <%= order_item.supplier_item.product.unit %></td>
+                  <td class="row-content"><%= order_item.price %> €</td>
+                  <% if order_item.completed %>
+                    <td class="row-content"> Receptionné </td>
+                    <% else %>
+                    <td class="row-content"> Non receptionne </td>
+                  <% end %>
+
+                  <td class="row-content">
+                    <button type="button" data-toggle="modal" data-target="#Modal<%= order_item.id %>">
+                      <i class="far fa-edit"></i>
+                    </button>
+                    <div class="modal fade" id="Modal<%= order_item.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"><%= order_item.supplier_item.product.name.capitalize %></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <h5>Quantité : <%= order_item.quantity.round(0) %></h5>
+
+                            <%= simple_form_for order_item, method: :patch do |f| %>
+                            <div class="field">
+                              <div class="champ">
+                                <%= f.input :quantity, label: "Ajuster la quantité"%>
+                                <%= f.button :submit, "Mettre à jour", class: "button-green-order" %>
+                              </div>
+                              <% end %>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                    </td>
+                  <td class="row-content"></td>
+                </tr>
+              <% end %>
+              </tr>
+            </tbody>
+            <% else %>
+            <% end %>
+          <% end %>
+        </table>
+    <!-- </div> -->
+  </div>
+
+<!-- order à receptionner -->
+
+<div class="to_receive">
+  <div class="card-product-header">
+    <div class="card-product-num-header">
+      <h2> # </h2>
+    </div>
+    <div class="card-product-supplier-header">
+      <h2> Fournisseur </h2>
+    </div>
+    <div class="card-product-total-header">
+      <h2> Total </h2>
+      </div>
+    <div class="card-product-action-header">
+     <h2> Action </h2>
+    </div>
+  </div>
+
+
+  <% @orders.each do |order| %>
+  <% if order.delivered %>
+  <% else %>
+  <div class="card-product">
+    <div class="card-product-num">
+      <h2><%= order.order_number %></h2>
+    </div>
+    <div class="card-product-supplier">
+      <h2> <%= order.supplier.name %> </h2>
+    </div>
+    <div class="card-product-total">
+      <h2> <%= order.total %> € </h2>
+      </div>
+    <div class="card-product-action">
+      <%= simple_form_for order, remote: true do |f| %>
+      <%= f.input :delivered, as: :hidden, input_html: { value: true } %>
+      <%= f.submit "Réceptionné", class: "button-green-order" %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
+
+<!-- order à valider test modal -->
+
+<% @orders.each do |order| %>
+  <% if order.validated %>
+  <% else %>
+  <div class="card-product">
+    <div class="card-product-num">
+      <h2><%= order.order_number %></h2>
+    </div>
+    <div class="card-product-supplier">
+      <h2> <%= order.supplier.name %> </h2>
+    </div>
+    <div class="card-product-total">
+      <h2> <%= order.total %> € </h2>
+      </div>
+    <div class="card-product-action">
+      <button type="button" data-toggle="modal" data-target="#Modal<%= order_item.id %>">
+      </button>
+      <% order.order_items.each do |order_item| %>
+        <div class="modal fade" id="Modal<%= order.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><%= order_item.supplier_item.product.name.capitalize %></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <h5>Quantité : </h5>
+
+                <%= simple_form_for order, remote: true do |f| %>
+                <div class="field">
+                  <div class="champ">
+                    <%= f.input :validated, as: :hidden, input_html: { value: true } %>
+                    <%= f.submit "Valider la commande", class: "button-green-order" %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        <% end %>
+    </div>
+    <% end %>
+  </div>
+<% end %>
+
+
+<!-- order à valider original -->
+
+  <% @orders.each do |order| %>
+  <% if order.validated %>
+  <% else %>
+  <div class="card-product">
+    <div class="card-product-num">
+      <h2><%= order.order_number %></h2>
+    </div>
+    <div class="card-product-supplier">
+      <h2> <%= order.supplier.name %> </h2>
+    </div>
+    <div class="card-product-total">
+      <h2> <%= order.total %> € </h2>
+      </div>
+    <div class="card-product-action">
+      <%= simple_form_for order, remote: true do |f| %>
+      <%= f.input :validated, as: :hidden, input_html: { value: true } %>
+      <%= f.submit "Valider la commande", class: "button-green-order" %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
+
+
+
+
+  <!-- order -->
+
+  <!-- Commandes validée non reçu -->
+  <div class="card-product-header">
+    <div class="card-product-num-header">
+      <h2> # </h2>
+    </div>
+    <div class="card-product-supplier-header">
+      <h2> Fournisseur </h2>
+    </div>
+    <div class="card-product-total-header">
+      <h2> Total </h2>
+    </div>
+    <div class="card-product-action-header">
+     <h2> Action </h2>
+    </div>
+  </div>
+
+  <% @orders.each do |order| %>
+  <% if order.delivered%>
+
+  <% else %>
+    <div class="card-product">
+      <div class="card-product-num">
+        <h2><%= order.order_number %></h2>
+      </div>
+      <div class="card-product-supplier">
+        <h2> <%= order.supplier.name %> </h2>
+      </div>
+      <div class="card-product-total">
+        <h2> <%= order.total %> € </h2>
+      </div>
+      <div class="card-product-action">
+        <%= simple_form_for order, remote: true do |f| %>
+        <%= f.input :delivered, as: :hidden, input_html: { value: true } %>
+        <%= f.submit "Réceptionné", class: "button-green-order" %>
+        <% end %>
+      </div>
+       </div>
+      <% end %>
+  <% end %>
+<br>
+  <!-- Commandes reçu -->
+<div class="card-product-header">
+  <div class="card-product-num-header">
+    <h2> # </h2>
+  </div>
+  <div class="card-product-supplier-header">
+    <h2> Fournisseur </h2>
+  </div>
+  <div class="card-product-total-header">
+    <h2> Total </h2>
+  </div>
+  <div class="card-product-action-header">
+   <h2> Action </h2>
+  </div>
+</div>
+
+  <% @orders.each do |order| %>
+  <% if order.delivered? %>
+  <% else %>
+    <div class="card-product">
+      <div class="card-product-num">
+        <h2><%= order.order_number %></h2>
+      </div>
+      <div class="card-product-supplier">
+        <h2> <%= order.supplier.name %> </h2>
+      </div>
+      <div class="card-product-total">
+        <h2> <%= order.total %> € </h2>
+      </div>
+      <div class="card-product-action">
+        <h2> Receptionné le xx/xx/xx </h2>
+      </div>
+
+    </div>
+    <% end %>
+  <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
