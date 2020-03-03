@@ -22,6 +22,9 @@ const comparisonCart = () => {
       ]
     },
     options: {
+      legend: {
+            position: 'right',
+        },
       title: {
         display: true,
         text: 'Comparaison journalière du CA'
@@ -82,7 +85,7 @@ const kpis = () => {
     },
     options: {
       legend: {
-        position: 'bottom',
+        position: 'top',
         },
       scales: {
         xAxes: [{
@@ -91,8 +94,7 @@ const kpis = () => {
         }]
       },
       title: {
-        display: true,
-        text: 'Comparaison journalière du CA'
+        display: false,
       },
     }
   });

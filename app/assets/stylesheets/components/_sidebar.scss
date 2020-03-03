@@ -1,6 +1,7 @@
 .fa-2x {
   font-size: 3em;
 }
+
 .fa {
   position: relative;
   display: table-cell;
@@ -33,15 +34,21 @@
   font-size: 18px;
 }
 
+.nav-text:hover {
+  color: #fdbb30;
+}
+
 .side-link{
   color: inherit;
 }
 
+.side-link:hover{
+  color: #fdbb30;
+}
 
 .main-menu:hover,nav.main-menu.expanded {
   width:250px;
   overflow:visible;
-
 }
 
 .main-menu {
@@ -70,10 +77,10 @@
 }
 
 
-.main-menu li:hover{
+.main-menu li:hover {
   background-color: $dark-persian-green;
   opacity: 0.8;
-  }
+}
 
 .main-menu li>a {
   position:relative;

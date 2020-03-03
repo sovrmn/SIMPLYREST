@@ -1,21 +1,26 @@
 .charts-container{
   display:flex;
 }
-
+.charts-second{
+  padding-left: 99px;
+}
 
 .key-perf{
-  width:800px;
+  width:750px;
+  margin-left: 30px;
 }
 
 .sales-recipes,
 .miniature {
-  width: 400px;
+  width: 350px;
 }
 
 .banner {
   background-size: cover;
   background-position: center;
   padding: 150px 0;
+  height: 350px;
+  margin-bottom: 30px;
 }
 
 .banner h1 {
@@ -31,4 +36,9 @@
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+
+}
+
+canvas {
+
 }
