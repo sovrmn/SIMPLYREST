@@ -21,18 +21,19 @@ class OrdersController < ApplicationController
   end
 
   def create
+    @inventory_items = @restaurant.inventory_items
     # Trouver le restaurant avec l'utilisateur en cours
-    # @restaurant = Restaurant.where(user: current_user).first
-    # # Creer l'order item
-    # @order = Order.new(order_params)
-    # @order.restaurant = @restaurant
-    # if @order.save
-    # # Redirection vers les orders pour validation
-    #   redirect_to restaurant_orders_path(@restaurant)
-    # else
-    # # Sinon rester sur la page d'inventories
-    #   render "/inventory_items/index"
-    # end
+    @restaurant = Restaurant.where(user: current_user).first
+    # Creer l'order item
+    @order = Order.new(order_params)
+    @order.restaurant = @restaurant
+    if @order.save
+    # Redirection vers les orders pour validation
+      redirect_to restaurant_orders_path(@restaurant)
+    else
+    # Sinon rester sur la page d'inventories
+      render "/inventory_items/index"
+    end
   end
 
   # def create
