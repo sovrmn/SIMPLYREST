@@ -35,6 +35,12 @@ import {minusPlusButton} from "../plugins/minusplusbutton";
 
 import {move} from "../plugins/move";
 
+import {initSelect2} from "../plugins/init_select2";
+
+import {updateSupplierUnitPrice} from "../plugins/update_supplier_unit_price";
+
+
+
 
 document.addEventListener('turbolinks:load', () => {
   orderCollap();
@@ -43,5 +49,7 @@ document.addEventListener('turbolinks:load', () => {
   displayOrderAndItems();
   minusPlusButton();
   move();
+  initSelect2();
+  updateSupplierUnitPrice();
 
 });

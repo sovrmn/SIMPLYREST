@@ -3,13 +3,13 @@
 // je fixe la hauteur du content order (hauteurde l'écran - hauteur de la navbar)
 .content-order{
   display: flex;
-  height: calc(100vh - 10vh);
+  height: calc(100vh-10vh);
   overflow-y:hidden;
 }
 
 
 .inventory-table {
-  flex-grow:1;
+  flex-grow:0.7;
   background-color: $very-light-gray;
   color: #444;
   padding: 0px 1px;
@@ -18,7 +18,7 @@
 .inventory-table-header,
 .inventory-row {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(6, 1fr);
 }
 
 #inventory-table-header {
@@ -60,6 +60,10 @@
 .myshopping-cart {
   color: $baby-white;
   text-align:center;
+  flex: 0 0 25%;
+  margin-left: 1%;
+  margin-right: 1%;
+
 }
 
 .myshopping-cart-header {
@@ -88,6 +92,25 @@
   height: 100%;
   overflow-y: auto;
 }
+
+.article-line1 {
+  display:flex;
+  padding: 10px;
+
+}
+
+.article-line2 {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+
+.article-line2-part2 {
+  display: flex;
+}
+
 .myshopping-cart-row {
   display: grid;
   grid-template-columns: repeat(5, auto);
@@ -103,3 +126,9 @@
   border-bottom: 1px solid rgba(0,0,0,0.05);
   border-top: 1px solid rgba(225,225,225,0.05);
 }
+
+.input-cart-box {
+  width: 40px;
+}
+
+
