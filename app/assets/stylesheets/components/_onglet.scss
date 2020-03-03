@@ -1,0 +1,16 @@
+.onglet {
+  border: 1px solid;
+  display: inline-block;
+  margin: 100px;
+  padding: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+// .contenu {
+// box-shadow: 0 0 15px rgba(0,0,0,0.2);
+// width: 100%;
+// }
+
+.nav-link.active.tabs {
+  background-color: $persian-green;
+}

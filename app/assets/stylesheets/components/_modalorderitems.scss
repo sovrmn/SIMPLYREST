@@ -1,21 +1,5 @@
-.modal-window {
-  position: fixed;
-  background-color: rgba(255, 255, 255, 0.25);
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 999;
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s;
-  &:target {
-    visibility: visible;
-    opacity: 1;
-    pointer-events: auto;
-  }
-}
+
+// to validate
 
 .button-modal {
   color: #18A999;
@@ -30,6 +14,7 @@
   padding: 10px 8px;
   border: 1px solid #18A999;
   width: 100%;
+  margin-bottom: 15px;
 
   &:hover {
     color: #18A999;
@@ -39,24 +24,20 @@
 
 .modal-content {
 border-radius: 5px;
-width: 100%;
+width: 130%;
 }
 
 .modal-header {
   text-align: center;
+  border-bottom: none;
 }
 
 .modal-body {
   text-align: left;
   display: flex;
-  h6 {
-    margin-bottom: 0px;
-    margin-top: 5px;
-    }
 }
 
-
-.field {
+.modal-field {
   display: flex;
   width: 100%;
   justify-content: center;
@@ -64,4 +45,29 @@ width: 100%;
   background: none;
 }
 
+.order-product {
+  width: 100%;
+}
 
+.line {
+  margin-bottom: 12px;
+  padding-bottom: 5px;
+  border-bottom: solid 1px;
+}
+
+.details {
+  width: 100%;
+}
+
+.total-order {
+  border-top: solid 1px;
+  margin-top: 10px;
+  text-align: right;
+  padding: 10px;
+
+}
+
+.details {
+width: 100%;
+font-size: 14px;
+}

@@ -35,6 +35,8 @@ import {minusPlusButton} from "../plugins/minusplusbutton";
 
 import {move} from "../plugins/move";
 
+import {autoSubmit} from "../components/autosubmitform";
+
 
 document.addEventListener('turbolinks:load', () => {
   orderCollap();
@@ -43,5 +45,6 @@ document.addEventListener('turbolinks:load', () => {
   displayOrderAndItems();
   minusPlusButton();
   move();
+  autoSubmit();
 
 });

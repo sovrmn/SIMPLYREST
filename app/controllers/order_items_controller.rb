@@ -8,7 +8,7 @@ class OrderItemsController < ApplicationController
     @order_item.price = params[:order_item][:quantity].to_f * @order_item.supplier_item.price_per_product
 
     @order_item.update(order_item_params)
-    redirect_to restaurant_orders_path(@restaurant)
+    redirect_to restaurant_orders_path(@restaurant, updated: 'updated' )
   end
 
   def create
