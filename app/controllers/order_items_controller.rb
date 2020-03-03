@@ -8,7 +8,11 @@ class OrderItemsController < ApplicationController
     @order_item.price = params[:order_item][:quantity].to_f * @order_item.supplier_item.price_per_product
 
     @order_item.update(order_item_params)
-    redirect_to restaurant_orders_path(@restaurant, updated: 'updated' )
+
+    @order = @order_item.order
+    @order.total = @order.order_items.pluck(:price).reduce(0, :+)
+    @order.save
+    redirect_to restaurant_orders_path(@restaurant, anchor: "Modal#{@order_item.order_id}")
   end
 
   def create

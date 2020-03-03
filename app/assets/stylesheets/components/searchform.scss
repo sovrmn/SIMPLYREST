@@ -1,15 +1,25 @@
 .field {
   background: $baby-white;
   color: $persian-green;
-  padding: 15px 10px;
   padding-bottom: 0px;
   margin-top: 10px;
-  margin-bottom: -5px;
+  margin-bottom: 5px;
   border-radius: 3px;
-  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   display: flex;
   justify-content: center;
   align-items: stretch;
   width: 250px;
+}
+
+.suppsearch:focus {
+border: 1px solid;
+box-shadow: none;
+}
+
+.suppsearch {
+color: $persian-green;
+border-radius: 20px;
+border: 0px;
+width: 250px;
 
 }

@@ -9,6 +9,7 @@ const autoSubmit = () => {
       form.submit();
     });
   });
+  $(window.location.hash).modal("show")
 }
 
 export {autoSubmit};
