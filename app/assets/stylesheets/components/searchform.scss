@@ -1,19 +1,27 @@
-.field {
-  background: $baby-white;
-  color: $persian-green;
-  padding-bottom: 0px;
-  margin-top: 10px;
-  margin-bottom: 5px;
-  border-radius: 3px;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  width: 250px;
+// .field {
+//   background: $baby-white;
+//   color: $persian-green;
+//   padding-bottom: 0px;
+//   margin-top: 10px;
+//   margin-bottom: 5px;
+//   border-radius: 3px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: stretch;
+//   width: 250px;
+// }
+
+.form {
+position: relative;
+bottom: -11px;
 }
 
 .suppsearch:focus {
-border: 1px solid;
+border: 1px solid $persian-green;
 box-shadow: none;
+box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+
 }
 
 .suppsearch {
@@ -21,5 +29,6 @@ color: $persian-green;
 border-radius: 20px;
 border: 0px;
 width: 250px;
+font-size: 12px;
 
 }

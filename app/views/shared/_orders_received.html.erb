@@ -15,6 +15,9 @@
     <div class="card-product-action-header">
      <h2> Action </h2>
     </div>
+    <div class="card-product-action-header">
+     <h2> Exporter </h2>
+    </div>
   </div>
 
     <% @orders.each do |order| %>
@@ -30,7 +33,7 @@
         <h2> <%= order.supplier.name %> </h2>
       </div>
       <div class="card-product-total">
-        <h2> <%= order.total %> € </h2>
+        <h2> <%= order.total.round(2) %> € </h2>
       </div>
 
       <div class="card-product-action">
@@ -63,15 +66,15 @@
                           <td><%= order_item.supplier_item.product.name.capitalize %></th>
                           <td><%= order_item.supplier_item.price_per_product %>€ / <%= order_item.unit %></td>
                           <td><%= order_item.quantity%> <%= order_item.unit %></td>
-                          <td><%= order_item.price%>€</td>
+                          <td><%= order_item.price.round(2)%>€</td>
                         </tr>
                       </tbody>
                       <% end %>
                 </table>
 
-                <div class="total-order">
-                  <h5><%= order.total %> €</h5>
-                </div>
+                  <div class="total-order">
+                    <h5><%= order.total.round(2) %> €</h5>
+                  </div>
                 </div>
 
               </div>
@@ -80,6 +83,11 @@
           </div>
         </div>
 
+      </div>
+      <div class="card-product-export">
+        <i><%= image_tag "pdf.png" %></i>
+        <i><%= image_tag "excel.png" %></i>
+        <i><%= image_tag "gmail.png" %></i>
       </div>
 
     </div>

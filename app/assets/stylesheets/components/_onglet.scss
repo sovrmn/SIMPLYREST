@@ -1,10 +1,17 @@
-.onglet {
-  border: 1px solid;
-  padding: 1em;
-  margin: 1em;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+// .header {
+//   background-color: #4E8098;
+//   height: 180px;
+//   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.3))
+// }
 
+.onglet {
+  padding: 2em;
+background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.3));
+background-color: #4E8098;
+  height: 200px;
 }
+
+
 
 // .contenu {
 // box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -13,5 +20,18 @@
 
 .nav-link.active.tabs {
   background-color: $persian-green;
+
+}
+
+.tabs {
+  color: $baby-white;
+}
+
+.tabs:hover {
+  color: $persian-green;
+}
+
+.active.tabs {
+  border-radius: 5px;
 }
 

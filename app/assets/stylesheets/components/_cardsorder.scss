@@ -7,6 +7,8 @@
 // width: 100%;
 // }
 
+
+
 .to-receive {
 width: 100%;
 }
@@ -25,6 +27,7 @@ width: 100%;
   justify-content: space-between;
   border-radius: 5px;
   margin-bottom: 3px;
+
 }
 
 // .card-product img {
@@ -35,7 +38,6 @@ width: 100%;
 
 h2 {
   font-size: 16px;
-  font-weight: light;
   margin: 0;
 }
 
@@ -68,6 +70,22 @@ h2 {
   text-align: center;
 }
 
+.card-product-export {
+  border-left: solid 1px;
+  padding-bottom: 0px;
+  padding-right: 10px;
+  padding-top: 0px;
+  padding-left: 10px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  img {
+    height: 40px;
+    width: 38px;
+  }
+}
+
 
 //Header
 
@@ -92,7 +110,6 @@ h2 {
 
 .card-product-header h2 {
   font-size: 16px;
-  font-weight: bold;
   color: $persian-green;
 }
 

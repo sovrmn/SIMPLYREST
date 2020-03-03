@@ -14,6 +14,9 @@
     <div class="card-product-action-header">
      <h2> Action </h2>
     </div>
+    <div class="card-product-action-header">
+     <h2> Exporter </h2>
+    </div>
   </div>
 
   <% @orders.each do |order| %>
@@ -86,10 +89,16 @@
                   <%= f.submit "Valider la commande", class: "button-modal" %>
                 <% end %>
               </div>
+
             </div>
           </div>
         </div>
 
+      </div>
+      <div class="card-product-export">
+        <i><%= image_tag "pdf.png" %></i>
+        <i><%= image_tag "excel.png" %></i>
+        <i><%= image_tag "gmail.png" %></i>
       </div>
 
     </div>
