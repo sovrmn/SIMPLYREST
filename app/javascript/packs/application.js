@@ -47,5 +47,5 @@ document.addEventListener('turbolinks:load', () => {
   move();
   chartTopVentes();
   comparisonCart();
-  kpis()
+  kpis();
 });
