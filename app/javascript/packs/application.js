@@ -35,6 +35,8 @@ import {minusPlusButton} from "../plugins/minusplusbutton";
 
 import {move} from "../plugins/move";
 
+import {chartTopVentes, comparisonCart, kpis} from "../plugins/charts";
+
 
 document.addEventListener('turbolinks:load', () => {
   orderCollap();
@@ -43,5 +45,7 @@ document.addEventListener('turbolinks:load', () => {
   displayOrderAndItems();
   minusPlusButton();
   move();
-
+  chartTopVentes();
+  comparisonCart();
+  kpis()
 });
