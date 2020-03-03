@@ -1,5 +1,5 @@
 <!-- <div class="container"> -->
-  <div class="content-order">
+<div class="content-order">
   <!--new table -->
     <div class="inventory-table">
       <div class="inventory-table-header">
@@ -14,25 +14,18 @@
       <div class="inventory-table-body">
         <%@inventory_items.each do |item| %>
           <div class="inventory-row">
-            <div class="box"><%= item.product.name.capitalize %></i></div>
-
-            <div class="box"><i class="fas fa-carrot"></i> <%= item.product.category.capitalize %></div>
-            <div class="box"><%= item.optimal_quantity.round(2) %> <%= item.product.unit %></div>
-            <div class="box"><%= item.quantity %> <%= item.product.unit %></div>
-            <div class="box">
-              <div class="progressBar d-flex">
-                <div class="progressRed">
-                </div>
-                <div class="progressOrange">
-                </div>
-                <div class="progressGreen">
-                </div>
-              </div>
+            <div class="box"><%= item.product.name.capitalize %></div>
+            <div class="box"><%= image_tag(select_icon(item.product.category), :class => "icon")%> <%= item.product.category.capitalize %></div>
+            <div class="box text-center"><%= item.optimal_quantity.round(2) %> <%= item.product.unit %></div>
+            <div class="box text-center"><%= item.quantity %> <%= item.product.unit %></div>
+            <div class="progressBar d-flex">
+              <div class="progressRed"></div>
+              <div class="progressOrange"></div>
+              <div class="progressGreen"></div>
+            </div>
               <div class="mt-2 text-center">
                  <span id="stocklevel"><%= "%.0f" % (item.quantity/item.optimal_quantity*100)%></span>
-               %
-             </div>
-            </div>
+              </div>
             <div id ="plus-minus-column" class="box">
               <div class="quantitybutton d-flex">
                 <span id="minusbutton">-</span>
@@ -41,10 +34,10 @@
               </div>
             </div>
           </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
-
     <!--panier -->
     <div class="myshopping-cart">
       <div class="myshopping-cart-header">
@@ -59,12 +52,6 @@
           <div class="shopping-cart-box">px/u</div>
           <div class="shopping-cart-box">sous tot HT</div>
         </div>
-
       </div>
-
     </div>
-
-
-  </div>
-<!-- </div> -->
-
+</div>
