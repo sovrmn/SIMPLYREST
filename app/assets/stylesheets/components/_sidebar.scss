@@ -31,6 +31,11 @@
     bottom: 0;
 }
 
+.current-page {
+  background-color: $persian-green;
+  opacity:0.6;
+}
+
 .nav-text {
   font-size: 18px;
 }
@@ -121,9 +126,6 @@
   bottom:0;
 }
 
-.current-page {
-  color: #315262;
-}
 
 
 a:hover,a:focus {
