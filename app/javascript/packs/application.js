@@ -43,6 +43,8 @@ import {toggleShoppingCart} from "../plugins/toggleShoppingCart";
 
 import {updateSupplierUnitPrice} from "../plugins/update_supplier_unit_price";
 
+import {totalshopcart} from "../plugins/compute_total_shopcart.js";
+
 
 document.addEventListener('turbolinks:load', () => {
 
@@ -65,4 +67,7 @@ document.addEventListener('turbolinks:load', () => {
   displayOrderAndItems();
   initSelect2();
   updateSupplierUnitPrice();
+  if (document.getElementById("total-shop-cart")) {
+    totalshopcart();
+  }
 });
