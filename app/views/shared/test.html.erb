@@ -435,6 +435,27 @@
   <% end %>
 
 
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Produit</th>
+      <th scope="col">Prix</th>
+      <th scope="col">Quantité commandée</th>
+      <th scope="col">Total</th>
+      <th scope="col">Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%= order_item.supplier_item.product.name.capitalize %></th>
+      <td><%= order_item.supplier_item.price_per_product %>€ / <%= order_item.unit %></td>
+      <td><%= order_item.quantity%> <%= order_item.unit %></td>
+      <td><%= order_item.price%>€</td>
+      <td>Edit</td>
+    </tr>
+  </tbody>
+</table>
+
 
 
 
