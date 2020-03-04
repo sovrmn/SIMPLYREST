@@ -1,0 +1,181 @@
+.devise {
+  padding-left: 0px;
+}
+
+.landing-page {
+background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1481833761820-0509d3217039?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
+height: 100%;
+display: flex;
+  h1 {
+    flex: 0 0 50%;
+  }
+}
+
+.signin-form-landing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 50%;
+  padding: 40px;
+  > div {
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+  }
+}
+
+.signin h2{
+  text-align: center;
+  color: black;
+}
+
+.title-landing {
+color: white;
+padding: 15px;
+}
+
+.bott {
+  margin: 20px;
+  h2 {
+    padding: 30px;
+    text-align: center;
+    color: $persian-green;
+    font-size: 32px;
+    img {
+    height: 40px;
+    width: 38px;
+  }
+  }
+}
+
+.company-descritpion {
+  display: flex;
+  justify-content: around;
+}
+
+
+//cards info
+
+.card-food-truck {
+  padding:auto;
+  margin:auto;
+  text-align:centre;
+  width: 280px;
+  background: $baby-white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  // margin: 20px;
+  border-radius: 5px;
+  display:flex;
+  flex-direction:column;
+  text-decoration: none;
+}
+
+
+.card-food-truck > img {
+  height: 220px;
+  width: 230px;
+  // object-fit: cover;
+  display: block;
+  margin: auto;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+
+.card-food-truck p {
+  font-size: 13px;
+  margin: 0;
+  color: #636366;
+  margin-bottom: 13px;
+}
+
+.card-food-truck h3 {
+  font-size: 20px;
+  margin: 0;
+  padding-bottom: 5px;
+  color:black;
+}
+
+.card-food-truck h2 {
+  font-size: 32px;
+  margin: 0;
+}
+.card-food-truck-infos-price {
+  display:flex;
+  justify-content: flex-start;
+  color:black;
+}
+
+
+.card-food-truck .card-food-truck-infos {
+  padding: 16px;
+  position: relative;
+}
+
+#currency {
+  margin: 0;
+  color: #636366;
+  vertical-align: text-bottom;
+  padding-right: 5px;
+
+}
+
+#day {
+  margin: 0;
+  color: #636366;
+  vertical-align: text-bottom;
+  align-self: flex-end;
+  padding-left: 5px;
+}
+
+.card-food-truck-infos .card-food-truck-user {
+  position: absolute;
+  right: 18px;
+  top: -29px;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+
+
+
+
+
+//responsive
+
+
+@media (max-width: 992px){
+  .card-food-truck{
+    grid-template-columns: repeat(2,1fr);
+}
+}
+
+@media (min-width: 100px) and (max-width: 575px){
+.card-food-truck {
+    grid-template-columns: 1fr;
+}
+}
+
+@media (min-width: 100px) and (max-width: 575px) {
+  .card-food-truck {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .card-food-truck {
+    grid-template-columns: 1fr 1fr;
+  }
+  #map {
+    display: none;
+  }
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 1200px) {
+  .card-food-truck {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
