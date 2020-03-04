@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<%= favicon_link_tag asset_path('logo.png'), :rel => 'icon', :type =>  'image/png' %>
   <head>
     <title>SIMPLYREST</title>
     <link href="https://fonts.googleapis.com/css?family=Karla|Montserrat&display=swap" rel="stylesheet">
@@ -13,14 +12,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body class="not-scrollable">
+  <body class="devise">
 
     <%= render 'shared/flashes' %>
+    <%= yield %>
 
-    <%= render 'shared/sidebar' if current_user %>
-    <div class="container_with_sidebar">
-      <%= yield %>
-    </div>
 
   </body>
 

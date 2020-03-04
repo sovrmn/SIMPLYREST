@@ -24,6 +24,7 @@ const minusPlusButton = () => {
       hiddenquantity.value = currentValue;
 
     });
+
   });
 
   const plusButtons = document.querySelectorAll('#plusbutton');
@@ -48,5 +49,6 @@ const minusPlusButton = () => {
       hiddenquantity.value = currentValue;
     });
   });
+
 }
 export {minusPlusButton};
