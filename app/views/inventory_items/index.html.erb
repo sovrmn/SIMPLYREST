@@ -96,3 +96,15 @@
 </div>
 
 
+
+<%= simple_form_for (Order.new) do |order_form| %>
+  <%= order_form.simple_fields_for :order_items do |order_item_form| %>
+  <%= item.product.name.capitalize %>
+  <%= "#{quantity line}" %>
+  <%= order_item_form.input :quantity..... %>
+  <br>
+  <div>class Select2frs</div>
+  <div>PU</div>
+  <div>Prix total</div>
+  <% end %>
+<% end %>

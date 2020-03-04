@@ -14,6 +14,25 @@ class OrdersController < ApplicationController
     @order = Order.new
   end
 
+  def new
+    @order = Order.new
+  end
+
+  def create
+    # Trouver le restaurant avec l'utilisateur en cours
+    @restaurant = Restaurant.where(user: current_user).first
+    # Creer l'order item
+    @order = Order.new(order_params)
+    @order.restaurant = @restaurant
+    if @order.save
+    # Redirection vers les orders pour validation
+      redirect_to restaurant_orders_path(@restaurant)
+    else
+    # Sinon rester sur la page d'inventories
+      render "/inventory_items/index"
+    end
+  end
+
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
