@@ -39,8 +39,6 @@ import {chartTopVentes, comparisonCart, kpis} from "../plugins/charts";
 
 import {autoSubmit} from "../components/autosubmitform";
 
-import {autoSubmit} from "../components/autosubmitform";
-
 document.addEventListener('turbolinks:load', () => {
   orderCollap();
   toggleSide();
@@ -48,8 +46,14 @@ document.addEventListener('turbolinks:load', () => {
   displayOrderAndItems();
   minusPlusButton();
   move();
-  chartTopVentes();
-  comparisonCart();
-  kpis();
+  if (document.getElementById("bar-chart-grouped")) {
+    comparisonCart();
+  };
+  if (document.getElementById("doughnut-chart")) {
+    chartTopVentes();
+  };
+  if (document.getElementById("kpis")) {
+    kpis();
+  }
   autoSubmit();
 });
