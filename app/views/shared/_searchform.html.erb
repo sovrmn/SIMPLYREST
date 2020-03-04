@@ -1,10 +1,6 @@
 
- <%= simple_form_for restaurant_orders_path, method: 'get' do |f| %>
-    <div class="field">
-        <div class="champ">
-        <%= f.input :supplier, placeholder: "Fournisseur", label: "Recherche par fournisseur"%>
-        </div>
+ <%= simple_form_for restaurant_orders_path, method: 'get'  do |f| %>
+        <%= f.input :supplier, placeholder: "Rechercher un fournisseur", label: false, input_html: { class: "suppsearch"}%>
       <% end %>
-    </div>
 
 
