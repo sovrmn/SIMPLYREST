@@ -23,31 +23,38 @@ require("channels")
 // ----------------------------------------------------
 import "bootstrap";
 
+import {autoSubmit} from "../components/autosubmitform";
+
+import {chartTopVentes, comparisonCart, kpis} from "../plugins/charts";
+
+import {displayOrderAndItems} from "../plugins/shoppingCartDisplay";
+
+import {initSelect2} from "../plugins/init_select2";
+
+import {minusPlusButton} from "../plugins/minusplusbutton";
+
+import {move} from "../plugins/move";
+
 import {orderCollap} from "../plugins/collapsible";
 
 import {toggleSide} from "../plugins/toggleSideBar";
 
 import {toggleShoppingCart} from "../plugins/toggleShoppingCart";
 
-import {displayOrderAndItems} from "../plugins/shoppingCartDisplay";
+import {updateSupplierUnitPrice} from "../plugins/update_supplier_unit_price";
 
-import {minusPlusButton} from "../plugins/minusplusbutton";
-
-import {move} from "../plugins/move";
-
-import {chartTopVentes, comparisonCart, kpis} from "../plugins/charts";
-
-import {autoSubmit} from "../components/autosubmitform";
 
 document.addEventListener('turbolinks:load', () => {
+  autoSubmit();
+  chartTopVentes();
+  comparisonCart();
+  displayOrderAndItems();
+  initSelect2();
+  kpis();
+  minusPlusButton();
+  move();
   orderCollap();
   toggleSide();
   toggleShoppingCart();
-  displayOrderAndItems();
-  minusPlusButton();
-  move();
-  chartTopVentes();
-  comparisonCart();
-  kpis();
-  autoSubmit();
+  updateSupplierUnitPrice();
 });
