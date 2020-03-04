@@ -1,5 +1,5 @@
-<!-- <div class="container"> -->
 <div class="content-order">
+<!-- <div class="container"> -->
 <!--new table -->
   <div class="inventory-table">
     <div class="inventory-table-header">
@@ -30,7 +30,6 @@
             </div>
             <div class="mt-2 text-center">
                <span id="stocklevel"><%= "%.0f" % (item.quantity/item.optimal_quantity*100)%></span>
-             %
            </div>
           </div>
           <div id ="plus-minus-column" class="box">
@@ -45,10 +44,37 @@
     </div>
   </div>
 
+  <div class="myshopping-cart">
+    <%= simple_form_for [@restaurant, Order.new] do |order_form| %>
+      <div class="myshopping-cart-header">
+        <i class="fas fa-shopping-cart"></i>
+        <p>Mon panier</p>
+        <div class="dropdown">
+          <div id="cart">
+           <p><span id="in-cart-items-num"></span></p>
+          </div>
+        </div>
+      </div>
+      <div class="myshopping-cart-list">
+        <%@inventory_items.each_with_index do |item, index| %>
 
+          <%= order_form.simple_fields_for :order_items, OrderItem.new do |order_item_form| %>
+            <% if item.optimal_quantity - item.quantity > 0 %>
+              <div class=article>
+                <div class="shopping-cart-box ">
+                  <!-- ligne 1 avec nomde l'article et quantité -->
+                  <div class="article-line1 ">
+                    <!--nom article-->
+                    <%=item.product.name.capitalize%>
+                    <!--quantité-->
+                    <span id="item-quantity-<%=item.id%>">
+                      <%= "#{((item.optimal_quantity - item.quantity) > 0) ? (item.optimal_quantity - item.quantity).ceil : 0 }" %>
+                    </span>
 
-
-
+                    <!--unité-->
+                    <span><%= item.product.unit %></span>
+                    <%= order_item_form.input :quantity,as: :hidden, input_html: { class:"input-cart-box", id:"hidden-quantity-#{item.id}", value: "#{((item.optimal_quantity - item.quantity) > 0) ? (item.optimal_quantity - item.quantity).ceil : 0 }" }  %>
+                  </div>
     <div class="myshopping-cart-body">
       <%= simple_form_for [@restaurant, Order.new] do |order_form| %>
         <!--panier -->
@@ -74,7 +100,7 @@
                       <!-- ligne 1 avec nomde l'article et quantité -->
                       <div class="article-line1 ">
                         <!--nom article-->
-                        <span id="cart-product-name"> <%=item.product.name.capitalize%></span>
+                        <span id="cart-product-name"> <%=item.product.name.capitalize%></span
 
                         <!--quantité-->
                         <span id="item-quantity-<%=item.id%>">
