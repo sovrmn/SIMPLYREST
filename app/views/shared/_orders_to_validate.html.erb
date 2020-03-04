@@ -32,7 +32,7 @@
         <h2> <%= order.supplier.name %> </h2>
       </div>
       <div class="card-product-total">
-        <h2> <%= order.total %> € </h2>
+        <h2> <%= order.total.round(2) %> € </h2>
       </div>
 
       <div class="card-product-action">
