@@ -64,7 +64,7 @@
         <i class="fa fa-power-off fa-2x has-subnav"></i>
         <span class="nav-text">
           <% if user_signed_in? %>
-            <%= link_to "Log Out", destroy_user_session_path(@user), class: "side-link" %>
+            <%= link_to "Log Out", destroy_user_session_path(@user), method: :delete, class: "side-link" %>
           <% else %>
             <%= link_to "Log in", new_user_session_path, class: "side-link" %>
           <% end %>
