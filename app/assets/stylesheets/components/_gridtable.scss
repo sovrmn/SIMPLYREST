@@ -3,7 +3,7 @@
 // je fixe la hauteur du content order (hauteurde l'écran - hauteur de la navbar)
 .content-order{
   display: flex;
-  height: calc(100vh-10vh);
+  height: calc(100vh);
   overflow-y:hidden;
 }
 

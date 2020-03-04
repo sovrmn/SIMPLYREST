@@ -53,7 +53,7 @@
       <p>Mon panier</p>
         <div class="dropdown">
         <div id="cart">
-         <p><span id="in-cart-items-num">0</span> Articles</p>
+         <p><span id="in-cart-items-num"></span></p>
         </div>
     </div>
   </div>
@@ -63,8 +63,9 @@
       <%= simple_form_for [@restaurant, Order.new] do |order_form| %>
         <div class="myshopping-cart-list">
           <%@inventory_items.each_with_index do |item, index| %>
-          <% if item.optimal_quantity - item.quantity > 0 %>
+
             <%= order_form.simple_fields_for :order_items, OrderItem.new do |order_item_form| %>
+            <% if item.optimal_quantity - item.quantity > 0 %>
               <div class=article>
                 <div class="shopping-cart-box ">
                   <!-- ligne 1 avec nomde l'article et quantité -->

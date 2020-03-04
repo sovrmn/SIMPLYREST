@@ -1,5 +1,3 @@
-require "pry"
-
 class OrdersController < ApplicationController
   before_action :set_restaurant
 
@@ -9,9 +7,12 @@ class OrdersController < ApplicationController
       #improve search (ILIKE %)
       sql_query = "suppliers.name ILIKE :suppliers"
 
-      @orders = @restaurant.orders.joins(:supplier).where(sql_query, suppliers: "%#{params[:supplier]}%")
+      @orders = @restaurant.orders.joins(:supplier).where(
+        sql_query,
+        suppliers: "%#{params[:supplier]}%"
+      ).order(:id).reverse_order
     else
-      @orders = @restaurant.orders
+      @orders = @restaurant.orders.order(:id).reverse_order
     end
     @order = Order.new
   end
@@ -21,54 +22,36 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @inventory_items = @restaurant.inventory_items
-    # Trouver le restaurant avec l'utilisateur en cours
-    @restaurant = Restaurant.where(user: current_user).first
-    # Creer l'order item
-    @order = Order.new(order_params)
-    @order.restaurant = @restaurant
-    if @order.save
-    # Redirection vers les orders pour validation
-      redirect_to restaurant_orders_path(@restaurant)
-    else
-    # Sinon rester sur la page d'inventories
-      render "/inventory_items/index"
+    restaurant = Restaurant.where(user: current_user).first
+
+    items = params[:order][:order_items_attributes].values
+    items_by_supplier = items.group_by do |item|
+      SupplierItem.find(item[:supplier_item_id]).supplier
     end
+    items_by_supplier.each do |supplier, items|
+      order = Order.create(
+        validated:false,
+        restaurant: restaurant,
+        supplier: supplier
+      )
+      items.each do |item|
+        supplier_item = SupplierItem.find(item[:supplier_item_id])
+        item = OrderItem.create(
+          quantity: item[:quantity],
+          supplier_item_id: item[:supplier_item_id],
+          price: supplier_item.price_per_product * item[:quantity].to_f,
+          order:order
+        )
+      end
+      order.total = order.order_items.sum(:price).round(2)
+      order.order_number = "BC-#{order.id}-#{Date.today.year}-#{Date.today.month.to_s.rjust(2,'0')}"
+      order.save!
+    end
+
+    redirect_to restaurant_orders_path(restaurant)
+
   end
 
-  # def create
-
-  #   # Trouver le restaurant avec l'utilisateur en cours
-  #   @restaurant = Restaurant.where(user: current_user).first
-  #   @inventory_items = @restaurant.inventory_items
-  #   # Creer l'order item
-  #   @order = Order.new(order_params)
-  #   @order.restaurant = @restaurant
-
-  #   @order.order_items.reject{|order| order.supplier_item_id.nil? || order.quantity.nil? }.each do |order_item|
-  #     supplier_item = SupplierItem.find(order_item.supplier_item_id)
-
-  #     if Order.find_by(supplier: supplier_item.supplier, restaurant: @restaurant, validated: false)
-  #       existing_order = Order.find_by(supplier: supplier_item.supplier, restaurant: @restaurant, validated: false)
-  #       order_item.order = existing_order
-  #       order_item.price = order_item.quantity * supplier_item.price_per_product
-  #       existing_order.total += order_item.price
-  #       existing_order.save!
-
-  #       order_item.save!
-  #     else
-  #       new_order = Order.new(supplier: supplier_item.supplier, restaurant: @restaurant)
-  #       order_item.order = new_order
-  #       order_item.price = order_item.quantity * supplier_item.price_per_product
-  #       new_order.total = order_item.price
-  #       new_order.order_number = "BC-#{new_order.id}-#{Date.today.year}-#{Date.today.month}"
-  #       new_order.save!
-
-  #       order_item.save!
-  #     end
-  #   end
-  #   redirect_to restaurant_orders_path(@restaurant)
-  # end
 
   def update
 
