@@ -2,4 +2,7 @@ body {
   background-color:#eaeaea;
   min-height: 100vh;
   padding-left: 58px;
+  &.not-scrollable {
+    overflow: hidden
+  }
 }
