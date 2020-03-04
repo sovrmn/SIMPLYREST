@@ -35,11 +35,13 @@ import {minusPlusButton} from "../plugins/minusplusbutton";
 
 import {move} from "../plugins/move";
 
+
 import {initSelect2} from "../plugins/init_select2";
 
 import {updateSupplierUnitPrice} from "../plugins/update_supplier_unit_price";
 
 
+import {autoSubmit} from "../components/autosubmitform";
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -51,5 +53,6 @@ document.addEventListener('turbolinks:load', () => {
   move();
   initSelect2();
   updateSupplierUnitPrice();
+  autoSubmit();
 
 });
