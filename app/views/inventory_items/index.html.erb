@@ -1,5 +1,5 @@
-<!-- <div class="container"> -->
 <div class="content-order">
+<!-- <div class="container"> -->
 <!--new table -->
   <div class="inventory-table">
     <div class="inventory-table-header">
@@ -30,7 +30,6 @@
             </div>
             <div class="mt-2 text-center">
                <span id="stocklevel"><%= "%.0f" % (item.quantity/item.optimal_quantity*100)%></span>
-             %
            </div>
           </div>
           <div id ="plus-minus-column" class="box">
@@ -48,23 +47,20 @@
 
   <!--panier -->
   <div class="myshopping-cart">
-    <div class="myshopping-cart-header">
-      <i class="fas fa-shopping-cart"></i>
-      <p>Mon panier</p>
+    <%= simple_form_for [@restaurant, Order.new] do |order_form| %>
+      <div class="myshopping-cart-header">
+        <i class="fas fa-shopping-cart"></i>
+        <p>Mon panier</p>
         <div class="dropdown">
-        <div id="cart">
-         <p><span id="in-cart-items-num"></span></p>
+          <div id="cart">
+           <p><span id="in-cart-items-num"></span></p>
+          </div>
         </div>
-    </div>
-  </div>
+      </div>
+      <div class="myshopping-cart-list">
+        <%@inventory_items.each_with_index do |item, index| %>
 
-
-    <div class="myshopping-cart-body">
-      <%= simple_form_for [@restaurant, Order.new] do |order_form| %>
-        <div class="myshopping-cart-list">
-          <%@inventory_items.each_with_index do |item, index| %>
-
-            <%= order_form.simple_fields_for :order_items, OrderItem.new do |order_item_form| %>
+          <%= order_form.simple_fields_for :order_items, OrderItem.new do |order_item_form| %>
             <% if item.optimal_quantity - item.quantity > 0 %>
               <div class=article>
                 <div class="shopping-cart-box ">
@@ -107,15 +103,23 @@
                       <span> €</span>
                     </div>
                   </div>
+                </div>
               </div>
             <%end %>
           <%end %>
-          <%end%>
-        </div>
+        <%end%>
+      </div>
+      <div class="form-bottom">
         <p>Total : <span class="total-shopping-cart"></span>€ H.T.</p>
         <%=order_form.button :submit, "Passer commande", id:"confirm-command", class:"btn btn-primary" %>
-      <%end%>
-    </div>
+      </div>
+    <%end%>
+
+
+  </div>
+
+
+
 
 </div>
 

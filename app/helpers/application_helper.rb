@@ -1,27 +1,27 @@
 module ApplicationHelper
   def select_icon(category)
     case category
-     when 'légume'
+     when 'légumes'
        icon = "food_icons/vegies.png"
-     when 'épice'
+     when 'épices'
        icon = "food_icons/spices.png"
-     when 'condiment'
+     when 'condiments'
        icon = "food_icons/condiment.png"
      when 'BOF'
        icon = "food_icons/BOF.png"
-     when 'alcool'
+     when 'Liquide - Alcool'
        icon = "food_icons/wine.png"
-     when 'poisson'
+     when 'poissons'
        icon = "food_icons/poisson.png"
-     when 'fruit'
+     when 'fruits'
        icon = "food_icons/fruit.png"
-     when 'fruit à coque'
+     when 'fruits à coque'
        icon = "food_icons/coque.png"
      when 'crèmerie'
        icon = "food_icons/cremerie.png"
-     when 'viande'
+     when 'viandes'
        icon = "food_icons/viande.png"
-     when 'féculent'
+     when 'féculents'
        icon = "food_icons/feculent.png"
      when 'épicerie sucrée'
        icon = "food_icons/sucre.png"
