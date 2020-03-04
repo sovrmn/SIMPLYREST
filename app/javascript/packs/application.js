@@ -39,6 +39,7 @@ import {chartTopVentes, comparisonCart, kpis} from "../plugins/charts";
 
 import {autoSubmit} from "../components/autosubmitform";
 
+import {autoSubmit} from "../components/autosubmitform";
 
 document.addEventListener('turbolinks:load', () => {
   orderCollap();
