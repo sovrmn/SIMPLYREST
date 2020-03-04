@@ -27,7 +27,7 @@
       <% end %>
         <i class="fa fa-cash-register fa-2x "></i>
       <span class="nav-text">
-        <%= link_to "Gestion du stock", restaurant_inventory_items_path(@restaurant), class: "side-link" %>
+        <%= link_to "Gestion du stock", inventory_items_update_path(@restaurant), class: "side-link" %>
       </span>
         </li>
 
@@ -38,7 +38,7 @@
       <% end %>
         <i class="fas fa-cart-plus fa fa-2x "></i>
       <span class="nav-text">
-        <%= link_to "Nouvelle commande", restaurant_orders_path(@restaurant), class: "side-link" %>
+        <%= link_to "Nouvelle commande", restaurant_inventory_items_path(@restaurant), class: "side-link" %>
       </span>
         </li>
 

@@ -49,7 +49,9 @@
 }
 
 .side-link:hover{
+
   color: black;
+
 }
 
 .main-menu:hover,nav.main-menu.expanded {
@@ -59,7 +61,7 @@
 
 .main-menu {
   margin-right: 0;
-  background:#4BAD9E;
+  background:$dark-persian-green;
   border-right:1px solid #e5e5e5;
   top:0;
   bottom:0;
@@ -83,7 +85,7 @@
 
 
 .main-menu li:hover {
-  background-color: $dark-persian-green;
+  background-color: $persian-green;
   opacity: 0.8;
 }
 

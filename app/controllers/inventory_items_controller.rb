@@ -5,6 +5,7 @@ class InventoryItemsController < ApplicationController
   def index
     @orders = @restaurant.orders.where(validated: false)
     @inventory_items = @restaurant.inventory_items
+    @inventory_items = @inventory_items.where.not(optimal_quantity: 0).order("(optimal_quantity - quantity) / optimal_quantity DESC")
 
     @order_item = OrderItem.new
   end
