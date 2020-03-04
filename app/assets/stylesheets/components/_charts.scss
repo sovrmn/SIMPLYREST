@@ -39,6 +39,28 @@
 
 }
 
-canvas {
+.chart-product {
+  overflow: hidden;
+  height: 180px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
 
+
+.big-card-product {
+  overflow: hidden;
+  padding: 0px 30px;
+  height: 376px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center;
+  border-radius: 10px;
 }
