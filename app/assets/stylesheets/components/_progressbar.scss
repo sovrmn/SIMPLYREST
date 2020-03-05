@@ -1,8 +1,7 @@
 .progressBar {
   background-color: $light-gray;
-  width: 100px;
+  width: 80px;
   height: 10px;
-
 }
 
 
@@ -27,12 +26,12 @@
     background-color: $persian-green;
     opacity: 0.7;
 
+
 }
 
-#stocklevel {
-  text-align: center;
+span#stocklevel{
+  padding-left: 10px;
 }
-
 
 // @keyframes color{
 //     33% {

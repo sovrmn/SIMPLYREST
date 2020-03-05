@@ -3,35 +3,39 @@
 <!--new table -->
   <div class="inventory-table">
     <div class="inventory-table-header">
-      <div id="inventory-table-header" class="box">Article</div>
-      <div id="inventory-table-header" class="box">Catégorie</div>
-      <div id="inventory-table-header" class="box">Stock optimal</div>
-      <div id="inventory-table-header" class="box">Stock en cours</div>
-      <div id="inventory-table-header" class="box">Niveau de stock</div>
-      <div id="inventory-table-header" class="box">Commander</div>
+      <div id="inventory-table-header" class="box text-left">Article</div>
+      <div id="inventory-table-header" class="box text-left">Catégorie</div>
+      <div id="inventory-table-header" class="box text-left">Stock optimal</div>
+      <div id="inventory-table-header" class="box text-left ">Stock en cours</div>
+      <div id="inventory-table-header" class="box text-center">Niveau de stock</div>
+      <div id="inventory-table-header" class="box text-center">Commander</div>
     </div>
     <!-- Table Rows -->
-    <div class="inventory-table-body">
+    <div id="style-15" class="inventory-table-body">
       <%@inventory_items.each do |item|  %>
         <div class="inventory-row">
           <div class="box"><%= item.product.name.capitalize %></i></div>
-          <div class="box"><%= item.product.category.capitalize %></div>
+          <div class="box"><%= image_tag(select_icon(item.product.category), :class => "icon")%><%= item.product.category.capitalize %></div>
           <div class="box"><%= item.optimal_quantity.round(2) %> <%= item.product.unit %></div>
           <div class="box"><%= item.quantity %> <%= item.product.unit %></div>
           <div class="box">
-            <div class="progressBar d-flex">
-              <div class="progressRed">
-              </div>
-              <div class="progressOrange">
-              </div>
-              <div class="progressGreen">
 
+            <div class="stock-level-box-content">
+              <div class="progressBar d-flex">
+                <div class="progressRed">
+                </div>
+                <div class="progressOrange">
+                </div>
+                <div class="progressGreen">
+                </div>
               </div>
+
+              <div>
+                <span id="stocklevel"><%= "%.0f" % (item.quantity/item.optimal_quantity*100)%></span>
+                <span>%</span>
+             </div>
             </div>
-            <div class="mt-2 text-center">
-               <span id="stocklevel"><%= "%.0f" % (item.quantity/item.optimal_quantity*100)%></span>
-             %
-           </div>
+
           </div>
           <div id ="plus-minus-column" class="box">
             <div class="quantitybutton d-flex">
@@ -65,30 +69,36 @@
         </div>
 
         <div class="myshopping-cart-list">
-          <div class="scrollable-list">
+          <div id="style-15" class="scrollable-list">
             <% @inventory_items.each_with_index do |item, index| %>
               <%= order_form.simple_fields_for :order_items, OrderItem.new do |order_item_form| %>
                 <% if item.optimal_quantity - item.quantity > 0 %>
-                  <div class=article>
-                    <div class="shopping-cart-box ">
-                      <!-- ligne 1 avec nomde l'article et quantité -->
-                      <div class="article-line1 ">
-                        <!--nom article-->
-                        <span id="cart-product-name"> <%=item.product.name.capitalize%></span>
-                        <!--quantité-->
-                        <span id="item-quantity-<%=item.id%>">
-                          <%= item.quantity_to_order %>
-                        </span>
+                    <div class="shopping-cart-box">
+                      <!-- colonne 1 avec photo -->
+                      <div class="shopping-cart-part1">
+                        <div class="article-column1">
+                          <div class="photo-box">
+                            <img class="article-photo" src="https://img-3.journaldesfemmes.fr/4PYoBAo1J5rsDbuMiSTNRGolvhc=/910x607/smart/3b81125b1cbd46f7af87766bb8430152/ccmcms-jdf/10659145.jpg" alt="">
+                          </div>
+                        </div>
 
-                        <!--unité-->
-                        <span><%= item.product.unit %></span>
-                        <%= order_item_form.input :quantity,as: :hidden, input_html: { class:"input-cart-box", id:"hidden-quantity-#{item.id}", value: "#{item.quantity_to_order}" }  %>
+                        <!-- colonne 2 avec nom article et quantité-->
+                        <div class="article-column2">
+                          <div id="cart-product-name"> <%=item.product.name.capitalize.truncate(15)%>
+                          </div>
+                          <div class="ordered-quantity">
+                            <span id="item-quantity-<%=item.id%>">
+                              <%= item.quantity_to_order %>
+                            </span>
+                            <span> <%= item.product.unit %></span>
+                            <%= order_item_form.input :quantity,as: :hidden, input_html: { class:"input-cart-box", id:"hidden-quantity-#{item.id}", value: "#{item.quantity_to_order}" }  %>
+                          </div>
+                        </div>
                       </div>
 
-                      <!-- ligne 2 avec fournisseur, prix unitaire, sous-total-->
-                      <div class="article-line2">
-                        <!-- part1 - fournisseurs -->
-                        <div class="article-line2-part1">
+                      <div class="shopping-cart-part2">
+                        <div class="article-column3">
+                          <!--select2 fournisseur-->
                           <select data-item-id="<%= item.id %>" data-prixht="prixunitaireht-<%= item.id %>" name="order[order_items_attributes][<%=index%>][supplier_item_id]" class="select2 supplier-select" style="width:150px">
 
                             <% item.product.supplier_items.each do |supplier_item| %>
@@ -96,33 +106,32 @@
                               </option>
                             <% end %>
                           </select>
-                        </div>
-                        <!-- part2 - prix unitaire et sous-total-->
-                        <div  class="article-line2-part2">
-                          <!-- prix unitaire -->
+                          <!--prix unitaire par fournisseur-->
                           <div id="prixunitaireht-<%= item.id %>" class="prix-unitaire-cart">
-                            <%= item.product.supplier_items.first.price_per_product %>€/<%= item.product.unit %>
-                          </div>
-                          <!-- sous-total -->
-                          total:
-                          <div id="totalht-<%= item.id %>" class="sous-total">
-                           <%= (item.product.supplier_items.first.price_per_product * item.quantity_to_order).round(2) %>
+                            x
+                            <strong><%= item.product.supplier_items.first.price_per_product %></strong>
+                            <span>€/<%= item.product.unit %></span>
 
                           </div>
-                          <span> €</span>
+                        </div>
+                        <div class="article-column4">
+
+                          <!--calcul sous-total-->
+                          <div id="totalht-<%= item.id %>" class="sous-total">
+                            <%= (item.product.supplier_items.first.price_per_product * item.quantity_to_order).round(1) %>
+                            <span> €</span>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                <%end %>
+                <% end %>
               <%end %>
             <%end%>
           </div>
-
         </div>
         <div class="form-bottom">
-          <p class="total-total">TOTAL:<span id="total-shop-cart" class="total-shopping-cart"></span>€ H.T.</p>
-          <span id="button-panier"><%= order_form.button :submit, "Passer commande", id:"confirm-command", class:"button-green" %></span>
+          <p class="total-total">TOTAL: <span id="total-shop-cart" class="total-shopping-cart"></span>€ HT</p>
+          <span><%= order_form.button :submit, "Passer commande", id:"confirm-command", class:"button-panier" %></span>
 
         </div>
       <%end%>

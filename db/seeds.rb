@@ -40,7 +40,7 @@ rizLait = Recipe.create!(name: "Riz au lait de mûres sauvages ", category: "des
 p "recipes created"
 # products pour Boeuf bourgignon + cote de boeuf
 boeufAubrac = Product.create!(name: 'Bœuf Aubrac', category: 'viandes', unit: 'kg')
-coteAubrac = Product.create!(name: 'Cote de Bœuf Aubrac', category: 'viande', unit: 'kg')
+coteAubrac = Product.create!(name: 'Cote de Bœuf Aubrac', category: 'viandes', unit: 'kg')
 oignon = Product.create!(name: 'Oignons', category: 'légumes' , unit: 'kg')
 carotte = Product.create!(name: 'Carottes', category: 'légumes', unit: 'kg')
 persil = Product.create!(name: 'Persil', category: 'épices' , unit: 'botte')

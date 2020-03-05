@@ -33,6 +33,8 @@ import {initSelect2} from "../plugins/init_select2";
 
 import {minusPlusButton} from "../plugins/minusplusbutton";
 
+import {minusPlusButtonOrder} from "../plugins/minusplusbuttonorder";
+
 import {move} from "../plugins/move";
 
 import {orderCollap} from "../plugins/collapsible";
@@ -45,6 +47,8 @@ import {updateSupplierUnitPrice} from "../plugins/update_supplier_unit_price";
 
 import {totalshopcart} from "../plugins/compute_total_shopcart.js";
 
+import {totalorder} from "../plugins/compute_total_order.js";
+
 
 document.addEventListener('turbolinks:load', () => {
 
@@ -52,6 +56,7 @@ document.addEventListener('turbolinks:load', () => {
   toggleSide();
   toggleShoppingCart();
   displayOrderAndItems();
+  minusPlusButtonOrder();
   minusPlusButton();
   move();
   if (document.getElementById("bar-chart-grouped")) {
@@ -70,4 +75,5 @@ document.addEventListener('turbolinks:load', () => {
   if (document.getElementById("total-shop-cart")) {
     totalshopcart();
   }
+  totalorder();
 });

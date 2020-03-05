@@ -456,8 +456,12 @@
   </tbody>
 </table>
 
+<!-- Order input modification -->
 
-
+<%= simple_form_for order_item, remote: true do |f| %>
+<%= f.input :quantity, label: false, input_html: {class: "order-item-quantity-input"}%>
+<%= order_item.unit %>
+<% end %>
 
 
 

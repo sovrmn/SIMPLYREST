@@ -37,21 +37,28 @@
 
 .nav-text {
   font-size: 18px;
+  vertical-align: center;
 }
 
-.nav-text:hover {
-  color: #32646E;
+.nav-text:hover{
+  background: -webkit-gradient(linear,left top,right bottom,from($green),to($dark-persian-green));
+  background: linear-gradient(180deg,$baby-white,white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  text-shadow: none;
 }
 
 .side-link{
   color: inherit;
 }
 
-.side-link:hover{
+// .side-link:hover{
 
-  color: black;
+//   color: black;
 
-}
+// }
 
 .main-menu:hover,nav.main-menu.expanded {
   width:250px;
@@ -126,8 +133,6 @@
   left:0;
   bottom:0;
 }
-
-
 
 a:hover,a:focus {
   text-decoration:none;
