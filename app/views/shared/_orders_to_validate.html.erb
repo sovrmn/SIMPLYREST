@@ -63,21 +63,34 @@
                     <tbody>
                         <tr>
                           <td><%= order_item.supplier_item.product.name.capitalize %></th>
-                          <td><%= order_item.supplier_item.price_per_product %>€ / <%= order_item.unit %></td>
-                          <td> <%= simple_form_for order_item, remote: true do |f| %>
-                            <%= f.input :quantity, label: false, input_html: {class: "order-item-quantity-input"}%>
-                            <%= order_item.unit %>
-                            <% end %>
+                          <td id="itemprice-<%= order_item.id%>"> <%= order_item.supplier_item.price_per_product %>€ / <%= order_item.unit %></td>
+                          <td>
+                            <div id ="plus-minus-column-order" class="box">
+                              <div class="quantitybutton-order d-flex">
+                                <span id="minusbuttonorder">-</span>
+                                <input id="quantityinputorder" data-orderitemid="<%= order_item.id %>" type="text" value="<%= order_item.quantity %>"/>
+                                <span id="plusbuttonorder">+</span>
+                              </div>
+                            </div>
+
                           </td>
-                          <td><%= order_item.price.round(2)%>€</td>
+                          <td class="subtotalorder" >
+                            <span id="product-price-<%= order_item.id%>">
+                              <%= order_item.price.round(2)%>
+                            </span>
+                            €
+                          </td>
 
                         </tr>
                       </tbody>
                       <% end %>
                 </table>
 
-                <div class="total-order">
-                  <h5><%= order.total.round(2) %> €</h5>
+                <div class="total-order" >
+                  <span id="total-order-validate">
+                    <%= order.total.round(2)%>
+                  </span>
+                  €
                 </div>
                 </div>
 

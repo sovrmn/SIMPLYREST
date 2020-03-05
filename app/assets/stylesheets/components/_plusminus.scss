@@ -33,3 +33,44 @@ span {
     margin-right: 4px;
   }
 
+  // minus plus order to validate
+
+    .quantitybutton-order {
+  }
+  #minusbuttonorder, #plusbuttonorder {
+    width:25px;
+    height:25px;
+    color: #18A999;
+    background-color: #F4F4F4;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align:center;
+    transition: opacity 0.3s ease;
+    border: 1px solid $persian-green;
+      &:hover {
+      color: white;
+      background-color: #18A999;
+     }
+  }
+
+  #quantityinputorder {
+    height: 25px;
+    width: 60px;
+    background: white;
+    border:1px solid #ddd;
+    border-radius:4px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+
+#plus-minus-column-order {
+background-color: white;
+box-shadow: none;
+border: none;
+height: 0px;
+justify-content: center;
+}
+
