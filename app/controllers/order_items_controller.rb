@@ -12,7 +12,8 @@ class OrderItemsController < ApplicationController
     @order = @order_item.order
     @order.total = @order.order_items.pluck(:price).reduce(0, :+)
     @order.save
-    redirect_to restaurant_orders_path(@restaurant, anchor: "Modal#{@order_item.order_id}")
+    head :ok
+    # redirect_to restaurant_orders_path(@restaurant, anchor: "Modal#{@order_item.order_id}")
   end
 
   def create

@@ -14,10 +14,10 @@
     <div class="inventory-table-body">
       <%@inventory_items.each do |item|  %>
         <div class="inventory-row">
-          <div class="box text-left"><%= item.product.name.capitalize %></i></div>
-          <div class="box text-left"><%= item.product.category.capitalize %></div>
-          <div class="box text-left"><%= item.optimal_quantity.round(2) %> <%= item.product.unit %></div>
-          <div class="box text-left"><%= item.quantity %> <%= item.product.unit %></div>
+          <div class="box"><%= item.product.name.capitalize %></i></div>
+          <div class="box"><%= image_tag(select_icon(item.product.category), :class => "icon")%><%= item.product.category.capitalize %></div>
+          <div class="box"><%= item.optimal_quantity.round(2) %> <%= item.product.unit %></div>
+          <div class="box"><%= item.quantity %> <%= item.product.unit %></div>
           <div class="box">
 
             <div class="stock-level-box-content">
