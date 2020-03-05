@@ -5,6 +5,45 @@
 </div>
 
 <div class="charts-container">
+
+
+    <div>
+      <div class="alertskpis">
+          <div>
+            <h2>
+            <i class="warning-logo" ><%= image_tag "warning.png" %></i>
+            Vos alertes quotidiennes
+          </h2>
+          <div class="flash flash-danger alert-dismissible fade show" role="alert">
+            <div class="title-stockless"><strong>Attention :</strong> Niveau de stock faible - Top 5 :</div>
+                <br>
+                <div class="cards-dash-list">
+                  <%@topfive.each do |item| %>
+                    <div class="card-dash">
+                      <i class = "dash-article-photo"><%= image_tag "carotte.png"%></i>
+                      <span><strong><%= item.product.name %></strong></span>
+                      <span class="dash-article-unit"><em><%= item.quantity %> kg</em><i class = "dash-arrow-photo"><%= image_tag "arrow.png"%></i></span>
+                    </div>
+                  <% end %>
+                </div>
+          </div>
+          <div class="flash flash-success alert-dismissible fade show" role="alert">
+              <span><strong>Best performer </strong> : Boeuf Bourguignon - Ventes hebdomadaires en hausse de + 14% !</span>
+              <a data-dismiss="alert" aria-label="Close">
+                <i class="fas fa-times"></i>
+              </a>
+            </div>
+          </div>
+
+        <div class="flash flash-warning alert-dismissible fade show" role="alert">
+          <span><strong>Remarque :</strong> Rillettes de thon : Vente en baisse de 14% depuis plus d'un mois.
+            <br>
+          Il est recommandé de réviser le nombre de plats moyen paramétré pour le suivi des stocks.</span>
+          <a data-dismiss="alert" aria-label="Close">
+            <i class="fas fa-times"></i>
+          </a>
+        </div>
+=======
   <div class="">
     <div class="alertskpis">
       <h1>
@@ -35,6 +74,7 @@
         <div class="key-perf big-card-product">
         <canvas id="kpis"></canvas>
         </div>
+
       </div>
 
     </div>

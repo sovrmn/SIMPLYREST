@@ -11,13 +11,13 @@ const comparisonCart = () => {
           backgroundColor: "#3e95cd",
           barPercentage: 0.5,
           barThickness: 6,
-          data: [531,563,649,728, 634, 852, 432]
+          data: [531,563,649,728, 634]
         }, {
           label: "N-1",
           backgroundColor: "#8e5ea2",
           barPercentage: 0.5,
           barThickness: 6,
-          data: [408,547,675,734, 651, 803, 386]
+          data: [408,547,675,734, 651]
         }
       ]
     },

@@ -10,6 +10,13 @@ class InventoryItemsController < ApplicationController
     @order_item = OrderItem.new
   end
 
+  # def topfive
+  #   @restaurant = current_user.restaurants.first
+  #   @inventory_items = @restaurant.inventory_items
+  #   return @inventory_items.where.not(optimal_quantity: 0).order("(optimal_quantity - quantity) / optimal_quantity DESC LIMIT 5")
+  # end
+
+
   def update
     # on récupère l'item
     @restaurant = current_user.restaurants.first

@@ -3,6 +3,7 @@ class InventoryItem < ApplicationRecord
 
   belongs_to :restaurant
   belongs_to :product
+  scope :sorted, -> { where.not(optimal_quantity: 0).order(Arel.sql("((optimal_quantity - quantity) / optimal_quantity) DESC ")) }
 
   def compute_optimal_stock
     @recipes_with_same_ingredient = Ingredient.where(product: self.product)
