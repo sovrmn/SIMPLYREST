@@ -137,7 +137,7 @@
   flex: 0 0 380px;
   margin-left: 1%;
 }
-.myshopping-cart-body for38{
+.myshopping-cart-body{
   height: calc(100vh - 52px);
   overflow-y: auto;
   display: flex;
@@ -286,7 +286,7 @@ p.total-total {
   padding-left: 10px;
   padding-right: 0px;
   text-align: left;
-  width: 125px;
+  width: 140px;
 
 }
 
@@ -310,6 +310,7 @@ p.total-total {
   position: relative;
   top: 15px;
   font-weight: bold;
+  font-style: italic;
   span {
     font-size: 12px;
     font-weight: lighter;
@@ -319,5 +320,11 @@ p.total-total {
 
 .currency-soustotal {
   font-size: 12px;
-    font-weight: lighter;
+  font-weight: lighter;
+  position: relative;
+  top: 15px;
+}
+
+#total-intitule{
+  font-weight: lighter;
 }
