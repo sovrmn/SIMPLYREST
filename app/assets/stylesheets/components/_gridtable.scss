@@ -80,6 +80,7 @@
 .box:first-child {
   width: 200px;
   font-weight: bold;
+  justify-content: left;
 }
 
 
@@ -133,20 +134,18 @@
   padding-bottom:12px;
 }
 
+
 .myshopping-cart-body{
   flex: 0 0 380px;
   margin-left: 1%;
-}
-.myshopping-cart-body{
-  height: calc(100vh - 52px);
-  overflow-y: auto;
+
   display: flex;
   flex-direction: column;
   .myshopping-cart-list {
     overflow: hidden;
   }
   .scrollable-list {
-    height: 100%;
+      height: calc(86vh - 52px);
     overflow-y: auto;
   }
 }

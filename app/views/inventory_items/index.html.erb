@@ -16,9 +16,10 @@
         <div class="inventory-row">
           <div class="box"><%= item.product.name.capitalize %></i></div>
           <div class="box">
-            <span class="mr-2"> <%= image_tag(select_icon(item.product.category), :class => "icon")%> </span>  <%= item.product.category.capitalize %></div>
+            <span class="mr-2"> <%= image_tag(select_icon(item.product.category), :class => "icon")%> </span>  <%= item.product.category.capitalize %>
+          </div>
           <div class="box"><%= item.optimal_quantity.round(2) %> <%= item.product.unit %></div>
-          <div class="box"><%= item.quantity %> <%= item.product.unit %></div>
+          <div class="box"><%= "%.2f" % item.quantity %> <%= item.product.unit %></div>
           <div class="box">
 
             <div class="stock-level-box-content">
@@ -110,7 +111,7 @@
                           <!--prix unitaire par fournisseur-->
                           <div class="prix-unitaire-cart">
                             x
-                            <strong id="prixunitaireht-<%= item.id %>"><%= item.product.supplier_items.first.price_per_product %></strong>
+                            <strong id="prixunitaireht-<%= item.id %>"><%= "%.2f" % (item.product.supplier_items.first.price_per_product) %></strong>
                             <span>€/<%= item.product.unit %></span>
 
                           </div>
@@ -131,9 +132,10 @@
           </div>
         </div>
         <div class="form-bottom">
-          <p class="total-total">TOTAL: <span id="total-shop-cart" class="total-shopping-cart"></span>&nbsp;€ HT</p>
-          <span><%= order_form.button :submit, "Passer commande", id:"confirm-command", class:"button-panier" %></span>
-
+          <p class="total-total">TOTAL: <span id="total-shop-cart" class="total-shopping-cart"></span>&nbsp;€ HT
+          </p>
+          <span><%= order_form.button :submit, "Passer commande", id:"confirm-command", class:"button-panier" %>
+          </span>
         </div>
       <%end%>
     </div>
