@@ -8,7 +8,7 @@
 padding: 2em;
 background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.3));
 background-color: #4E8098;
-  height: 200px;
+height: 165px;
 }
 
 
@@ -19,7 +19,10 @@ background-color: #4E8098;
 // }
 
 .nav-link.active.tabs {
-  background-color: $persian-green;
+  border-bottom: solid 1px white;
+  background-color: #1fe0;
+  box-shadow: none;
+
 
 }
 
@@ -28,10 +31,10 @@ background-color: #4E8098;
 }
 
 .tabs:hover {
-  color: $persian-green;
+  color: white;
 }
 
 .active.tabs {
-  border-radius: 5px;
+  border-radius: 0px;
 }
 

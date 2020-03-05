@@ -36,7 +36,7 @@
         <h2> <%= order.supplier.name %> </h2>
       </div>
        <div class="card-product-total">
-        <h2> <%= order.created_at %> </h2>
+        <h2> <%= order.created_at.strftime("%e %b %Y") %> </h2>
       </div>
       <div class="card-product-total">
         <h2> <%= order.total.round(2) %> € </h2>
@@ -45,7 +45,7 @@
 
       <div class="card-product-action">
         <button class="button-green-order" type="button" data-toggle="modal" data-target="#Modal<%= order.id %>">
-          Valider la réception
+          Valider réception
         </button>
         <div class="modal fade" id="Modal<%= order.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
           <div class="modal-dialog" role="document">
@@ -63,9 +63,8 @@
                       <tr>
                         <th scope="col">Produit</th>
                         <th scope="col">Prix</th>
-                        <th scope="col">Quantité commandée</th>
+                        <th scope="col">Quantité </th>
                         <th scope="col">Total</th>
-                        <th scope="col">Edit</th>
                       </tr>
                     </thead>
                   <% order.order_items.each do |order_item| %>
@@ -73,19 +72,21 @@
                         <tr>
                           <td><%= order_item.supplier_item.product.name.capitalize %></th>
                           <td><%= order_item.supplier_item.price_per_product %>€ / <%= order_item.unit %></td>
-                          <td><%= order_item.quantity%> <%= order_item.unit %></td>
-                          <td><%= order_item.price.round(2)%>€</td>
                           <td> <%= simple_form_for order_item, remote: true do |f| %>
                             <%= f.input :quantity, label: false, input_html: {class: "order-item-quantity-input"}%>
                             <% end %>
-                              </td>
+                            <%= order_item.unit %>
+                          </td>
+
+                          <td><%= order_item.price.round(2)%>€</td>
+
                         </tr>
                       </tbody>
                       <% end %>
                 </table>
 
                 <div class="total-order">
-                  <h5><%= order.created_at %></h5>
+                  <h5><%= order.created_at.strftime("%e %b %Y")%></h5>
                   <h5><%= order.total.round(2) %> €</h5>
 
                 </div>
