@@ -15,8 +15,6 @@
       <%@inventory_items.each do |item|  %>
         <div class="inventory-row">
           <div class="box"><%= item.product.name.capitalize %></i></div>
-          <div class="box">
-            <span class="mr-2"> <%= image_tag(select_icon(item.product.category), :class => "icon")%> </span>  <%= item.product.category.capitalize %></div>
           <div class="box"><%= item.optimal_quantity.round(2) %> <%= item.product.unit %></div>
           <div class="box"><%= item.quantity %> <%= item.product.unit %></div>
           <div class="box">
