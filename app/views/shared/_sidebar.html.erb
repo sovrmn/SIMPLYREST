@@ -8,52 +8,50 @@
         <img id="logo-marius" src="https://ugc.zenchef.com/3/4/8/1/5/9/1/5/0/0/4/8/8/1509118348_124/b1dc39882f75627107596328add8ff3b.png" alt="">
       <% end %>
     </p>
+    <% unless current_page?(root_path) %>
+      <li class="has-subnav">
+    <% else %>
+      <li class="has-subnav current-page">
+    <% end %>
+      <i class="fa fa-home fa-2x"></i>
+    <span id="dashboard" class="nav-text">
+        <%= link_to "Tableau de bord", root_path(@restaurant), class: "side-link" %>
+    </span>
+      </li>
 
-      <% unless current_page?(root_path) %>
-        <li class="has-subnav">
-      <% else %>
-        <li class="has-subnav current-page">
-      <% end %>
-        <i class="fa fa-home fa-2x "></i>
-      <span id="dashboard" class="nav-text">
-          <%= link_to "Tableau de bord", root_path(@restaurant), class: "side-link" %>
-      </span>
-        </li>
+    <% unless current_page?(inventory_items_update_path(@restaurant)) %>
+      <li class="has-subnav">
+    <% else %>
+      <li class="has-subnav current-page">
+    <% end %>
+      <i class="fa fa-cash-register fa-2x"></i>
+    <span class="nav-text">
+      <%= link_to "Gestion du stock", inventory_items_update_path(@restaurant), class: "side-link" %>
+    </span>
+      </li>
 
-      <% unless current_page?(restaurant_inventory_items_path(@restaurant)) %>
-        <li class="has-subnav">
-      <% else %>
-        <li class="has-subnav current-page">
-      <% end %>
-        <i class="fa fa-cash-register fa-2x "></i>
-      <span class="nav-text">
-        <%= link_to "Gestion du stock", inventory_items_update_path(@restaurant), class: "side-link" %>
-      </span>
-        </li>
+    <% unless current_page?(restaurant_inventory_items_path(@restaurant)) %>
+      <li class="has-subnav">
+    <% else %>
+      <li class="has-subnav current-page">
+    <% end %>
+      <i class="fas fa-cart-plus fa fa-2x"></i>
+    <span class="nav-text">
+      <%= link_to "Nouvelle commande", restaurant_inventory_items_path(@restaurant), class: "side-link" %>
+    </span>
+      </li>
 
-      <% unless current_page?(restaurant_orders_path(@restaurant)) %>
-        <li class="has-subnav">
-      <% else %>
-        <li class="has-subnav current-page">
-      <% end %>
-        <i class="fas fa-cart-plus fa fa-2x "></i>
-      <span class="nav-text">
-        <%= link_to "Nouvelle commande", restaurant_inventory_items_path(@restaurant), class: "side-link" %>
-      </span>
-        </li>
-
-      <% unless current_page?(restaurant_orders_path(@restaurant)) %>
-        <li class="has-subnav">
-      <% else %>
-        <li class="has-subnav current-page">
-      <% end %>
-        <i class="fa fa-list fa-2x "></i>
-      <span class="nav-text">
-        <%= link_to "Suivre mes commandes", restaurant_orders_path(@restaurant), class: "side-link" %>
-      </span>
-        </li>
+    <% unless current_page?(restaurant_orders_path(@restaurant)) %>
+      <li class="has-subnav">
+    <% else %>
+      <li class="has-subnav current-page">
+    <% end %>
+      <i class="fa fa-list fa-2x "></i>
+    <span class="nav-text">
+      <%= link_to "Suivre mes commandes", restaurant_orders_path(@restaurant), class: "side-link" %>
+    </span>
+      </li>
   </ul>
-
   <div class="d-flex">
     <ul class="settings">
       <li>
