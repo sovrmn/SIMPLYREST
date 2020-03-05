@@ -63,7 +63,8 @@
                     <tbody>
                         <tr>
                           <td><%= order_item.supplier_item.product.name.capitalize %></th>
-                          <td id="itemprice-<%= order_item.id%>"> <%= order_item.supplier_item.price_per_product %>€ / <%= order_item.unit %></td>
+                          <td id="itemprice-<%= order_item.id%>">
+                            <%= order_item.supplier_item.price_per_product %> €/<%=order_item.unit%></td>
                           <td>
                             <div id ="plus-minus-column-order" class="box">
                               <div class="quantitybutton-order d-flex">
