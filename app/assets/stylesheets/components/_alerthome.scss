@@ -16,6 +16,28 @@
     border-radius: 4px 4px 0px 0px;
     box-shadow: 0 0 8px rgba(0,0,0,0.2);
   }
+  h3 {
+    font-size: 16px;
+    margin-bottom: 0px;
+    color: white;
+    font-weight: inherit;
+    background-color: #1EDD88;
+    padding: 6px;
+    width: 340px;
+    border-radius: 4px 4px 0px 0px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  }
+  h4 {
+    font-size: 16px;
+    margin-bottom: 0px;
+    color: white;
+    font-weight: inherit;
+    background-color: #FFC65A;
+    padding: 6px;
+    width: 340px;
+    border-radius: 4px 4px 0px 0px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  }
 }
 
 .flash {
@@ -39,13 +61,9 @@
 
 .flash-danger {
   border: 2px solid #FD1015;
-  border-radius: 0px;
   ol {
     font-style: italic;
   }
-}
-
-.top5detail {
 }
 
 .warning-logo img {
@@ -54,23 +72,33 @@
   vertical-align: center;
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
 }
+
+.remarque-logo img {
+  height: 16px;
+  width: 16px;
+  vertical-align: center;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
 .dash-article-photo img {
  height:50px;
  width:50px;
  border-radius: 50%;
- margin-top: 8px;
 }
 
 .card-dash {
  display: flex;
- width:140px;
- height:130px;
- flex-direction: column;
+ vertical-align: center;
+ justify-content: space-between;
+ width:260px;
+ height:50px;
  text-align: center;
- background-color: #E5E5E5;
- border-radius: 10%;
- box-shadow: 0px 1px 1px 0px;
+ background-color: white;
+ border-radius: 4%;
+ box-shadow: 0 0 8px rgba(0,0,0,0.2);
  margin-right: 8px;
+ margin-bottom: 6px;
+ padding: 8px;
 }
 
 .dash-article-unit {
@@ -91,6 +119,7 @@
 }
 
 .cards-dash-list {
-  display: flex;
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
   justify-content: space-between;
 }
