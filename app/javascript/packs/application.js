@@ -56,8 +56,8 @@ document.addEventListener('turbolinks:load', () => {
   toggleSide();
   toggleShoppingCart();
   displayOrderAndItems();
-  minusPlusButtonOrder();
   minusPlusButton();
+  minusPlusButtonOrder();
   move();
   if (document.getElementById("bar-chart-grouped")) {
     comparisonCart();

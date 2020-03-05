@@ -5,7 +5,9 @@ const totalorder = () => {
     return parseFloat(order.innerText.split("€")[0]);
   }
   const subtotalordersFloat = subtotalorders.map(order => textToFloat(order));
-  totalorders.innerHTML = subtotalordersFloat.reduce((a , x) => a + x).toFixed(1);
+  if(subtotalordersFloat.length > 0) {
+    totalorders.innerHTML = subtotalordersFloat.reduce((a , x) => a + x).toFixed(2);
+  };
   // const totalorderpage = document.getElementById(`card-product-total<%=order.id%>`)
 };
 

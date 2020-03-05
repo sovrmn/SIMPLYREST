@@ -108,9 +108,9 @@
                             <% end %>
                           </select>
                           <!--prix unitaire par fournisseur-->
-                          <div id="prixunitaireht-<%= item.id %>" class="prix-unitaire-cart">
+                          <div class="prix-unitaire-cart">
                             x
-                            <strong><%= item.product.supplier_items.first.price_per_product %></strong>
+                            <strong id="prixunitaireht-<%= item.id %>"><%= item.product.supplier_items.first.price_per_product %></strong>
                             <span>€/<%= item.product.unit %></span>
 
                           </div>
@@ -118,9 +118,9 @@
                         <div class="article-column4">
 
                           <!--calcul sous-total-->
-                          <div id="totalht-<%= item.id %>" class="sous-total">
-                            <%= (item.product.supplier_items.first.price_per_product * item.quantity_to_order).round(1) %>
-                            <span> €</span>
+                          <div>
+                            <span class="sous-total" id="totalht-<%= item.id %>"><%= '%.2f' % (item.product.supplier_items.first.price_per_product * item.quantity_to_order)%></span>
+                            <span class="currency-soustotal">&nbsp;€</span>
                           </div>
                         </div>
                       </div>
@@ -131,7 +131,7 @@
           </div>
         </div>
         <div class="form-bottom">
-          <p class="total-total">TOTAL: <span id="total-shop-cart" class="total-shopping-cart"></span>€ HT</p>
+          <p class="total-total">TOTAL: <span id="total-shop-cart" class="total-shopping-cart"></span>&nbsp;€ HT</p>
           <span><%= order_form.button :submit, "Passer commande", id:"confirm-command", class:"button-panier" %></span>
 
         </div>

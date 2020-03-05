@@ -15,7 +15,7 @@ const updateSupplierUnitPrice = () => {
     console.log(itemquantity);
     const subtotal = prixhtupdate * itemquantity;
     const subtotalhtml = document.getElementById(`totalht-${e.target.dataset.itemId}`);
-    subtotalhtml.innerText = subtotal;
+    subtotalhtml.innerText = subtotal.toFixed(2);
     console.log(subtotal);
     totalshopcart();
   });

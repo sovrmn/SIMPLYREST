@@ -2,11 +2,19 @@
   display: flex;
   flex-direction: column;
   margin-left: 30px;
+}
+
+.alerte-stocks-top5 {
   h2 {
-    font-size: 24px;
+    font-size: 16px;
     margin-bottom: 0px;
-    color: #B60016;
+    color: white;
     font-weight: inherit;
+    background-color: #FD1015;
+    padding: 6px;
+    width: 340px;
+    border-radius: 4px 4px 0px 0px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
   }
 }
 
@@ -18,7 +26,7 @@
   background: white;
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
   border-radius: 4px;
-  margin: 8px 8px 8px 0px;
+  margin: 0px 8px 8px 0px;
 }
 
 .flash-success {
@@ -31,6 +39,7 @@
 
 .flash-danger {
   border: 2px solid #FD1015;
+  border-radius: 0px;
   ol {
     font-style: italic;
   }
@@ -40,9 +49,10 @@
 }
 
 .warning-logo img {
-  height: 35px;
-  width: 33px;
-  vertical-align: bottom;
+  height: 16px;
+  width: 16px;
+  vertical-align: center;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
 }
 .dash-article-photo img {
  height:50px;
