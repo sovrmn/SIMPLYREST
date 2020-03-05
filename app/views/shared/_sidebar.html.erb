@@ -1,11 +1,12 @@
 <nav class="main-menu">
   <ul>
     <p id="logos">
-      <%= link_to root_path do %>
-        <%= image_tag 'marius-et-lucien-logo.png', style: "width: 200px;" %>
-      <% end %>
+        <%#= image_tag 'marius-et-lucien-logo.png', style: "width: 200px;" %>
       <% if user_signed_in? %>
-        <img id="logo-marius" src="marius-et-lucien-logo.png" alt="">
+        <%= link_to root_path do %>
+          <%= image_tag 'marius-et-lucien-logo.png', style: "width: 200px;" %>
+        <% end %>
+        <!-- <img id="logo-marius" src="marius-et-lucien-logo.png" alt=""> -->
       <% end %>
     </p>
     <% unless current_page?(root_path) %>
