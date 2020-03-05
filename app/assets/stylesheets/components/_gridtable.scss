@@ -134,10 +134,10 @@
 }
 
 .myshopping-cart-body{
-  flex: 0 0 350px;
+  flex: 0 0 380px;
   margin-left: 1%;
 }
-.myshopping-cart-body form {
+.myshopping-cart-body for38{
   height: calc(100vh - 52px);
   overflow-y: auto;
   display: flex;
@@ -317,3 +317,7 @@ p.total-total {
 }
 
 
+.currency-soustotal {
+  font-size: 12px;
+    font-weight: lighter;
+}
