@@ -78,21 +78,16 @@ const kpis = () => {
       labels: "",
       datasets: [
         {
-          label: "Valeur actuelle du stock",
-          backgroundColor: "#3e95cd",
+          label: "Valeur des commandes (€ - en cumul)",
+          backgroundColor: "#574E8C",
           barPercentage: 0.5,
           data: [931]
         }, {
-          label: "Commandes à réceptionner",
-          backgroundColor: "#8e5ea2",
+          label: "Commandes à réceptionner (€ - en cumul)",
+          backgroundColor: "##F78888",
           barPercentage: 0.5,
           data: [708]
-        }, {
-          label: "Commandes réceptionnées cette semaine",
-          backgroundColor: "#3cba9f",
-          barPercentage: 0.5,
-          data: [686]
-        }
+        },
       ]
     },
     options: {
@@ -106,7 +101,8 @@ const kpis = () => {
         }]
       },
       title: {
-        display: false,
+        display: true,
+        text: 'Commandes de la semaine (€)'
       },
     }
   });

@@ -2,9 +2,9 @@
 // to validate
 
 .button-modal {
-  color: #18A999;
-  font-size: 12px;
-  background-color: white;
+  color: white;
+  font-size: 16px;
+  background-color: #18A999;
   cursor: pointer;
   border-radius: 4px;
   text-align:center;
@@ -35,6 +35,7 @@ width: 130%;
 .modal-body {
   text-align: left;
   display: flex;
+  padding: 16px 16px 0px 16px;
 }
 
 .modal-field {
@@ -63,7 +64,10 @@ width: 130%;
   border-top: solid 1px;
   margin-top: 10px;
   text-align: right;
-  padding: 10px;
+  padding: 10px 10px 0px 10px;
+    h5 {
+      margin-bottom: 0px;
+    }
 
 }
 

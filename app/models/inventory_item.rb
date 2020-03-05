@@ -15,4 +15,8 @@ class InventoryItem < ApplicationRecord
     end
     self.optimal_quantity = @optimal_stock_total
   end
+
+  def quantity_to_order
+    ((optimal_quantity - quantity) > 0) ? (optimal_quantity - quantity).ceil : 0
+  end
 end

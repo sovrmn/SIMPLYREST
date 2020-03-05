@@ -37,7 +37,7 @@
 
       <div class="card-product-action">
         <button class="button-green-order" type="button" data-toggle="modal" data-target="#Modal<%= order.id %>">
-          Valider la commande
+          Valider commande
         </button>
         <div class="modal fade" id="Modal<%= order.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false" %> >
           <div class="modal-dialog" role="document">
@@ -55,9 +55,8 @@
                       <tr>
                         <th scope="col">Produit</th>
                         <th scope="col">Prix</th>
-                        <th scope="col">Quantité commandée</th>
+                        <th scope="col">Quantité</th>
                         <th scope="col">Total</th>
-                        <th scope="col">Edit</th>
                       </tr>
                     </thead>
                   <% order.order_items.order(:id).each do |order_item| %>
@@ -65,12 +64,13 @@
                         <tr>
                           <td><%= order_item.supplier_item.product.name.capitalize %></th>
                           <td><%= order_item.supplier_item.price_per_product %>€ / <%= order_item.unit %></td>
-                          <td><%= order_item.quantity%> <%= order_item.unit %></td>
-                          <td><%= order_item.price.round(2)%>€</td>
                           <td> <%= simple_form_for order_item, remote: true do |f| %>
                             <%= f.input :quantity, label: false, input_html: {class: "order-item-quantity-input"}%>
+                            <%= order_item.unit %>
                             <% end %>
-                              </td>
+                          </td>
+                          <td><%= order_item.price.round(2)%>€</td>
+
                         </tr>
                       </tbody>
                       <% end %>

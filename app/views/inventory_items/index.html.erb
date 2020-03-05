@@ -36,7 +36,7 @@
           <div id ="plus-minus-column" class="box">
             <div class="quantitybutton d-flex">
               <span id="minusbutton">-</span>
-              <input id="quantityinput" data-itemid="<%= item.id %>" type="text" value="<%= ((item.optimal_quantity - item.quantity) > 0) ? (item.optimal_quantity - item.quantity).ceil : 0 %>"/>
+              <input id="quantityinput" data-itemid="<%= item.id %>" type="text" value="<%= item.quantity_to_order %>"/>
               <span id="plusbutton">+</span>
             </div>
           </div>
@@ -77,22 +77,22 @@
                         <span id="cart-product-name"> <%=item.product.name.capitalize%></span>
                         <!--quantité-->
                         <span id="item-quantity-<%=item.id%>">
-                          <%= "#{((item.optimal_quantity - item.quantity) > 0) ? (item.optimal_quantity - item.quantity).ceil : 0 }" %>
+                          <%= item.quantity_to_order %>
                         </span>
 
                         <!--unité-->
                         <span><%= item.product.unit %></span>
-                        <%= order_item_form.input :quantity,as: :hidden, input_html: { class:"input-cart-box", id:"hidden-quantity-#{item.id}", value: "#{((item.optimal_quantity - item.quantity) > 0) ? (item.optimal_quantity - item.quantity).ceil : 0 }" }  %>
+                        <%= order_item_form.input :quantity,as: :hidden, input_html: { class:"input-cart-box", id:"hidden-quantity-#{item.id}", value: "#{item.quantity_to_order}" }  %>
                       </div>
 
                       <!-- ligne 2 avec fournisseur, prix unitaire, sous-total-->
                       <div class="article-line2">
                         <!-- part1 - fournisseurs -->
                         <div class="article-line2-part1">
-                          <select data-prixht="prixunitaireht-<%= item.id %>" name="order[order_items_attributes][<%=index%>][supplier_item_id]" class="select2 supplier-select" style="width:150px">
+                          <select data-item-id="<%= item.id %>" data-prixht="prixunitaireht-<%= item.id %>" name="order[order_items_attributes][<%=index%>][supplier_item_id]" class="select2 supplier-select" style="width:150px">
 
                             <% item.product.supplier_items.each do |supplier_item| %>
-                              <option id="<%= supplier_item.id %>" data-prix="<%= supplier_item.price_per_product %>" value="<%= supplier_item.id %>"data-label="<%= supplier_item.supplier.name %> - <%= supplier_item.price_per_product %>€"><%= supplier_item.supplier.name %>
+                              <option id="<%= supplier_item.id %>" data-prix="<%= supplier_item.price_per_product %>" value="<%= supplier_item.id %>" data-label="<%= supplier_item.supplier.name %> - <%= supplier_item.price_per_product %>€"><%= supplier_item.supplier.name %>
                               </option>
                             <% end %>
                           </select>
@@ -104,9 +104,9 @@
                             <%= item.product.supplier_items.first.price_per_product %>€/<%= item.product.unit %>
                           </div>
                           <!-- sous-total -->
-                          <div id="totalht-<%= item.id %>">
-                           total:
-                           <%= item.product.supplier_items.first.price_per_product * item.quantity.ceil %>
+                          total:
+                          <div id="totalht-<%= item.id %>" class="sous-total">
+                           <%= (item.product.supplier_items.first.price_per_product * item.quantity_to_order).round(2) %>
 
                           </div>
                           <span> €</span>
@@ -121,7 +121,7 @@
 
         </div>
         <div class="form-bottom">
-          <p class="total-total">TOTAL: 876<span class="total-shopping-cart"></span>€ H.T.</p>
+          <p class="total-total">TOTAL:<span id="total-shop-cart" class="total-shopping-cart"></span>€ H.T.</p>
           <span id="button-panier"><%= order_form.button :submit, "Passer commande", id:"confirm-command", class:"button-green" %></span>
 
         </div>

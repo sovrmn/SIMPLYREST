@@ -1,3 +1,4 @@
+import {totalshopcart} from "../plugins/compute_total_shopcart.js";
 
 const minusPlusButton = () => {
   const minusButtons = document.querySelectorAll('#minusbutton');
@@ -22,7 +23,7 @@ const minusPlusButton = () => {
       itemquantity.innerHTML = currentValue;
       const hiddenquantity = document.getElementById(`hidden-quantity-${input.dataset.itemid}`);
       hiddenquantity.value = currentValue;
-
+      totalshopcart();
     });
 
   });
@@ -47,8 +48,8 @@ const minusPlusButton = () => {
       itemquantity.innerHTML = currentValue ;
       const hiddenquantity = document.getElementById(`hidden-quantity-${input.dataset.itemid}`);
       hiddenquantity.value = currentValue;
+      totalshopcart();
     });
   });
-
 }
 export {minusPlusButton};
