@@ -1,30 +1,26 @@
 <!-- Commandes en attente de validation -->
-
-
-  <div class="card-product-header">
-    <div class="card-product-num-header">
-      <h2> # </h2>
-    </div>
-    <div class="card-product-supplier-header">
-      <h2> Fournisseur </h2>
-    </div>
-    <div class="card-product-total-header">
-      <h2> Total </h2>
-      </div>
-    <div class="card-product-action-header">
-     <h2> Action </h2>
-    </div>
-    <div class="card-product-action-header">
-     <h2> Exporter </h2>
-    </div>
+<div class="card-product-header">
+  <div class="card-product-num-header">
+    <h2> # </h2>
   </div>
+  <div class="card-product-supplier-header">
+    <h2> Fournisseur </h2>
+  </div>
+  <div class="card-product-total-header">
+    <h2> Total </h2>
+  </div>
+  <div class="card-product-action-header">
+   <h2> Action </h2>
+  </div>
+  <div class="card-product-action-header">
+   <h2> Exporter </h2>
+  </div>
+</div>
 
-  <% @orders.each do |order| %>
-    <% if order.validated %>
-    <% else %>
-
+<% @orders.each do |order| %>
+  <% if order.validated %>
+  <% else %>
     <div class="card-product">
-
       <div class="card-product-num">
         <h2><%= order.order_number %></h2>
       </div>
@@ -34,7 +30,6 @@
       <div class="card-product-total">
         <h2> <%= order.total.round(2) %> € </h2>
       </div>
-
       <div class="card-product-action">
         <button class="button-green-order" type="button" data-toggle="modal" data-target="#Modal<%= order.id %>">
           Valider commande
@@ -59,6 +54,7 @@
                         <th scope="col">Total</th>
                       </tr>
                     </thead>
+
                   <% order.order_items.order(:id).each do |order_item| %>
                     <tbody>
                         <tr>
@@ -93,8 +89,8 @@
                   </span>
                   €
                 </div>
-                </div>
 
+                </div>
               </div>
               <div class="modal-field">
                 <%= simple_form_for order, remote: true do |f| %>
@@ -103,20 +99,16 @@
                   <%= f.submit "Valider la commande", class: "button-modal" %>
                 <% end %>
               </div>
-
             </div>
           </div>
         </div>
-
       </div>
       <div class="card-product-export">
         <i><%= image_tag "pdf.png" %></i>
         <i><%= image_tag "excel.png" %></i>
         <i><%= image_tag "mail.png" %></i>
       </div>
-
     </div>
-
-    <% end %>
   <% end %>
+<% end %>
 

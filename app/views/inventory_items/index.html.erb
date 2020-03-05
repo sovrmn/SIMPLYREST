@@ -11,7 +11,7 @@
       <div id="inventory-table-header" class="box text-center">Commander</div>
     </div>
     <!-- Table Rows -->
-    <div class="inventory-table-body">
+    <div id="style-15" class="inventory-table-body">
       <%@inventory_items.each do |item|  %>
         <div class="inventory-row">
           <div class="box"><%= item.product.name.capitalize %></i></div>
@@ -69,7 +69,7 @@
         </div>
 
         <div class="myshopping-cart-list">
-          <div class="scrollable-list">
+          <div id="style-15" class="scrollable-list">
             <% @inventory_items.each_with_index do |item, index| %>
               <%= order_form.simple_fields_for :order_items, OrderItem.new do |order_item_form| %>
                 <% if item.optimal_quantity - item.quantity > 0 %>
