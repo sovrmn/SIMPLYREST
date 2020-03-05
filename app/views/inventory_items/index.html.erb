@@ -15,7 +15,8 @@
       <%@inventory_items.each do |item|  %>
         <div class="inventory-row">
           <div class="box"><%= item.product.name.capitalize %></i></div>
-          <div class="box"><%= image_tag(select_icon(item.product.category), :class => "icon")%><%= item.product.category.capitalize %></div>
+          <div class="box">
+            <span class="mr-2"> <%= image_tag(select_icon(item.product.category), :class => "icon")%> </span>  <%= item.product.category.capitalize %></div>
           <div class="box"><%= item.optimal_quantity.round(2) %> <%= item.product.unit %></div>
           <div class="box"><%= item.quantity %> <%= item.product.unit %></div>
           <div class="box">
@@ -77,9 +78,9 @@
                       <!-- colonne 1 avec photo -->
                       <div class="shopping-cart-part1">
                         <div class="article-column1">
-                          <div class="photo-box">
+                          <!-- <div class="photo-box">
                             <img class="article-photo" src="https://img-3.journaldesfemmes.fr/4PYoBAo1J5rsDbuMiSTNRGolvhc=/910x607/smart/3b81125b1cbd46f7af87766bb8430152/ccmcms-jdf/10659145.jpg" alt="">
-                          </div>
+                          </div> -->
                         </div>
 
                         <!-- colonne 2 avec nom article et quantité-->
