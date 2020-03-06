@@ -16,12 +16,12 @@
                     <div class="cards-dash-list">
                       <%@topfive.each do |item| %>
                         <div class="card-dash">
-                          <i class = "dash-article-photo"><%= image_tag "carotte.png"%></i>
-                          <span><strong><%= item.product.name %></strong></span>
+                          <!-- icône à mettre -->
+                          <span><strong><%= item.product.name.capitalize.truncate(15) %></strong></span>
                           <span class="dash-article-unit"><em><%= item.quantity %> kg</em><i class = "dash-arrow-photo"><%= image_tag "arrow.png"%></i></span>
                         </div>
                       <% end %>
-                      <button class="button-green" style="margin-top: 10px;">Commander</button>
+                      <button class="button-green-alert" style="margin-top: 10px;">Commander</button>
                     </div>
               </div>
             </div>
