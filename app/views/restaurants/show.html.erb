@@ -21,23 +21,24 @@
 
 
                           <i class = "dash-article-photo"><%= image_tag("food_icons/#{item.product.category}")%></i>
-                          <span><strong><%= item.product.name %></strong></span>
+                          <span><strong><%= item.product.name.capitalize.truncate(15) %></strong></span>
 
                           <span class="dash-article-unit"><em><%= item.quantity %> kg</em><i class = "dash-arrow-photo"><%= image_tag "arrow.png"%></i></span>
                         </div>
                       <% end %>
-                      <button class="button-green-alert" style="margin-top: 10px;">Commander</button>
+
+                      <%= link_to "Commander", restaurant_inventory_items_path(@restaurant), class: "button-green-alert"%>
                     </div>
               </div>
             </div>
-            <div class="alerte-stocks-top5">
+            <div class="alerte-stocks-top5 ventes">
                   <h3>
                   <i class="warning-logo" ><%= image_tag "best-seller.png" %></i>
                   MEILLEUR VENTE
                   </h3>
                 <div class="flash flash-success alert-dismissible fade show" role="alert">
-                  <div class="card-dash" style="width: 420px; height: 80px;">
-                    <i class = "dash-article-photo"><%= image_tag "carotte.png"%></i>
+                  <div class="card-dash ventes" style="width: 530px; height: 80px;">
+
                     <span><strong>Boeuf bourguignon :</strong> Vente en hausse de 14% sur la semaine !</span>
                 </div>
               </div>
@@ -48,8 +49,8 @@
                   POINTS D'ATTENTION
                   </h4>
                 <div class="flash flash-warning alert-dismissible fade show" role="alert">
-                  <div class="card-dash" style="width: 460px; height: 120px;">
-                    <i class = "dash-article-photo"><%= image_tag "carotte.png"%></i>
+                  <div class="card-dash attention" style="width: 530px; height: 120px;">
+
                 <span><strong> Rillettes de saumon :</strong> Vente en baisse de 14% depuis plus d'un mois.
                   <br>
                 Il est recommandé de réviser le nombre de plats moyen paramétré pour le suivi des stocks.</span>
