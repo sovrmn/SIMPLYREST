@@ -16,6 +16,23 @@
   }
 }
 
+.button-panier {
+  color: white;
+  background-color: $persian-green;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align:center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid transparent;
+  margin: 0px;
+  &:hover {
+    color: white;
+    background-color: #128779;
+  }
+}
+
 .button-green-order {
   color: #18A999;
   font-size: 16px;
@@ -84,6 +101,25 @@
   &:hover {
     color: white;
     background-color: #18A999;
+  }
+}
+
+.button-green-alert {
+  color: white;
+  background-color: #18A999;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align:center;
+  justify-content: center;
+  margin-bottom: 50px;
+  transition: opacity 0.3s ease;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid transparent;
+  align-items: center;
+
+  &:hover {
+    color: white;
+    background-color: #128779;
   }
 }
 

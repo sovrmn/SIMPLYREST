@@ -4,15 +4,51 @@
   margin-left: 30px;
 }
 
+.alerte-stocks-top5 {
+  h2 {
+    font-size: 16px;
+    margin-bottom: 0px;
+    color: white;
+    font-weight: inherit;
+    background-color: #FD1015;
+    padding: 6px;
+    width: 340px;
+    border-radius: 4px 4px 0px 0px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  }
+  h3 {
+    font-size: 16px;
+    margin-bottom: 0px;
+    color: white;
+    font-weight: inherit;
+    background-color: #1EDD88;
+    padding: 6px;
+    width: 340px;
+    border-radius: 4px 4px 0px 0px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  }
+  h4 {
+    font-size: 16px;
+    margin-bottom: 0px;
+    color: white;
+    font-weight: inherit;
+    background-color: #FFC65A;
+    padding: 6px;
+    width: 340px;
+    border-radius: 4px 4px 0px 0px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  }
+}
+
 .flash {
   padding: 16px 24px;
-  display: flex;
+  // display: flex;
   justify-content: space-between;
   align-items: center;
   background: white;
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
   border-radius: 4px;
-  margin: 8px;
+  margin: 0px 8px 8px 0px;
 }
 
 .flash-success {
@@ -25,4 +61,68 @@
 
 .flash-danger {
   border: 2px solid #FD1015;
+  ol {
+    font-style: italic;
+  }
+}
+
+.warning-logo img {
+  height: 16px;
+  width: 16px;
+  vertical-align: center;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+.remarque-logo img {
+  height: 16px;
+  width: 16px;
+  vertical-align: center;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+.dash-article-photo img {
+ height:50px;
+ width:50px;
+ border-radius: 50%;
+}
+
+.card-dash {
+ display: flex;
+ // vertical-align: center;
+ justify-content: space-around;
+ align-items: center;
+ width:260px;
+ height:50px;
+ text-align: center;
+ background-color: white;
+ border-radius: 4%;
+ box-shadow: 0 0 8px rgba(0,0,0,0.2);
+ margin-right: 8px;
+ margin-bottom: 6px;
+ padding: 8px;
+}
+
+.dash-article-unit {
+ color: #B61600;
+ font-weight: bold;
+ display: flex;
+ align-items: center;
+}
+
+.dash-arrow-photo img {
+  height: 22px;
+  width: 20px;
+  vertical-align: bottom;
+  position: relative;
+  padding-left: 4px;
+}
+
+.title-stockless {
+  position: relative;
+}
+
+.cards-dash-list {
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-between;
 }

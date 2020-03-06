@@ -8,8 +8,10 @@ const minusPlusButton = () => {
       const input = minusButton.nextElementSibling;
       console.log(input);
       const prixunitaireht = document.getElementById(`prixunitaireht-${input.dataset.itemid}`);
+      console.log(prixunitaireht);
       const prixtotalht = document.getElementById(`totalht-${input.dataset.itemid}`);
       const valeurunitaireht = parseFloat(prixunitaireht.innerHTML);
+      console.log(valeurunitaireht)
       let currentValue = parseFloat(input.value);
       if (currentValue > 0) {
         currentValue = currentValue - 1;
@@ -18,7 +20,7 @@ const minusPlusButton = () => {
       }
       input.value = currentValue;
       const valeurtotalht = valeurunitaireht * currentValue;
-      prixtotalht.innerHTML =valeurtotalht.toFixed(1);
+      prixtotalht.innerHTML = valeurtotalht.toFixed(2);
       const itemquantity = document.getElementById(`item-quantity-${input.dataset.itemid}`);
       itemquantity.innerHTML = currentValue;
       const hiddenquantity = document.getElementById(`hidden-quantity-${input.dataset.itemid}`);
@@ -43,7 +45,7 @@ const minusPlusButton = () => {
       input.value = currentValue;
       // console.log (parseFloat(prixunitaireht.innerHTML) * currentValue);
       const valeurtotalht = valeurunitaireht * currentValue;
-      prixtotalht.innerHTML = valeurtotalht.toFixed(1);
+      prixtotalht.innerHTML = valeurtotalht.toFixed(2);
       const itemquantity = document.getElementById(`item-quantity-${input.dataset.itemid}`);
       itemquantity.innerHTML = currentValue ;
       const hiddenquantity = document.getElementById(`hidden-quantity-${input.dataset.itemid}`);

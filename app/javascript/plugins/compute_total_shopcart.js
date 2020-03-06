@@ -10,7 +10,7 @@ const totalshopcart = () => {
     total += parseFloat(subtotal.innerHTML);
     // console.log(parseFloat(subtotal.innerHTML.replace("total :")));
   });
-  totalcart.innerHTML = total.toFixed(1);
+  totalcart.innerHTML = total.toFixed(2);
 }
 
 

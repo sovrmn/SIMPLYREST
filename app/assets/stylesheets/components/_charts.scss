@@ -1,8 +1,14 @@
 .charts-container{
-  display:flex;
+  // display:grid;
+  // grid-template-columns: 1fr 1fr;
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+
 }
 .charts-second{
-  padding-left: 99px;
+  padding: 20px;
+  flex: 0 0 50%;
 }
 
 .key-perf{
@@ -12,7 +18,7 @@
 
 .sales-recipes,
 .miniature {
-  width: 350px;
+  width: 40vw;
 }
 
 .banner {
@@ -41,17 +47,16 @@
 
 .chart-product {
   overflow: hidden;
-  height: 180px;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  display: -webkit-box;
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
-  -webkit-box-pack: justify;
   justify-content: space-between;
   border-radius: 10px;
   margin-bottom: 16px;
+  // height: 40vh;
+  position: relative;
+  padding: 20px;
 }
 
 
@@ -64,4 +69,5 @@
   align-items: center;
   border-radius: 10px;
 }
+
 
