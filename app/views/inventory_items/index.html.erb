@@ -4,9 +4,9 @@
   <div class="inventory-table">
     <div class="inventory-table-header">
       <div id="inventory-table-header" class="box text-left">Article</div>
-      <div id="inventory-table-header" class="box text-left">Catégorie</div>
-      <div id="inventory-table-header" class="box text-left">Stock optimal</div>
-      <div id="inventory-table-header" class="box text-left ">Stock en cours</div>
+      <div id="inventory-table-header" class="box text-center">Catégorie</div>
+      <div id="inventory-table-header" class="box text-center">Stock optimal</div>
+      <div id="inventory-table-header" class="box text-center">Stock en cours</div>
       <div id="inventory-table-header" class="box text-center">Niveau de stock</div>
       <div id="inventory-table-header" class="box text-center">Commander</div>
     </div>
@@ -14,7 +14,7 @@
     <div id="style-15" class="inventory-table-body">
       <%@inventory_items.each do |item|  %>
         <div class="inventory-row">
-          <div class="box"><%= item.product.name.capitalize %></i></div>
+          <div class="box"><%= item.product.name.capitalize.truncate(15) %></i></div>
           <div class="box">
             <span class="mr-2"> <%= image_tag("food_icons/#{item.product.category}.png", :class => "icon")%> </span>  <%= item.product.category.capitalize %>
           </div>
@@ -32,12 +32,11 @@
                 </div>
               </div>
 
-              <div>
+              <div class="d-flex">
                 <span id="stocklevel"><%= "%.0f" % (item.quantity/item.optimal_quantity*100)%></span>
                 <span>%</span>
              </div>
             </div>
-
           </div>
           <div id ="plus-minus-column" class="box">
             <div class="quantitybutton d-flex">

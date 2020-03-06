@@ -218,7 +218,7 @@ citronJaune_inv = InventoryItem.create(quantity: 1.0,restaurant: restaurant ,pro
 poivre = InventoryItem.create(quantity: 0.4,restaurant: restaurant ,product: poivre)
 # falafel
 poisChiches_inv = InventoryItem.create(quantity: 3.8,restaurant: restaurant ,product: poisChiches)
-coriandre_inv = InventoryItem.create(quantity: 0.3,restaurant: restaurant ,product: coriandre)
+coriandre_inv = InventoryItem.create(quantity: 0.7,restaurant: restaurant ,product: coriandre)
 cumin_inv = InventoryItem.create(quantity: 0.5,restaurant: restaurant ,product: cumin)
 aubergine_inv = InventoryItem.create(quantity: 1.2,restaurant: restaurant ,product: aubergine)
 ail_inv = InventoryItem.create(quantity: 0.9,restaurant: restaurant ,product: ail)
@@ -235,7 +235,7 @@ p "inventory items created"
 order_delivered = Order.create(total: 638.05, order_number: "BC-72-2020-01" ,delivered: true, restaurant: restaurant, supplier: metro, validated: true)
 order_delivered_again = Order.create(total: 638.05, order_number: "BC-72-2020-01" ,delivered: true, restaurant: restaurant, supplier: c2b, validated: true)
 
-order_waiting = Order.create(total: 431.54, order_number: "BC-73-2020-02" ,delivered: false, restaurant: restaurant, supplier: c2b, validated: false)
+order_waiting = Order.create(total: 431.54, order_number: "BC-73-2020-02" ,delivered: false, restaurant: restaurant, supplier: c2b, validated: true)
 order_waiting_again = Order.create(total: 390.28, order_number: "BC-74-2020-02" ,delivered: true, restaurant: restaurant, supplier: metro, validated: true)
 order_waiting_2 = Order.create(total: 390.28, order_number: "BC-74-2020-03" ,delivered: false, restaurant: restaurant, supplier: jayden, validated: true)
 
