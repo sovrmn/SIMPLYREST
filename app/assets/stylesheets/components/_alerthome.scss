@@ -70,32 +70,31 @@
   height: 16px;
   width: 16px;
   vertical-align: center;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+
 }
 
 .remarque-logo img {
   height: 16px;
   width: 16px;
   vertical-align: center;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
 }
 
 .dash-article-photo img {
- height:50px;
- width:50px;
+ height:38px;
+ width:40px;
  border-radius: 50%;
 }
 
 .card-dash {
  display: flex;
  // vertical-align: center;
- justify-content: space-around;
+ justify-content: space-between;
  align-items: center;
  width:260px;
  height:50px;
  text-align: center;
  background-color: white;
- border-radius: 4%;
+ border-radius: 4px;
  box-shadow: 0 0 8px rgba(0,0,0,0.2);
  margin-right: 8px;
  margin-bottom: 6px;
@@ -125,4 +124,13 @@
   display:grid;
   grid-template-columns: repeat(2, 1fr);
   justify-content: space-between;
+}
+
+.ventes {
+
+  text-align: left;
+}
+
+.attention {
+  text-align: left;
 }
