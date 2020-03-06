@@ -1,67 +1,58 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.mariusetlucien.fr/i/marius-et-lucien-373541/3/4/8/1/5/9/1/5/0/3/2/5/5/1508396949_300/85c7d11c4fd69a9fbe33602733b3f86b.clandscape_hd.jpg);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://www.mariusetlucien.fr/i/marius-et-lucien-373541/3/4/8/1/5/9/1/5/0/3/2/5/5/1508396949_300/85c7d11c4fd69a9fbe33602733b3f86b.clandscape_hd.jpg');">
   <div class="container d-flex text-center text-align">
     <h1>Bonjour Pierre Fersing !</h1>
   </div>
 </div>
 
 <div class="charts-container">
-      <div class="alertskpis">
-          <div>
-              <div class="alerte-stocks-top5">
-                <h2>
-                <i class="warning-logo" ><%= image_tag "warning.png" %></i>
-                TOP 5 : NIVEAU DE STOCK FAIBLE
-                </h2>
-              <div class="flash flash-danger alert-dismissible fade show" role="alert">
-                    <div class="cards-dash-list">
-                      <%@topfive.each do |item| %>
-                        <div class="card-dash">
+  <div class="alertskpis">
+    <div>
+      <div class="alerte-stocks-top5">
+        <h2><i class="warning-logo" ><%= image_tag "warning.png" %></i>TOP 5 : NIVEAU DE STOCK FAIBLE</h2>
+        <div class="flash flash-danger alert-dismissible fade show" role="alert">
+          <div class="cards-dash-list">
+            <%@topfive.each do |item| %>
+              <div class="card-dash">
+                <!-- icône à mettre -->
+                <i class = "dash-article-photo"><%= image_tag("food_icons/#{item.product.category}")%></i>
+                <span><strong><%= item.product.name.capitalize.truncate(15) %></strong></span>
 
-                          <!-- icône à mettre -->
-
-
-                          <i class = "dash-article-photo"><%= image_tag("food_icons/#{item.product.category}")%></i>
-                          <span><strong><%= item.product.name.capitalize.truncate(15) %></strong></span>
-
-                          <span class="dash-article-unit"><em><%= item.quantity %> kg</em><i class = "dash-arrow-photo"><%= image_tag "arrow.png"%></i></span>
-                        </div>
-                      <% end %>
-
-                      <%= link_to "Commander", restaurant_inventory_items_path(@restaurant), class: "button-green-alert"%>
-                    </div>
+                <span class="dash-article-unit"><em><%= item.quantity %> kg</em><i class = "dash-arrow-photo"><%= image_tag "arrow.png"%></i></span>
               </div>
-            </div>
-            <div class="alerte-stocks-top5 ventes">
-                  <h3>
-                  <i class="warning-logo" ><%= image_tag "best-seller.png" %></i>
-                  MEILLEUR VENTE
-                  </h3>
-                <div class="flash flash-success alert-dismissible fade show" role="alert">
-                  <div class="card-dash ventes" style="width: 530px; height: 80px;">
+            <% end %>
 
-                    <span><strong>Boeuf bourguignon :</strong> Vente en hausse de 14% sur la semaine !</span>
-                </div>
-              </div>
-            </div>
-            <div class="alerte-stocks-top5">
-                  <h4>
-                  <i class="remarque-logo" ><%= image_tag "remarque.png" %></i>
-                  POINTS D'ATTENTION
-                  </h4>
-                <div class="flash flash-warning alert-dismissible fade show" role="alert">
-                  <div class="card-dash attention" style="width: 530px; height: 120px;">
-
-                <span><strong> Rillettes de saumon :</strong> Vente en baisse de 14% depuis plus d'un mois.
-                  <br>
-                Il est recommandé de réviser le nombre de plats moyen paramétré pour le suivi des stocks.</span>
-                </div>
-              </div>
-           </div>
-
+            <%= link_to "Commander", restaurant_inventory_items_path(@restaurant), class: "button-green-alert"%>
+          </div>
+        </div>
       </div>
+      <div class="alerte-stocks-top5 ventes">
+        <h3>
+        <i class="warning-logo" ><%= image_tag "best-seller.png" %></i>
+        MEILLEUR VENTE
+        </h3>
+        <div class="flash flash-success alert-dismissible fade show" role="alert">
+          <div class="card-dash ventes" style="width: 530px; height: 80px;">
 
+            <span><strong>Boeuf bourguignon :</strong> Vente en hausse de 14% sur la semaine !</span>
+          </div>
+        </div>
+      </div>
+      <div class="alerte-stocks-top5">
+        <h4>
+          <i class="remarque-logo" ><%= image_tag "remarque.png" %></i>
+          POINTS D'ATTENTION
+        </h4>
+        <div class="flash flash-warning alert-dismissible fade show" role="alert">
+          <div class="card-dash attention" style="width: 530px; height: 120px;">
+            <span><strong> Rillettes de saumon :</strong> Vente en baisse de 14% depuis plus d'un mois.
+              <br>
+            Il est recommandé de réviser le nombre de plats moyen paramétré pour le suivi des stocks.</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="charts-second">
+  </div>
+  <div class="charts-second">
 
     <div class="miniature chart-product">
       <canvas id="bar-chart-grouped"></canvas>
@@ -70,6 +61,5 @@
     <div class="sales-recipes chart-product">
       <canvas id="doughnut-chart" ></canvas>
     </div>
-
   </div>
 </div>
