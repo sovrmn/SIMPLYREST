@@ -10,7 +10,7 @@
     margin-bottom: 0px;
     color: white;
     font-weight: inherit;
-    background-color: #FD1015;
+    background-color: $red-stock;
     padding: 6px;
     width: 340px;
     border-radius: 4px 4px 0px 0px;
@@ -21,7 +21,7 @@
     margin-bottom: 0px;
     color: white;
     font-weight: inherit;
-    background-color: #1EDD88;
+    background-color: $dark-persian-green;
     padding: 6px;
     width: 340px;
     border-radius: 4px 4px 0px 0px;
@@ -47,12 +47,12 @@
   align-items: center;
   background: white;
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
-  border-radius: 4px;
+  border-radius: 1px;
   margin: 0px 8px 8px 0px;
 }
 
 .flash-success {
-  border: 2px solid #1EDD88;
+  border: 2px solid $dark-persian-green;
 }
 
 .flash-warning {
@@ -60,7 +60,7 @@
 }
 
 .flash-danger {
-  border: 2px solid #FD1015;
+  border: 2px solid $red-stock;
   ol {
     font-style: italic;
   }

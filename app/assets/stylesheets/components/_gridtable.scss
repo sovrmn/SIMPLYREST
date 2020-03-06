@@ -78,7 +78,7 @@
 
 
 .box:first-child {
-  width: 200px;
+  width: 142px;
   font-weight: bold;
   justify-content: left;
 }
@@ -86,7 +86,7 @@
 
 .stock-level-box-content {
   display:flex;
-  align-items: center;
+  align-items: left;
 }
 
 
@@ -136,7 +136,7 @@
 
 
 .myshopping-cart-body{
-  flex: 0 0 380px;
+  flex: 0 0 350px;
   margin-left: 1%;
 
   display: flex;
