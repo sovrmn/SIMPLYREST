@@ -16,8 +16,13 @@
                     <div class="cards-dash-list">
                       <%@topfive.each do |item| %>
                         <div class="card-dash">
+
                           <!-- icône à mettre -->
-                          <span><strong><%= item.product.name.capitalize.truncate(15) %></strong></span>
+                          
+
+                          <i class = "dash-article-photo"><%= image_tag("food_icons/#{item.product.category}")%></i>
+                          <span><strong><%= item.product.name %></strong></span>
+
                           <span class="dash-article-unit"><em><%= item.quantity %> kg</em><i class = "dash-arrow-photo"><%= image_tag "arrow.png"%></i></span>
                         </div>
                       <% end %>
