@@ -218,7 +218,7 @@ citronJaune_inv = InventoryItem.create(quantity: 1.0,restaurant: restaurant ,pro
 poivre = InventoryItem.create(quantity: 0.4,restaurant: restaurant ,product: poivre)
 # falafel
 poisChiches_inv = InventoryItem.create(quantity: 3.8,restaurant: restaurant ,product: poisChiches)
-coriandre_inv = InventoryItem.create(quantity: 0.3,restaurant: restaurant ,product: coriandre)
+coriandre_inv = InventoryItem.create(quantity: 0.7,restaurant: restaurant ,product: coriandre)
 cumin_inv = InventoryItem.create(quantity: 0.5,restaurant: restaurant ,product: cumin)
 aubergine_inv = InventoryItem.create(quantity: 1.2,restaurant: restaurant ,product: aubergine)
 ail_inv = InventoryItem.create(quantity: 0.9,restaurant: restaurant ,product: ail)
