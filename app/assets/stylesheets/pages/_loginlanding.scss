@@ -14,7 +14,7 @@ display: flex;
 .signin-form-landing {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   flex: 0 0 50%;
   padding: 40px;
   > div {
@@ -50,11 +50,25 @@ padding: 15px;
 
 .company-descritpion {
   display: flex;
-  justify-content: around;
+  justify-content: space-between;
 }
 
 
 //cards info
+
+.card-description {
+  background-color: $baby-white;
+  width: 200px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgb(230,230,230);
+  text-align: center;
+  padding: 20px;
+  border: 1px solid rgb(230,230,230);
+  img {
+    // width: 50px;
+    height: 80px;
+  }
+}
 
 .card-food-truck {
   padding:auto;
