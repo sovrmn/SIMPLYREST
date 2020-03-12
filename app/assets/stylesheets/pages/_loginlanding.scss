@@ -50,15 +50,17 @@ padding: 15px;
 
 .company-descritpion {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  // align-items: center;
 }
 
 
 //cards info
 
 .card-description {
+  display: block;
   background-color: $baby-white;
-  width: 200px;
+  width: 350px;
   border-radius: 5px;
   box-shadow: 0 0 5px rgb(230,230,230);
   text-align: center;
@@ -67,88 +69,41 @@ padding: 15px;
   img {
     // width: 50px;
     height: 80px;
+    padding: 8px;
   }
 }
 
-.card-food-truck {
-  padding:auto;
-  margin:auto;
-  text-align:centre;
-  width: 280px;
+.footer {
   background: $baby-white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  // margin: 20px;
-  border-radius: 5px;
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 75px;
+  padding: 0px 20px;
+  color: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
+
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  color: black;
+  opacity: 0.15;
   text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+.logo:hover {
+  opacity: 1;
+  color: $persian-green;
+}
+.footer-copyright {
+  font-size: 12px;
 }
 
-
-.card-food-truck > img {
-  height: 220px;
-  width: 230px;
-  // object-fit: cover;
-  display: block;
-  margin: auto;
-  padding: 10px;
-  border-radius: 2px;
-}
-
-
-.card-food-truck p {
-  font-size: 13px;
-  margin: 0;
-  color: #636366;
-  margin-bottom: 13px;
-}
-
-.card-food-truck h3 {
-  font-size: 20px;
-  margin: 0;
-  padding-bottom: 5px;
-  color:black;
-}
-
-.card-food-truck h2 {
-  font-size: 32px;
-  margin: 0;
-}
-.card-food-truck-infos-price {
-  display:flex;
-  justify-content: flex-start;
-  color:black;
-}
-
-
-.card-food-truck .card-food-truck-infos {
-  padding: 16px;
-  position: relative;
-}
-
-#currency {
-  margin: 0;
-  color: #636366;
-  vertical-align: text-bottom;
-  padding-right: 5px;
-
-}
-
-#day {
-  margin: 0;
-  color: #636366;
-  vertical-align: text-bottom;
-  align-self: flex-end;
-  padding-left: 5px;
-}
-
-.card-food-truck-infos .card-food-truck-user {
-  position: absolute;
-  right: 18px;
-  top: -29px;
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
+.content-wrapper {
+  min-height: calc(100vh - 75px - 55px);
 }
 
 
